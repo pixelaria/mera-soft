@@ -2,3 +2,60 @@
 @import "./imports/_mixins.less";
 @import "./imports/_variables.less";
 @import "./imports/_fonts.less";
+
+
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+
+.container {
+  position: relative;
+}
+
+.section {
+  position: relative;
+}
+
+.stripes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+  transform: skewY(-5deg);
+  transform-origin: 0;
+  background: linear-gradient(150deg,#30c64d 0%, #4ccd5d 50%,#cfe072 90%, #f1e077 100%);
+
+
+  &__item {
+    position: absolute;
+    &:nth-child(1) {
+      height: 100px;
+      width: 50%;
+      top: 0;
+      left: 0;
+
+      background: linear-gradient(#26b246 0%,#37bc5d 100%);
+    }
+    
+    &:nth-child(2) {
+      height: 100px;
+      width: 50%;
+      bottom: 0;
+      left: 0;
+
+      background: linear-gradient(150deg,#4dcd5e 0%,#2bc54b 100%);
+    }
+
+    &:nth-child(3) {
+
+      background: linear-gradient(150deg,#65cf70 0%,#e7e378 100%);
+      
+    }
+  }
+
+
+
+}
