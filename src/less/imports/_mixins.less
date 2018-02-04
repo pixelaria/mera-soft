@@ -1,0 +1,17 @@
+// Media query hacks
+@highdensity: ~"only screen and (min-device-pixel-ratio: 1.5)";
+/* Breakpoints
+/* Large Devices, Wide Screens */
+@desktop-xl:  ~"only screen and (min-width : 1200px)";
+/* Medium Devices, Desktops */
+@desktop:     ~"only screen and (min-width : 992px) and (max-width: 1199px)";
+/* Small Devices, Tablets */
+@tablet:    ~"only screen and (min-width : 768px) and (max-width: 991px)";
+/* Extra Small Devices, Phones */ 
+@mobile:    ~"only screen and (min-width : 576px) and (max-width: 767px)";
+/* Custom, iPhone Retina */ 
+@mobile-xs:   ~"only screen and (max-width : 575px)";
+
+@mobiles:       ~"only screen and (max-width : 767px)";
+@not-desktop:   ~"only screen and (max-width : 991px)";
+@not-mobiles:   ~"only screen and (min-width : 767px)";
