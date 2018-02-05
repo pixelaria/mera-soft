@@ -81,12 +81,20 @@ ul {
 }
 
 .header {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  right: 0;
+  
+  margin: auto;
 
   &__container {
     z-index: 1;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    height: 45px;
   }
 
   &__item {
@@ -134,7 +142,7 @@ ul {
   height: 100%;
 
   overflow: hidden;
-  transform: skewY(-4deg);
+  transform: skewY(-5deg);
   transform-origin: 0;
   background: linear-gradient(75deg,#30c64d 0%, #4ccd5d 50%,#cfe072 90%, #f1e077 100%);
 
@@ -171,34 +179,59 @@ ul {
     }
   }
 }
-
+.main {
+  overflow: hidden;
+}
 .gadgets {
+
+  width: 800px;
   position: absolute;
   right: 0;
   top: 75px;
   z-index: 1;
-
+  transform: rotateZ(-5deg);
+  
   &__item {
-    &--phone-part {
+    position: absolute;
+    
+    img {
+      width: 100%;
+      height: auto;
+    }
 
+    &--phone-part {
+      width: 44px;
+      right: 0;
+      top: 0;
     }
 
     &--tablet-land {
-
+      top: 300px;
+      right: 90px;
+      width: 520px;
+      height: 350px;
     }
 
     &--phone-full {
-
+      width: 230px;
+      
+      right: 350px;
+      top: 700px;
     }
 
     &--tablet-full {
-
+      width:400px;
+      top: 730px;
+      
+      right: 0;
     }
   }
 }
 
 .page {
   width: 640px;
+  padding-top: 170px;
+  padding-bottom: 100px;
 
   &__title {
     position: relative;
@@ -249,6 +282,44 @@ ul {
     font-weight: 600;
     line-height: 36px;
     text-transform: uppercase;
+    margin-bottom: 20px;
+
+    &--center {
+      text-align: center;
+    }
+
+    &--list {
+      position: relative;
+      padding-right: 90px;
+
+      &:before {
+        content: '';
+        position: absolute;
+        right: 0;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background-color: #bceca8;
+      }
+    }
+
+    &--gear {
+      position: relative;
+      padding-top: 120px;
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        width: 70px;
+        height: 70px;
+        margin: auto;
+        border-radius: 50%;
+        background-color: #bceca8;
+      }
+    }
   }
   &__text {
     color: #646464;
@@ -256,6 +327,33 @@ ul {
     font-weight: 400;
     line-height: 28px;
     margin-bottom: 20px;
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+
+  &--qualities {
+    padding: 65px 0;
+  }
+
+  &--problems {
+    padding: 150px 0 65px 0;
+    
+    &:before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      height: 180%;
+      top: 0;
+      transform: skewY(-5deg);
+      background: #fcfcfd;
+    }
   }
 }
 
