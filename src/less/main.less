@@ -609,6 +609,10 @@ ul {
     
     transition:all 0.3s ease;
     margin-bottom: 5px;
+
+    span {
+      color: #9f9f9f;
+    }
     &:before {
       content: '';
       position: absolute;
@@ -621,7 +625,7 @@ ul {
       border: 1px solid #646464;
       border-radius: 10px;
       z-index: 1;
-      transition:background-color 0.3s ease;
+      transition:all 0.3s ease;
     }
 
     &:hover,&--active {
@@ -630,6 +634,20 @@ ul {
       
       &:before {
         background-color: #646464;
+      }
+    }
+  }
+
+  &--green {
+    .radioblock__item {
+      &:hover,&--active {
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        
+        &:before {
+          border-color: #44cb58;
+          background-color: #44cb58;
+        }
       }
     }
   }
