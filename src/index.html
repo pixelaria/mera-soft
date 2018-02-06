@@ -187,15 +187,93 @@
     </section>
     <section class="section">
       <div class="container">
-        <h2 class="section__title section__title--center">
-          Цикл взаимодействия Центральной базы и мобильных приложений на примере сети кафе
-        </h2>
+        <h2 class="section__title">Цикл взаимодействия Центральной базы и мобильных приложений на примере сети кафе</h2>
+      </div>
+    </section>
+    <section class="section section--price">
+      <div class="container">
+        <h2 class="section__title">Тарифные планы</h2>
+      </div>
+    </section>
+    <section class="section section--about">
+      <div class="container">
+        <div class="about">
+          <div class="about__item sertificates">
+            <div class="sertificates__item">
+              <img src="./img/sert-1.png" alt="" class="img img--responsive">
+            </div>
+            <div class="sertificates__item">
+              <img src="./img/sert-2.png" alt="" class="img img--responsive">
+            </div>
+          </div>
+          <div class="about__item about__info">
+            <h2 class="section__title">О нашей команде</h2>
+            <p class="section__text">Владелец и разработчик продуктов под торговой маркой «МЕРАСОФТ» (MERASOFT) — ООО «Оптимальные алгоритмы». Компания основана в 2010 году, официальным партнером фирмы «1С».</p>
+            <p class="section__text">Основное направление деятельности компании — разработка, внедрение и сопровождение информационных систем на базе программных продуктов фирмы «1С».</p>
+            <a href="#" class="link link--red">Узнайте больше о наших возможностях</a>
+          </div>
+        </div>
+        <div class="facts">
+          <div class="facts__item">Надежный производитель — 8 лет успешно работаем на рынке 1С</div>
+          <div class="facts__item">Бесплатная демо-версия для теста всех функций на 21 день</div>
+          <div class="facts__item">Гарантия качества системы и сохранности данных</div>  
+        </div>
+        
+      </div>
+    </section>
+    <section class="section section--map">
+      <div class="map" id="map"></div>  
+    </section>
+    <section class="section section--form">
+      <div class="container">
+        <div class="form">
+          <div class="form__info">
+            <p class="form__title">Готовы начать?</p>
+            <p class="form__text">Поможем подобрать наиболее  оптимальное решение</p>
+          </div>
+          <div class="form__fields">
+            <input type="text" class="form__input" name="name" placeholder="Имя">
+            <input type="text" class="form__input" name="phone" placeholder="Телефон">
+            <a href="#" class="btn btn--red form__btn">Отправить</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
   <footer class="footer">
-    
+    <div class="container">
+      <div class="footer__links">
+        <ul class="nav nav--footer">
+          <li class="nav__item"><a href="#" class="nav__link">Главная</a></li>
+          <li class="nav__item"><a href="#" class="nav__link">Чек-лист</a></li>
+          <li class="nav__item"><a href="#" class="nav__link">Полка+</a></li>
+          <li class="nav__item"><a href="#" class="nav__link">Портал</a></li>
+        </ul>
+        <ul class="list list--footer">
+          <li class="list__item">
+            <a href="tel:+74952680749" class="link link--footer">+7 (495) 268 07 49</a>
+          </li>
+          <li class="list__item">
+            <a href="mailto:checklist@mera-soft.ru" class="link link--footer">checklist@mera-soft.ru</a>
+          </li>
+          <li class="list__item">115419, Москва, ул. Орджоникидзе, д. 11, стр. 1А</li>
+          <li class="list__item">пн-пт. 9:00-19:00</li>
+      </div>
+      <div class="footer__copyright">
+        <ul class="list list--footer list--dark">
+          <li class="list__item">(С) 2011-2018 Оптимальные алгоритмы</li>
+          <li class="list__item"><a href="#" class="link link--footer">Политика конфиденциальности </a>
+          <li class="list__item">Копирование материалов сайта с разрешения владельца</li>  
+        </ul>
+        
+        <div class="develop"><span>Разработано в </span><a href="http://pixelaria.ru" targer="_blank" class="link link--green">Pixelaria</a></div>
+      </div>
+    </div>
   </footer>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUlags8KVbNQxTok7RlaJNVUDtuJ0lRxU&callback=initMap">
+  </script>
+
   <script type="text/javascript" src="./js/libs.min.js"></script>
   <script type="text/javascript" src="./js/bundle.js"></script>
 </body>
