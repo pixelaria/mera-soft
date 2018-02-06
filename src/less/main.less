@@ -433,6 +433,15 @@ ul {
     }
   }
 
+  &--price {
+    padding-top: 80px;
+    padding-bottom: 90px;
+  }
+  &--cycle {
+    padding-top: 80px;
+    background-color: #fafcfb;
+    padding-bottom: 90px;
+  }
   &--reports {
     padding:90px 0;
   }
@@ -829,6 +838,42 @@ ul {
   }
 }
 
+.cycle {
+  position: relative;
+  height: 600px;
+  width: 600px;
+  box-shadow: inset 0 0 6px #d1d1d1;
+  border: 2px solid #85d883;
+  background-color: #ffffff;
+  border-radius: 50%;
+
+  left: 0;
+  right: 0;
+  margin:auto;
+
+  &__item {
+    width: 250px;
+    height: auto;
+    position: relative;
+
+    
+  }
+
+  &__title {
+    color: #515151;
+    font-size: 20px;
+    line-height: 32px;
+    margin-bottom: 10px;
+  }
+
+  &__text {
+    color: #515151;
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+
+
 .review {
   padding: 50px 0;
   &__logo {
@@ -877,11 +922,22 @@ ul {
       width: 55px;
       height: 55px;
       border-radius: 50%;
-      border: 1px solid #6e6e6e;
-
+      overflow: hidden;
       left: 0;
       top: 0;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
 
+    &--eight:before {
+      background-image: url('../img/icon-facts-8.png');
+    }
+    &--demo:before {
+      background-image: url('../img/icon-facts-demo.png');
+    }
+    &--quality:before {
+      background-image: url('../img/icon-facts-quality.png');
     }
 
   }
@@ -977,8 +1033,10 @@ ul {
 
 
 .icosahedron {
-  width: 400px;
-  height: 400px;
+  width: 420px;
+  height: 420px;
+
+  margin-left: 80px;
   position: relative;
   will-change: opacity,transform;
   opacity: 1;
@@ -995,8 +1053,8 @@ ul {
     height: 12px;
     top: 0;
     left: 0;
-    margin-top: -6px;
-    margin-left: -6px;
+    margin-top: -30px;
+    margin-left: -5px;
     z-index: 1;
     transition: opacity .35s cubic-bezier(.175,.885,.32,1.275);
     opacity: 0;
