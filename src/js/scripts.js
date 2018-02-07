@@ -205,6 +205,14 @@ $(function (){
     $(this).addClass('radioblock__item--active');
   });
 
+  $('.checkbox').click(function(e){
+    var checkbox = $(this);
+    var input = checkbox.find('.checkbox__input')
+    checkbox.toggleClass('checkbox--active');
+    input.prop('checked', !input.prop('checked'));
+  });
+
+
   $('.slider').unslider({
     arrows:false,
     autoplay: true

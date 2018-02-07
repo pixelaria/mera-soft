@@ -262,11 +262,12 @@ ul {
     font-size: 18px;
     font-weight: 400;
     line-height: 22px;
+    text-decoration: none;
   }
 
   &--footer {
     .nav__link {
-      color: #ffffff;
+      color: #ffffff !important;
       font-size: 14px;
       font-weight: 400;
       line-height: 21px;
@@ -472,7 +473,7 @@ ul {
 
   &--price {
     padding-top: 80px;
-    padding-bottom: 90px;
+    padding-bottom: 0;
   }
   &--cycle {
     padding-top: 80px;
@@ -1110,6 +1111,7 @@ ul {
       border-color: inherit;
     }
   }
+
   &__links {
     padding:70px 0;
     border-bottom: 1px solid #979797;
@@ -1250,11 +1252,31 @@ canvas {
   background-color: #ffffff;
   border-radius: 10px;
   overflow: hidden;
-
+  
+  &__head,&__footer {
+    .table__cell {
+      color: #646464;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 32px;
+      text-transform: uppercase;
+    }
+  }
   &__body {
     position: relative;
   }
-
+  
+  &__footer {
+    .table__cell {
+      color:#ffffff;
+    }
+    .row__title .table__cell {
+      background-color: #3dbd50;
+    }
+    .row__body .table__cell {
+      background-color: #44cb58;
+    }
+  }
   &__cell {
     display: flex;
     justify-content: center;
@@ -1262,6 +1284,7 @@ canvas {
     align-content: center;
     
     width: 100%;
+    height: 100%;
     padding:25px;
     vertical-align: middle;
 
@@ -1269,11 +1292,20 @@ canvas {
     font-size: 18px;
     font-weight: 400;
     line-height: 28px;
+
     
+    
+    &--bold {
+      font-weight: 600;
+    }
+
+    &--gray {
+      color: #959595;
+    }
+
     @media @mobiles {
       display: block;
     }
-    
   }
 
   &__row {
@@ -1285,7 +1317,7 @@ canvas {
     align-content: stretch;
 
     font-size: 0;
-    
+
     &--red {
       background-color: #ffe9e4 !important;
 
@@ -1312,6 +1344,10 @@ canvas {
       font-size: 18px;
       font-weight: 600;
     }
+
+    border-right: 1px solid  #e6e6e6;
+    border-bottom: 1px solid  #e6e6e6;
+    
   }
 
   &__body {
@@ -1323,6 +1359,8 @@ canvas {
     justify-content: space-between;
     align-items: stretch;
     align-content: stretch;
+    
+    border-bottom: 1px solid  #e6e6e6;
 
     @media @mobiles {
       display: block;
@@ -1345,6 +1383,9 @@ canvas {
       text-align: center;
       width: 50%;
       height: 100%;
+      &:first-child {
+        border-right: 1px solid #e6e6e6;
+      }
     }
   }
   
@@ -1353,8 +1394,109 @@ canvas {
 .table__switcher {
   cursor: pointer;
   margin-bottom: 15px;
-
+  display: none;
   &--active {
     color:red;
+  }
+}
+
+@toggle-height: 20px;
+@toggle-width: @toggle-height * 2.2;
+@toggle-padding: @toggle-height / 5;
+@toggle-border: @toggle-height / 10;
+@toggle-color: #23c345;
+@toggle-transition-speed: .3s;
+
+@toggle-height-computed: ceil(@toggle-height + (@toggle-padding * 2) + @toggle-border);
+@toggle-width-computed: ceil(@toggle-width + (@toggle-padding * 2) + @toggle-border);
+
+.checkbox {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  height: @toggle-height-computed;
+  width: @toggle-width-computed;
+  padding: @toggle-padding;
+  margin: -(@toggle-padding + (@toggle-border / 2)) 0;
+  background-color: #f8f8f8;
+  box-shadow: inset 0 0 0 0 #e1e1e1;
+  border: @toggle-border solid #ddd;
+  border-radius: @toggle-height-computed / 2;
+  cursor: pointer;
+  transition-property: box-shadow, border, background-color;
+  transition-duration: @toggle-transition-speed, @toggle-transition-speed, 0;
+  transition-delay: 0;
+  transform: translate3d(0, 0, 0);
+  
+  margin-left: 20px;
+  // Active state for toggle
+  &--active {
+    background: @toggle-color;
+    box-shadow: inset 0 0 0 (@toggle-height-computed / 2) @toggle-color;
+    border: @toggle-border solid @toggle-color;
+    transition-delay: 0, 0, @toggle-transition-speed;
+  }
+
+  // Hide the checkbox
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  &__handle {
+    position: absolute;
+    top: -(@toggle-border / 2);
+    left: -(@toggle-border / 2);
+    z-index: 2;
+    width: @toggle-height-computed - @toggle-border;
+    height: @toggle-height-computed - @toggle-border;
+    background-color: #fff;
+    border: (@toggle-border / 2) solid #e1e1e1;
+    border-radius: inherit;
+    transition-property: transform, border, width;
+    transition-duration: @toggle-transition-speed;
+    transform: translate3d(0, 0, 0);
+    
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      
+    }
+  }
+
+  &--active &__handle {
+    border-color: @toggle-color;
+    transform: translate3d(@toggle-width-computed - @toggle-height-computed, 0, 0);
+  }
+}
+
+.spinner {
+  width: 120px;
+
+  &__input {
+    box-shadow: inset 0 1px 10px rgba(188, 188, 188, 0.3);
+    border-radius: 16px;
+    border: 1px solid #e7e7e7;
+    background-color: #ffffff;
+    width: 80px;
+    height: 40px;
+    line-height: 40;
+    text-align: center;
+
+    color: #646464;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  &__button {
+    &--up {
+
+    }
+
+    &--down {
+
+    }
   }
 }
