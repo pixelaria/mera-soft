@@ -245,7 +245,7 @@ $(function (){
     renderer: 'svg',
     loop: true,
     autoplay: true,
-    path: './icons/arrows.json'
+    path: './icons/smartphone.json'
   });
   var icosahedron = new Icosahedron({
     container: document.querySelector(".icosahedron"),
