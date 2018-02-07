@@ -11,9 +11,8 @@ function initMap() {
 }
 
 function getVertexLabels() {
-  var t = ["Card Country", "Card Issuer", "Card Type", "Cardholder Name", "IP Address", "Billing Address", "Shipping Address", "Address Mismatch", "Order Value", "Device ID", "Customer History", "Card History"];
-  var t = ["Вершина 1","Вершина 2","Вершина 3","Вершина 4","Вершина 5","Вершина 6","Вершина 7","Вершина 8","Вершина 9","Вершина 10","Вершина 11","Вершина 12"];
-  return t;
+  var labels = ["Вершина 1","Вершина 2","Вершина 3","Вершина 4","Вершина 5","Вершина 6","Вершина 7","Вершина 8","Вершина 9","Вершина 10","Вершина 11","Вершина 12"];
+  return labels;
 };
 
 
@@ -204,6 +203,12 @@ $(function (){
     $(this).parent().find('.radioblock__item').removeClass('radioblock__item--active');
     $(this).addClass('radioblock__item--active');
   });
+
+  $('.slider').unslider({
+    arrows:false
+  });
+
+  $('.slider').unslider('initSwipe');
 
   var icosahedron = new Icosahedron({
     container: document.querySelector(".icosahedron"),

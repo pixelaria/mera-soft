@@ -253,8 +253,8 @@ ul {
     position: absolute;
     &:nth-child(1) {
       height: 120px;
-      width: 70%;
-      top: -60px;
+      width: 100%;
+      top: -45px;
       left: 0;
 
       background: linear-gradient(75deg,#24b246 0%,#2db74f 50%,#37bc5d 100%);
@@ -391,6 +391,7 @@ ul {
 
     &--center {
       text-align: center;
+      margin-bottom: 60px;
     }
 
     &--list {
@@ -510,7 +511,6 @@ ul {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 20px;
   }
 
 
@@ -556,6 +556,7 @@ ul {
 
   &--reviews {
     background-image: linear-gradient(270deg, #4ece5f 0%, #37c851 100%);
+    padding: 80px 0 30px 0;
   }
 }
 
@@ -666,8 +667,7 @@ ul {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 50px;
-
+  
   &__item {
     color: #646464;
     width: 300px;
@@ -685,7 +685,6 @@ ul {
       content: '';
       position: absolute;
       left: 0;
-      right: 0;
       top: 0;
       width: 70px;
       height: 70px;
@@ -725,7 +724,7 @@ ul {
   flex-direction: row;
   &__info {
     padding-right: 60px;
-    padding:70px 65px;
+    padding: 70px 70px 70px 0;
     border-right: 1px solid #e6e6e6;
   }
   &__desc {
@@ -873,11 +872,24 @@ ul {
   }
 }
 
-
+.slider {
+  &--reviews {
+    margin-bottom: 40px;
+  }
+}
 .review {
-  padding: 50px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+
   &__logo {
 
+    img {
+      width: 200px;
+    }
   }
 
   &__text {
