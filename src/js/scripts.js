@@ -212,6 +212,13 @@ $(function (){
 
   $('.slider').unslider('initSwipe');
 
+  $('.table__cell:nth-child(1)').addClass('table__cell--active');
+
+  $('.table__switcher').click(function(e){
+    $(this).toggleClass('table__switcher--active');
+    $('.row__body .table__cell').toggleClass('table__cell--active');
+  });
+
   bodymovin.loadAnimation({
     container: document.getElementById('gears'), 
     renderer: 'svg',
