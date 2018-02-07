@@ -205,7 +205,8 @@ $(function (){
   });
 
   $('.slider').unslider({
-    arrows:false
+    arrows:false,
+    autoplay: true
   });
 
   $('.slider').unslider('initSwipe');
