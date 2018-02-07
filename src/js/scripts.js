@@ -211,6 +211,42 @@ $(function (){
 
   $('.slider').unslider('initSwipe');
 
+
+  bodymovin.loadAnimation({
+    container: document.getElementById('gears'), 
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: './icons/gears.json'
+  });
+  bodymovin.loadAnimation({
+    container: document.getElementById('list'), 
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: './icons/checklist.json'
+  });
+  bodymovin.loadAnimation({
+    container: document.getElementById('monitor'), 
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: './icons/monitor.json'
+  });
+  bodymovin.loadAnimation({
+    container: document.getElementById('cloud'), 
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: './icons/cloud.json'
+  });
+      bodymovin.loadAnimation({
+    container: document.getElementById('smartphone'), 
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: './icons/arrows.json'
+  });
   var icosahedron = new Icosahedron({
     container: document.querySelector(".icosahedron"),
     radius: 100,

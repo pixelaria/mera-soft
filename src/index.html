@@ -69,7 +69,7 @@
     <section class="section section--qualities">
       <div class="container">
         <div class="col-lg-6">
-          <h2 class="section__title section__title--list">Прозрачные проверки качества в удобном приложении</h2>
+          <h2 class="section__title">Прозрачные проверки качества в удобном приложении <span class="body body--list" id="list"></span></h2>
           <div class="section__desc">
             <p class="section__text section__text--right">Интрефейс разработан специально для аудитора. Приложение формирует весомый набор аналитических отчетов. Не требует доступа в интернет, возможна работа в автономном режиме. Также можно установить права доступа для всех ответственных лиц: аудиторов, директоров торговых точек, директоров по качеству, территориальных управляющих и др.</p>
           </div>
@@ -79,7 +79,8 @@
     </section>
     <section class="section section--problems">
       <div class="container">
-        <h2 class="section__title section__title--center section__title--gear">Типичные проблемы контроля качества</h2>
+        <div class="body body--gears" id="gears"></div>
+        <h2 class="section__title section__title--center">Типичные проблемы контроля качества</h2>
         <div class="section__row">
           <div class="radioblock">
             <div class="radioblock__item">Нет единой базы результатов </div>
@@ -127,15 +128,18 @@
         <h2 class="section__title section__title--center">Единая система контроля качества на основе 1С</h2>
         <div class="system">
           <div class="system__item">
-            <p class="system__title system__title--pc">Аналитический сайт</p>
+            <div class="body body--system system__body" id="monitor"></div>
+            <p class="system__title">Аналитический сайт</p>
             <p class="system__text">Формирование отчетов и рейтингов в браузере на основе данных из Центральной базы; организация общения между участниками процесса контроля качества.</p>
           </div>
           <div class="system__item">
-            <p class="system__title system__title--cloud">Центральная база</p>
+            <div class="body body--system system__body" id="cloud"></div>
+            <p class="system__title">Центральная база</p>
             <p class="system__text">Разработана на платформе «1С:Предприятие». В ней собирается информация о проведенных проверках  и формируются аналитические отчеты. </p>
           </div>
           <div class="system__item">
-            <p class="system__title system__title--mobile">Мобильное приложение </p>
+            <div class="body body--system system__body" id="smartphone"></div>
+            <p class="system__title">Мобильное приложение </p>
             <p class="system__text">Контролер запускает приложение на планшете или смартфоне, проводит аудит, после чего отправляет результат в Центральную базу. </p>
           </div>          
         </div>
@@ -328,6 +332,7 @@
   </script>
 
   <script type="text/javascript" src="./js/libs.min.js"></script>
+  <script type="text/javascript" src="./js/bodymovin.min.js"></script>
   <script type="text/javascript" src="./js/three.min.js"></script>
   <script type="text/javascript" src="./js/objloader.js"></script>
   <script type="text/javascript" src="./js/bundle.js"></script>

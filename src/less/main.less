@@ -24,6 +24,28 @@ ul {
   padding: 0;
 }
 
+.body {
+  width: 70px;
+  height: 70px;
+  display: block;
+  
+  &--gears {
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+  }
+  &--list {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  &--system {
+    margin-bottom: 30px;
+  }
+}
+
 .img {
   &--responsive {
     width: 100%;
@@ -679,39 +701,6 @@ ul {
     margin-bottom: 10px;
     
     position: relative;
-    padding-top: 100px;
-
-    &:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 70px;
-      height: 70px;
-      margin: auto;
-      border-radius: 50%;
-      background-color: #bceca8;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    &--pc {
-      &:before {
-         background-image: url('../img/icon-pc.png');   
-      }
-    }
-    &--cloud {
-      &:before {
-         background-image: url('../img/icon-cloud.png');   
-      }
-    }
-    &--mobile {
-      &:before {
-         background-image: url('../img/icon-mobile.png');   
-      }
-    }
-
-
   }
   &__text {
     font-size: 14px;
@@ -911,7 +900,7 @@ ul {
       top: 3%;
       .cycle__desc {
         right: -250px;
-        top: 50px;
+        top: 70px;
         &:after {
           content: '2';
         }
