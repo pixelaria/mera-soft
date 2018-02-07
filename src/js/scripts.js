@@ -197,6 +197,55 @@ Icosahedron.prototype = {
   }
 };
 
+var Table = {
+  total: 0, // Curent price of order
+  its: 0,
+  base: 28600,
+  counters_1: [30600,61200,117500,178700,281000,540000,775000],
+  counters_2: [0, 4110,7880,14860,22740,33660,68570,104230],
+  result: 0,
+
+  init: function() {
+    console.log('table.init');
+    Table = this; 
+
+    $('.spinner__input').on('keydown', function(e){
+      console.log('spinner input keydown');
+      var val;
+      if (e.which == 38) {
+        val=parseInt($(this).val()) + 1;
+      } else if (e.which == 40) {
+        val=parseInt($(this).val()) - 1;
+      }
+      if (val<1) val=1;
+      if (val>99) val=99;
+      $(this).val(val).change();
+      return false;
+    });
+
+    $('.spinner__button').click(function(e){
+      console.log('spinner button click');
+      var target = $(this).siblings('.spinner__input');
+      var val;
+      if ($(this).hasClass('spinner__button--up')) {
+        val=parseInt(target.val()) + 1;
+      } else {
+        val=parseInt(target.val()) - 1;
+      }
+      if (val<1) val=1;
+      if (val>99) val=99;
+      $(target).val(val).change();
+      return false;
+    });
+
+    $('.spinner__input').change(function(e){
+      console.log('spinner input changed');
+      return false;
+    });
+  }
+};
+
+
 $(function (){
   console.log('init');
 
@@ -270,4 +319,6 @@ $(function (){
   });
 
   icosahedron.show(1e3);
+
+  Table.init();
 });
