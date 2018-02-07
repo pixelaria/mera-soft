@@ -11,7 +11,8 @@ function initMap() {
 }
 
 function getVertexLabels() {
-  var labels = ["Вершина 1","Вершина 2","Вершина 3","Вершина 4","Вершина 5","Вершина 6","Вершина 7","Вершина 8","Вершина 9","Вершина 10","Вершина 11","Вершина 12"];
+  var labels = ["Кафе", "Рестораны", "Пиццерии", "Отели", "Фитнес-клубы", "Частные клиники", "Аквапарки", "Торговые сети", "Служба доставки", "Такси", "Кинотеатры", "Банки"];
+
   return labels;
 };
 
@@ -58,7 +59,7 @@ Icosahedron.prototype = {
       emissive: new THREE.Color("rgb(65,180,102)"),
       emissiveIntensity: 0.2,
       specular: new THREE.Color("rgb(56,149,98)"),
-      shininess: 7
+      shininess: 5
     });
 
     t.geometry = new THREE.IcosahedronGeometry(t.radius, 0); 
@@ -211,7 +212,6 @@ $(function (){
 
   $('.slider').unslider('initSwipe');
 
-
   bodymovin.loadAnimation({
     container: document.getElementById('gears'), 
     renderer: 'svg',
@@ -240,13 +240,14 @@ $(function (){
     autoplay: true,
     path: './icons/cloud.json'
   });
-      bodymovin.loadAnimation({
+  bodymovin.loadAnimation({
     container: document.getElementById('smartphone'), 
     renderer: 'svg',
     loop: true,
     autoplay: true,
     path: './icons/smartphone.json'
   });
+
   var icosahedron = new Icosahedron({
     container: document.querySelector(".icosahedron"),
     radius: 100,
@@ -254,7 +255,4 @@ $(function (){
   });
 
   icosahedron.show(1e3);
-
 });
-
-

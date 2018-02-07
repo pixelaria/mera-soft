@@ -60,15 +60,22 @@ ul {
 .link {
   font-size: 14px;
   font-weight: 600;
-  line-height: 28px;
+  line-height: 20px;
   
-  text-decoration: underline;
+  text-decoration: none;
+  border-bottom: 1px solid;
+  
+  transition: all 0.3s ease;
 
+  &:hover {
+    border-color:transparent;
+  }
   &--red {
     color: #fa8072;
 
     &:hover {
       color:lighten(#fa8072,5%);
+      
     }
     
   }
@@ -123,6 +130,8 @@ ul {
     
     border: 1px solid #ffffff;
     border-radius: 4px;
+    margin-bottom: 4px;
+    
     transition: background-color 0.3s ease;
     &:hover {
       background-color: rgba(255,255,255,0.2);
@@ -202,13 +211,22 @@ ul {
   right: 0;
   
   margin: auto;
+  
+  .link {
+    border-color: transparent;
 
+    &:hover {
+      border-color: inherit;
+    }
+  }
   &__container {
     z-index: 1;
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
+    align-content: center;
     height: 45px;
   }
 
@@ -246,7 +264,6 @@ ul {
     font-size: 18px;
     font-weight: 400;
     line-height: 22px;
-    text-decoration: none;
   }
 
   &--footer {
@@ -309,7 +326,7 @@ ul {
 }
 .gadgets {
 
-  width: 575px;
+  width: 600px;
   position: absolute;
   right: 0;
   top: 75px;
@@ -325,28 +342,27 @@ ul {
     }
 
     &--phone-part {
-      width: 50px;
-      right: 0;
+      width: 60px;
+      right: 5px;
       top: 0;
     }
 
     &--tablet-land {
       top: 300px;
       left: 0;
-      width: 520px;
+      width: 550px;
       height: 350px;
     }
 
     &--phone-full {
-      width: 180px;
-      
+      width: 230px;
       left: 0;
-      top: 700px;
+      top: 680px;
     }
 
     &--tablet-full {
-      width:350px;
-      top: 692px;
+      width:380px;
+      top: 682px;
       right: 0;
       
     }
@@ -584,7 +600,7 @@ ul {
 
 
 .info {
-  padding: 30px;
+  padding: 42px 30px;
   border-top: 10px solid;
   
   background-color: #ffffff;
@@ -593,13 +609,14 @@ ul {
   
   width: 255px;
   margin-bottom: 30px;
-  
+  margin-top: 5px;
   font-size: 14px;
   font-weight: 400;
   line-height: 28px;
   
   &__title {
     font-weight: 700;
+    
   }
   
   &--gray {
@@ -653,7 +670,7 @@ ul {
       bottom: 0;
       margin: auto;
       width: 18px;
-      height: 19px;
+      height: 18px;
       border: 1px solid #646464;
       border-radius: 10px;
       z-index: 1;
@@ -1086,9 +1103,14 @@ ul {
   background-color: #313131;
 
   .link {
-    text-decoration: none;
     color:inherit;
     font-weight: normal;
+
+    border-color: transparent;
+
+    &:hover {
+      border-color: inherit;
+    }
   }
   &__links {
     padding:70px 0;
@@ -1149,25 +1171,25 @@ ul {
   transition: transform 1s cubic-bezier(.165,.84,.44,1),opacity .5s cubic-bezier(.165,.84,.44,1);
 
   &__marker {
-    display: none;
-    -ms-flex-align: center;
-    align-items: center ;
-    -ms-flex-pack: center;
-    justify-content: center;
     position: absolute;
+    display: none;
+    
+    align-items: center ;
+    justify-content: center;
     width: 12px;
     height: 12px;
+    
     top: 0;
     left: 0;
+    
     margin-top: -30px;
     margin-left: -5px;
+   
     z-index: 1;
     transition: opacity .35s cubic-bezier(.175,.885,.32,1.275);
     opacity: 0;
+    
     pointer-events: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
     will-change: opacity;
 
@@ -1199,7 +1221,7 @@ ul {
     position: relative;
     color: #646464;
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 600;
     text-align: center;
 
     
