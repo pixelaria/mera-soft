@@ -198,16 +198,47 @@ Icosahedron.prototype = {
 };
 
 var Table = {
-  total: 0, // Curent price of order
-  its: 0,
+  its: 45000,
   base: 28600,
+
+  //variables
+  _rent_user:5, //количество пользователей по умолчанию 5
+  _license_user:5, 
+  _rent_mobile:5,
+  _license_mobile:5,
+  _rent_period:3, //период по умолчанию 3 месяца
+  _rent_total:0,
+  _license_total:0,
+  _rent_per_user:0,
+  _license_per_user:0,
+
+  periods:[1,3,12],
+
+  rents:[
+    {1:1400,3:1330,12:1260}, // до 10
+    {1:1330,3:1260,12:1140}, // до 59
+    {1:1260,3:1140,12:990}, // до 100
+    {1:1140,3:990,12:940}, // до 200
+  ],
+
+
   counters_1: [30600,61200,117500,178700,281000,540000,775000],
-  counters_2: [0, 4110,7880,14860,22740,33660,68570,104230],
+  counters_2: [0,4110,7880,14860,22740,33660,68570,104230],
   result: 0,
 
   init: function() {
     console.log('table.init');
     Table = this; 
+
+    Table.rent_user = $('#rent_user');
+    Table.license_user = $('#license_user');
+    Table.rent_mobile = $('#rent_mobile');
+    Table.license_mobile = $('#license_mobile');
+    Table.rent_period = $('#rent_period');
+    Table.rent_total = $('#rent_total');
+    Table.license_total = $('#license_total');
+    Table.rent_per_user = $('#rent_per_user');
+    Table.license_per_user = $('#license_per_user');
 
     $('.spinner__input').on('keydown', function(e){
       console.log('spinner input keydown');
@@ -240,9 +271,48 @@ var Table = {
 
     $('.spinner__input').change(function(e){
       console.log('spinner input changed');
-      return false;
     });
+
+
+    Table.rent_user.change(function(e){
+      var val = $(this).val();
+      Table._rent_user = val;
+      Table._rent_mobile = val;
+      Table.rent_mobile.html(val);
+
+      Table.calc_rent();
+    });
+
+    Table.rent_period.chan e(function(e){
+      console.log('rent_period');
+      var val = $(this).val();
+
+
+      Table._rent_period = val;
+      Table.calc_rent();
+    });
+  },
+  calc_rent:function(){
+    var rent_index = 0;
+    if (Table._rent_user < 10) {
+      rent_index=0;
+    } else if (Table._rent_user < 50) {
+      rent_index=1;
+    } else if (Table._rent_user < 100) {
+      rent_index=2;
+    } else if (Table._rent_user < 200) {
+      rent_index=3;
+    }
+
+    Table._rent_per_user = Table.rents[rent_index][Table._rent_period];
+    Table.rent_per_user.html(Table._rent_per_user+' руб./мес.');
+    Table.rent_total.html((Table._rent_per_user*Table._rent_user)+' руб./мес.');
+  },
+  
+  calc_license:function(){
+    console.log('calc_license');
   }
+
 };
 
 

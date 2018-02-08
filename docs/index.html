@@ -274,33 +274,50 @@
               <div class="row__body">
                 <div class="table__cell">
                   <div class="spinner">
-                    <input class="spinner__input" value="1" type="text">
-                    <span class="spinner__button spinner__button--up"></span>
-                    <span class="spinner__button spinner__button--up"></span>
+                    <input id="rent_user" class="spinner__input" value="5" type="text">
+                    <span class="spinner__button spinner__button--down">-</span>
+                    <span class="spinner__button spinner__button--up">+</span>
                   </div>
                 </div>
                 <div class="table__cell">
                   <div class="spinner">
-                    <input class="spinner__input" value="1" type="text">
-                    <span class="spinner__button spinner__button--up"></span>
-                    <span class="spinner__button spinner__button--up"></span>
+                    <input  id="license_user" class="spinner__input" value="5" type="text">
+                    <span class="spinner__button spinner__button--down">-</span>
+                    <span class="spinner__button spinner__button--up">+</span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="table__row">
               <div class="row__title">
-                <div class="table__cell">Способ оплаты</div>
+                <div class="table__cell">В том числе кол-во пользователей моб. устройств</div>
+              </div>
+              <div class="row__body">
+                <div class="table__cell table__cell--gray">
+                  <span id="rent_mobile">5</span>
+                </div>
+                <div class="table__cell">
+                  <div class="spinner">
+                    <input id="license_mobile" class="spinner__input" value="5" type="text">
+                    <span class="spinner__button spinner__button--down">-</span>
+                    <span class="spinner__button spinner__button--up">+</span>
+                  </div>                  
+                </div>
+              </div>
+            </div>
+            <div class="table__row">
+              <div class="row__title">
+                <div class="table__cell">Период между платежами</div>
               </div>
               <div class="row__body">
                 <div class="table__cell">
-                  <div class="spinner">
-                    <input class="spinner__input" value="1" type="text">
-                    <span class="spinner__button spinner__button--up"></span>
-                    <span class="spinner__button spinner__button--up"></span>
+                  <div class="spinner spinner--period">
+                    <input id="rent_period" class="spinner__input" value="1 мес." type="text">
+                    <span class="spinner__button spinner__button--down">-</span>
+                    <span class="spinner__button spinner__button--up">+</span>
                   </div>
                 </div>
-                <div class="table__cell table__cell--gray">единоразовая</div>
+                <div class="table__cell table__cell--gray">единоразовая оплата</div>
               </div>
             </div>
             <div class="table__row">
@@ -324,8 +341,12 @@
                 <div class="table__cell">Общая стоимость</div>
               </div>
               <div class="row__body">
-                <div class="table__cell">5 650 р/мес</div>
-                <div class="table__cell">108 310 р</div>
+                <div class="table__cell">
+                  <span id="rent_total">5 650 р/мес</span>
+                </div>
+                <div class="table__cell">
+                  <span id="license_total">108 310 р</span>
+                </div>
               </div>
             </div>
             <div class="table__row">
@@ -333,8 +354,12 @@
                 <div class="table__cell">Стоимость 1 пользователя</div>
               </div>
               <div class="row__body">
-                <div class="table__cell table__cell--bold">1 120 р/мес</div>
-                <div class="table__cell table__cell--bold">21 662 р</div>
+                <div class="table__cell table__cell--bold">
+                  <span id="rent_per_user">1 120 р/мес</span>
+                </div>
+                <div class="table__cell table__cell--bold">
+                  <span id="license_per_user">21 662 р</span>
+                </div>
               </div>
             </div>
           </div>
