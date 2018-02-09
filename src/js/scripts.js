@@ -200,30 +200,33 @@ Icosahedron.prototype = {
 var Table = {
   its: 45000,
   base: 28600,
-
+  _its:0,
+  
   //variables
   _rent_user:5, //количество пользователей по умолчанию 5
   _license_user:5, 
   _rent_mobile:5,
-  _license_mobile:5,
-  _rent_period:3, //период по умолчанию 3 месяца
+  _license_mobile:0,
+  _rent_period:1, //период по умолчанию 3 месяца
   _rent_total:0,
   _license_total:0,
   _rent_per_user:0,
   _license_per_user:0,
 
-  periods:[1,3,12],
+  periods:['1 мес.', '3 мес.', '12 мес.'],
+  users:[0,5,10,20,30,50,100,150],
 
   rents:[
-    {1:1400,3:1330,12:1260}, // до 10
-    {1:1330,3:1260,12:1140}, // до 59
-    {1:1260,3:1140,12:990}, // до 100
-    {1:1140,3:990,12:940}, // до 200
+    [1400,1330,1260], // до 10
+    [1330,1260,1140], // до 59
+    [1260,1140,990], // до 100
+    [1140,990,940], // до 200
   ],
 
+  counters_1: {5:30600,10:61200,20:117500,30:178700,50:281000,100:540000,150:775000},
+  counters_2: {0:0,5:4110,10:7880,20:14860,30:22740,50:33660,100:68570,150:104230},
+  
 
-  counters_1: [30600,61200,117500,178700,281000,540000,775000],
-  counters_2: [0,4110,7880,14860,22740,33660,68570,104230],
   result: 0,
 
   init: function() {
@@ -232,13 +235,17 @@ var Table = {
 
     Table.rent_user = $('#rent_user');
     Table.license_user = $('#license_user');
+    Table.license_user_visible = $('#license_user_visible');
     Table.rent_mobile = $('#rent_mobile');
     Table.license_mobile = $('#license_mobile');
+    Table.license_mobile_visible = $('#license_mobile_visible');
     Table.rent_period = $('#rent_period');
+    Table.rent_period_visible = $('#rent_period_visible');
     Table.rent_total = $('#rent_total');
     Table.license_total = $('#license_total');
     Table.rent_per_user = $('#rent_per_user');
     Table.license_per_user = $('#license_per_user');
+    Table.license_its = $('#license_its');
 
     $('.spinner__input').on('keydown', function(e){
       console.log('spinner input keydown');
@@ -256,15 +263,23 @@ var Table = {
 
     $('.spinner__button').click(function(e){
       console.log('spinner button click');
-      var target = $(this).siblings('.spinner__input');
+      var target = $(this).siblings('.spinner__input--main');
+      var change = 1,min = 0,max=200;
+      if (target.data('change') != undefined) change = parseInt(target.data('change'));
+      if (target.data('min') != undefined) min = parseInt(target.data('min'));
+      if (target.data('max') != undefined) max = parseInt(target.data('max'));
+      
       var val;
+      
       if ($(this).hasClass('spinner__button--up')) {
-        val=parseInt(target.val()) + 1;
+        val=parseInt(target.val()) + change;
       } else {
-        val=parseInt(target.val()) - 1;
+        val=parseInt(target.val()) - change;
       }
-      if (val<1) val=1;
-      if (val>99) val=99;
+      
+      if (val<min) val=min;
+      if (val>max) val=max;
+
       $(target).val(val).change();
       return false;
     });
@@ -273,9 +288,14 @@ var Table = {
       console.log('spinner input changed');
     });
 
+    Table.license_its.on('change', function (e) {
+      console.log('its changed');
+      Table._its = $(this).prop("checked");
+      Table.calc_license();
+    });
 
     Table.rent_user.change(function(e){
-      var val = $(this).val();
+      var val = parseInt($(this).val());
       Table._rent_user = val;
       Table._rent_mobile = val;
       Table.rent_mobile.html(val);
@@ -283,14 +303,53 @@ var Table = {
       Table.calc_rent();
     });
 
-    Table.rent_period.chan e(function(e){
+    Table.rent_period.change(function(e){
       console.log('rent_period');
-      var val = $(this).val();
-
-
+      var val = parseInt($(this).val());
       Table._rent_period = val;
+      Table.rent_period_visible.val(Table.periods[val]);
       Table.calc_rent();
     });
+
+    Table.license_user.change(function(e){
+      var val = parseInt($(this).val());
+      
+      Table._license_user = Table.users[val];
+      Table.license_user_visible.val(Table.users[val]);
+
+      console.log("license_mobile: "+Table._license_mobile);
+      
+
+      if (Table._license_user<Table._license_mobile) {
+        Table._license_mobile = Table._license_user;
+        Table.license_mobile.val(Table.users.indexOf(Table._license_user));
+        Table.license_mobile_visible.val(Table._license_mobile);
+      }
+
+      Table.calc_license();
+    });
+
+    Table.license_mobile.change(function(e){
+      var val = parseInt($(this).val());
+      console.log('license_mobile_main: '+val);
+      
+      Table._license_mobile = Table.users[val];
+      
+      if (Table._license_mobile>Table._license_user) {
+        Table._license_mobile = Table._license_user;
+        $(this).val(Table.users.indexOf(Table._license_user));
+      }
+
+      Table.license_mobile_visible.val(Table._license_mobile);
+
+      console.log("license_user: "+Table._license_user);
+      console.log("license_mobile: "+Table._license_mobile);
+
+      Table.calc_license();
+    });
+
+    Table.calc_license();
+    Table.calc_rent();
   },
   calc_rent:function(){
     var rent_index = 0;
@@ -311,6 +370,17 @@ var Table = {
   
   calc_license:function(){
     console.log('calc_license');
+    Table._license_total = Table.base + Table.counters_1[Table._license_user]+Table.counters_2[Table._license_mobile];
+    
+    if (Table._its) {
+      Table._license_total += 45000;
+    } 
+
+
+    Table._license_per_user = (Table._license_total / Table._license_user).toFixed();
+     
+    Table.license_total.html('от '+Table._license_total+' руб.');
+    Table.license_per_user.html('от '+Table._license_per_user+' руб.');
   }
 
 };
@@ -325,10 +395,12 @@ $(function (){
   });
 
   $('.checkbox').click(function(e){
+    
     var checkbox = $(this);
     var input = checkbox.find('.checkbox__input')
     checkbox.toggleClass('checkbox--active');
     input.prop('checked', !input.prop('checked'));
+    input.trigger('change');
   });
 
 

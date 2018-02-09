@@ -1275,6 +1275,10 @@ canvas {
     }
     .row__body .table__cell {
       background-color: #44cb58;
+      transition: background-color 0.3s ease;
+      &:hover {
+        background-color: lighten(#44cb58,5%);
+      }
     }
   }
   &__cell {
@@ -1301,6 +1305,12 @@ canvas {
 
     &--gray {
       color: #959595;
+    }
+
+    &--link {
+      cursor: pointer;
+      text-decoration: none;
+
     }
 
     @media @mobiles {
@@ -1395,7 +1405,7 @@ canvas {
 .table__switcher {
   cursor: pointer;
   margin-bottom: 15px;
-  display: none;
+  //display: none;
   &--active {
     color:red;
   }
@@ -1495,6 +1505,10 @@ canvas {
     color: #646464;
     font-size: 18px;
     font-weight: 600;
+
+    &--hidden {
+      display: none;
+    }
   }
 
   &__button {
