@@ -38,6 +38,13 @@ ul {
     position: absolute;
     right: 0;
     top: 0;
+
+    @media @mobiles {
+      top: -100px;
+      left: 0;
+      right: 0;
+      margin:auto;
+    }
   }
   &--system {
     margin-bottom: 30px;
@@ -54,11 +61,13 @@ ul {
 .container {
   position: relative;
   padding:0;
-
+  
+  @media @mobiles {
+    padding: 0 20px;
+  }
   &--tb-fw {
     @media @tablet {
       width: 100%;
-      padding: 0;
     }
   }
 }
@@ -218,6 +227,9 @@ ul {
   
   margin: auto;
   
+  @media @mobiles {
+    top: 15px;
+  }
   .link {
     border-color: transparent;
 
@@ -250,7 +262,9 @@ ul {
     }
 
     &--callback {
-
+      @media @mobiles {
+        display: none;
+      }
     }
   }
 }
@@ -296,6 +310,14 @@ ul {
       font-weight: 400;
       line-height: 21px;
     }
+
+    @media @mobiles {
+      .nav__item {
+        display: block;
+        text-align: center;
+        margin-bottom: 15px;
+      }
+    }
   }
 }
 
@@ -313,6 +335,10 @@ ul {
   @media @tablet {
     background: linear-gradient(75deg,#31c74d 0%, #5bd061 100%);
   }
+
+  @media @mobiles {
+    background: linear-gradient(#4dcb5e 0%,#5bcf61 75%, #59d061 100%);
+  }
   &__item {
     position: absolute;
     &:nth-child(1) {
@@ -323,7 +349,7 @@ ul {
 
       background: linear-gradient(75deg,#24b246 0%,#2db74f 50%,#37bc5d 100%);
 
-      @media @tablet {
+      @media @not-desktop {
         display: none;
       }
     }
@@ -335,9 +361,13 @@ ul {
       left: 0;
 
       background: linear-gradient(150deg,#4dcd5e 0%,#2bc54b 100%);
-      @media @tablet {
+      @media @not-desktop {
         width: 75%;
         background: linear-gradient(150deg,#4dcd5e 0%,#32c74f 100%);
+      }
+
+      @media @mobiles {
+        height: 80px;
       }
 
       
@@ -351,7 +381,7 @@ ul {
       
       margin: auto;
       background: linear-gradient(75deg,#66cf70 0%,#e7e377 100%);
-      @media @tablet {
+      @media @not-desktop {
         display: none;
       }
     }
@@ -362,7 +392,7 @@ ul {
   overflow: hidden;
 }
 .gadgets {
-
+  
   width: 600px;
   position: absolute;
   right: 0;
@@ -370,6 +400,9 @@ ul {
   z-index: 1;
   transform: rotateZ(-5deg);
   
+  @media @mobiles {
+    display: none;
+  }
   &__item {
     position: absolute;
     
@@ -428,7 +461,12 @@ ul {
   width: 640px;
   padding-top: 170px;
   padding-bottom: 150px;
-
+  
+  @media @mobiles {
+    width: auto;
+    padding-bottom: 100px;
+    padding-top: 100px;
+  }
   &__title {
     position: relative;
     color: #ffffff;
@@ -438,6 +476,9 @@ ul {
     padding-left: 60px;
     margin-bottom: 40px;
     letter-spacing: 1px;
+    @media @mobiles {
+      text-align: center;
+    }
     &:before {
       content: '';
       position: absolute;
@@ -460,6 +501,24 @@ ul {
     line-height: 54px;
     margin-bottom: 40px;
     letter-spacing: 1px;
+
+    @media @mobiles {
+      font-size: 24px;
+      line-height: 36px;
+      text-align: center;
+      font-weight: 400;
+    }
+  }
+
+  &__desc {
+    .btn {
+      display: block;
+      width: 80%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      margin-bottom: 10px;
+    }
   }
 }
 
@@ -483,19 +542,46 @@ ul {
     text-transform: uppercase;
     margin-bottom: 20px;
     
-    
+    @media @mobiles {
+      font-size: 18px;
+      line-height: 32px;
+    }
 
     &--center {
       text-align: center;
       margin-bottom: 60px;
+      @media @mobiles {
+        margin-bottom: 30px;
+      }
     }
+
+    &--mobiles {
+      display: none;
+      @media @mobiles {
+        display: block;
+      }
+    }    
     
+    &--nmobiles {
+      display: block;
+      @media @mobiles {
+        display: none;
+      }
+    }    
+
     &--list {
       position: relative;
       padding-right: 90px;
+
+      @media @mobiles {
+        padding-right: 0;
+      }
     }
     &--right {
       text-align: right;
+      @media @mobiles {
+        text-align: left;
+      }
     }
 
     
@@ -520,7 +606,7 @@ ul {
       }
     }
 
-    @media @tablet {
+    @media @not-desktop {
       br {
         display: none;
       }
@@ -530,16 +616,28 @@ ul {
   &--price {
     padding-top: 80px;
     padding-bottom: 0;
+
+    @media @mobiles {
+      padding-top: 50px;
+    }
   }
   &--cycle {
     padding-top: 80px;
     background-color: #fafcfb;
     padding-bottom: 90px;
+
+    @media @mobiles {
+      padding: 50px 0;
+    }
   }
   &--reports {
     padding:90px 0;
     @media @tablet {
       padding: 60px 0;
+    }
+
+    @media @mobiles {
+      padding: 50px 0;
     }
   }
   
@@ -603,6 +701,13 @@ ul {
 
     &--right {
       text-align: right;
+      @media @mobiles {
+        text-align: left;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0px;
     }
   }
 
@@ -614,11 +719,20 @@ ul {
     @media @tablet {
       flex-wrap: wrap;
     }
+
+    @media @mobiles {
+      display: block;
+    }
   }
 
 
   &--qualities {
     padding: 65px 0 100px 0;
+
+    @media @mobiles {
+      padding-top: 120px;
+      padding-bottom: 65px;
+    }
   }
 
   &--problems {
@@ -638,6 +752,10 @@ ul {
     @media @tablet {
       padding-top: 80px;
     }
+    @media @mobiles {
+      padding-top: 50px;
+      padding-bottom: 30px;
+    }
   }
 
   &--gex {
@@ -646,6 +764,11 @@ ul {
     @media @tablet {
       padding-top: 100px;
     }
+
+    @media @mobiles {
+      padding-top: 40px;
+    }
+
     &:before {
       content: '';
       position: absolute;
@@ -661,6 +784,10 @@ ul {
 
   &--system {
     padding:120px 0 80px 0;
+    @media @mobiles {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
   }
 
   &--reviews {
@@ -712,6 +839,15 @@ ul {
     padding: 25px;
   }
   
+  @media @mobiles {
+    margin-top: 0;
+    padding:25px;
+    left: 0;
+    right: 0;
+    margin-left:auto;
+    margin-right:auto;
+
+  }
   &__title {
     font-weight: 700;
   }
@@ -774,7 +910,12 @@ ul {
 
     span {
       color: #9f9f9f;
+      @media @mobiles {
+        display: none;
+      }
     }
+
+
     &:before {
       content: '';
       position: absolute;
@@ -819,7 +960,7 @@ ul {
     }
   }
   &--info {
-    @media @tablet {
+    @media @not-desktop {
       margin-bottom: 30px;
     }
     .radioblock__item {
@@ -836,6 +977,10 @@ ul {
   flex-direction: row;
   justify-content: space-between;
   
+  @media @mobiles {
+    display: block;
+  }
+
   &__item {
     color: #646464;
     width: 33%;
@@ -845,6 +990,14 @@ ul {
       margin-right: 15px;
       &:last-child {
         margin-right: 0;
+      }
+    }
+
+    @media @mobiles {
+      width: 100%;
+      margin-bottom: 40px;
+      &:last-child {
+        margin-bottom: 0;
       }
     }
   }
@@ -860,16 +1013,32 @@ ul {
     font-size: 14px;
     line-height: 28px;
   }
+
+  &__body {
+    @media @mobiles {
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
 }
 
 .keys {
   display: flex;
   flex-direction: row;
+  
+  @media @mobiles {
+    display: block;
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+
   &__info {
     padding-right: 60px;
     padding: 70px 70px 70px 0;
     border-right: 1px solid #e6e6e6;
-
+  
     @media @tablet {
       display: flex;
       flex-direction: column;
@@ -879,6 +1048,13 @@ ul {
       padding:70px 20px 70px 0;
       width: 410px;
     }
+
+    @media @mobiles {
+      padding:40px 20px;
+
+      border-right: none;
+      border-bottom: 1px solid #e6e6e6;
+    }
   }
   &__desc {
     background-color: #fcfcfd;
@@ -886,6 +1062,9 @@ ul {
 
     @media @tablet {
       padding:70px 0 70px 20px;
+    }
+    @media @mobiles {
+      padding:40px 20px;
     }
   }
 }
@@ -917,16 +1096,27 @@ ul {
     padding:0 15px;
 
     &--hidden-tablet {
-      @media @not-desktop {
+      @media @tablet {
         display: none;
       }
+    }
+
+    @media @mobiles {
+      margin-bottom: 15px;
+      width: 49%;
+      margin-right: 0;
     }
   }
 
   &__btn {
     width: 200px;
-    @media @not-desktop {
+    @media @tablet {
       width: auto;
+    }
+
+    @media @mobiles {
+      width: 100%;
+      margin-right: 0;
     }
   }
 }
@@ -969,6 +1159,9 @@ ul {
   }
 
   &--footer {
+    @media @mobiles {
+      text-align: center;
+    }
     .list__item {
       position: relative;
       display: inline-block;
@@ -1003,7 +1196,11 @@ ul {
             content: none;
           }
         }
-        
+      }
+      @media @mobiles {
+        &:after {
+          content: none;
+        }
       }
     }
   }
@@ -1035,6 +1232,8 @@ ul {
     margin-top: 170px;
   }
 
+
+
   &:before {
     content: '';
     position: absolute;
@@ -1052,6 +1251,17 @@ ul {
     background-repeat: no-repeat;
     z-index: 1;
   }
+
+  @media @mobiles {
+    box-shadow: none;
+    border:none;
+    width: 100%;
+    height: auto;
+    &:before {
+      content: none;
+    }  
+  }
+
   &__line {
     position: absolute;
     width: 100%;
@@ -1065,6 +1275,9 @@ ul {
     }
     &--second {
       transform: rotateZ(-45deg);
+    }
+    @media @mobiles {
+      display: none;
     }
   }
 
@@ -1148,6 +1361,21 @@ ul {
         }
       }
     }
+
+    @media @mobiles {
+      position: relative;
+      width: 100%;
+      height: auto;
+      margin-bottom: 30px;
+
+      padding-right: 110px;
+      background-size: 120px;
+      background-position: right top;
+
+      &:nth-child(4) {
+        margin-bottom: 0;
+      }
+    }
   }
 
   &__desc {
@@ -1156,7 +1384,7 @@ ul {
     height: auto;
 
     &:after {
-      after:'';
+      content:'';
       position: absolute;
       right: 0;
       top: 0;
@@ -1166,6 +1394,19 @@ ul {
       font-weight: 700;
       line-height: 80px;
       z-index: -1;
+      
+      @media @mobiles {
+        content: none !important;
+      }
+    }
+
+    @media @mobiles {
+      position: relative;
+      width: auto;
+      top: unset !important;
+      left: unset !important;
+      right: unset !important;
+      bottom: unset !important;
     }
   }
 
@@ -1196,12 +1437,22 @@ ul {
   justify-content: space-between;
   align-items: center;
   align-content: center;
-
+  
+  @media @mobiles {
+    display: block;
+  }
   &__logo {
-
+    text-align: center;
     img {
       width: 200px;
+      @media @mobiles {
+        width: 150px;
+      }
     }
+    @media @mobiles {
+      margin-bottom: 15px;
+    }
+
   }
 
   &__text {
@@ -1216,7 +1467,16 @@ ul {
 .about {
   display: flex;
   margin-bottom: 80px;
+
+  @media @mobiles {
+    display: block;
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: 30px;
+  }
+  
   &__item {
+    
   }
   &__info {
     padding:40px;
@@ -1230,6 +1490,12 @@ ul {
   flex-direction: row;
   justify-content: space-between;
   
+  @media @mobiles {
+    display: block;
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+
   &__item {
     position: relative;
     color: #646464;
@@ -1269,7 +1535,15 @@ ul {
       &:last-child {
         margin-right: 0;
       }
+    }
 
+    @media @mobiles {
+      width: 80%;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 15px;
     }
   }
 }
@@ -1280,6 +1554,10 @@ ul {
   @media @tablet {
     flex-direction: column;
     justify-content: center;
+    padding-right: 15px;
+  }
+
+  @media @mobiles {
     padding-right: 15px;
   }
   &__item {
@@ -1310,16 +1588,35 @@ ul {
   justify-content: space-between;
   align-items: center;
   display: flex;
+  
+  @media @mobiles {
+    display: block;
+  }
 
   &__info {
     width: 400px;
+    @media @mobiles {
+      width: 100%;
+      margin-bottom: 15px;
+    }
   }
 
   &__fields {
-
+    @media @mobiles {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
   }
 
+  
+  &__btn {
+    @media @mobiles {
+      display: block;
+      width: 100%;
+    }
 
+  }
 }
 
 .footer {
@@ -1347,12 +1644,14 @@ ul {
     @media @tablet {
       padding:40px 0;
       align-items: center;
-    }
-
-    @media @tablet {
       .list--footer {
         text-align: right;
       }
+    }
+    
+    @media @mobiles {
+      padding: 40px 0;
+      display: block;
     }
   }
 
@@ -1416,6 +1715,15 @@ ul {
     position: absolute;
     left: -280px;
   }
+  
+  @media @mobiles {
+    width: 320px;
+    height: 320px;
+    margin-left: -20px;
+    margin-right: -20px;
+
+  }
+
   &__marker {
     position: absolute;
     display: none;
@@ -1584,6 +1892,10 @@ canvas {
 }
 
 .row {
+  @media @mobiles {
+    margin-right: -20px;
+    margin-left: -20px;
+  }
 
   &__title {
     width: 50%;
