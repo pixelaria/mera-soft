@@ -370,7 +370,9 @@ var Table = {
   
   calc_license:function(){
     console.log('calc_license');
-    Table._license_total = Table.base + Table.counters_1[Table._license_user]+Table.counters_2[Table._license_mobile];
+    Table._license_total = Table.base + 
+                           Table.counters_1[Table._license_user]+
+                           Table.counters_2[Table._license_mobile];
     
     if (Table._its) {
       Table._license_total += 45000;
@@ -416,6 +418,16 @@ $(function (){
   $('.table__switcher').click(function(e){
     $(this).toggleClass('table__switcher--active');
     $('.row__body .table__cell').toggleClass('table__cell--active');
+  });
+
+  $('.scroll-to-target').click(function(e) {
+    console.log('scroll-to-target');
+    var target = $(this).attr('href');
+    var offset = 100;
+    if ($(this).data('offset') != undefined) offset = $(this).data('offset');
+    
+    $.scrollTo(target, 600, { offset: -offset });
+    return false;
   });
 
   bodymovin.loadAnimation({
