@@ -396,6 +396,12 @@ $(function (){
     $(this).addClass('radioblock__item--active');
   });
 
+  $('.radioblock--info .radioblock__item').click(function(e){
+    var target = $(this).data('target');
+    $('.info__text').removeClass('info__text--active');
+    $('.info__text[data-text="'+target+'"]').addClass('info__text--active');
+  });
+
   $('.checkbox').click(function(e){
     
     var checkbox = $(this);

@@ -53,6 +53,14 @@ ul {
 
 .container {
   position: relative;
+  padding:0;
+
+  &--tb-fw {
+    @media @tablet {
+      width: 100%;
+      padding: 0;
+    }
+  }
 }
 
 .link {
@@ -248,6 +256,11 @@ ul {
 }
 
 .nav {
+
+  @media @not-desktop {
+    display: none;
+  }
+
   &__list {
   
   }
@@ -264,8 +277,19 @@ ul {
     line-height: 22px;
     text-decoration: none;
   }
+  
+  &__toggler {
+    display: none;
 
+    @media @not-desktop {
+      display: block;
+    }
+  }
   &--footer {
+    @media @not-desktop {
+      display: block;
+      min-width: 280px;
+    }
     .nav__link {
       color: #ffffff !important;
       font-size: 14px;
@@ -286,7 +310,9 @@ ul {
   transform-origin: 0;
   background: linear-gradient(75deg,#30c64d 0%, #4ccd5d 50%,#cfe072 90%, #f1e077 100%);
 
-
+  @media @tablet {
+    background: linear-gradient(75deg,#31c74d 0%, #5bd061 100%);
+  }
   &__item {
     position: absolute;
     &:nth-child(1) {
@@ -296,6 +322,10 @@ ul {
       left: 0;
 
       background: linear-gradient(75deg,#24b246 0%,#2db74f 50%,#37bc5d 100%);
+
+      @media @tablet {
+        display: none;
+      }
     }
     
     &:nth-child(2) {
@@ -305,6 +335,12 @@ ul {
       left: 0;
 
       background: linear-gradient(150deg,#4dcd5e 0%,#2bc54b 100%);
+      @media @tablet {
+        width: 75%;
+        background: linear-gradient(150deg,#4dcd5e 0%,#32c74f 100%);
+      }
+
+      
     }
 
     &:nth-child(3) {
@@ -315,7 +351,9 @@ ul {
       
       margin: auto;
       background: linear-gradient(75deg,#66cf70 0%,#e7e377 100%);
-      
+      @media @tablet {
+        display: none;
+      }
     }
   }
 }
@@ -342,8 +380,12 @@ ul {
 
     &--phone-part {
       width: 60px;
-      right: 5px;
+      right: 0;
       top: 0;
+
+      @media @tablet {
+        display: none;
+      }
     }
 
     &--tablet-land {
@@ -351,18 +393,32 @@ ul {
       left: 0;
       width: 550px;
       height: 350px;
+
+      @media @tablet {
+        left: unset;
+        right: -50%;
+      }
     }
 
     &--phone-full {
       width: 230px;
       left: 0;
       top: 680px;
+
+      @media @tablet {
+        left: unset;
+        right: 0;
+      }
     }
 
     &--tablet-full {
       width:380px;
       top: 682px;
       right: 0;
+
+      @media @tablet {
+        display: none;
+      }
       
     }
   }
@@ -419,36 +475,30 @@ ul {
     margin-bottom: 25px;
   }
   &__title {
+    position: relative;
     color: #23c345;
     font-size: 24px;
     font-weight: 600;
     line-height: 36px;
     text-transform: uppercase;
     margin-bottom: 20px;
+    
+    
 
     &--center {
       text-align: center;
       margin-bottom: 60px;
     }
-
+    
     &--list {
       position: relative;
       padding-right: 90px;
-
-      &:before {
-        content: '';
-        position: absolute;
-        right: 0;
-        width: 70px;
-        height: 70px;
-        border-radius: 50%;
-        
-        background-image: url('../img/icon-list.png');
-        background-position: center;
-        background-repeat: no-repeat;
-      }
+    }
+    &--right {
+      text-align: right;
     }
 
+    
     &--gear {
       position: relative;
       padding-top: 120px;
@@ -469,6 +519,12 @@ ul {
         background-repeat: no-repeat;
       }
     }
+
+    @media @tablet {
+      br {
+        display: none;
+      }
+    }
   }
 
   &--price {
@@ -482,11 +538,17 @@ ul {
   }
   &--reports {
     padding:90px 0;
+    @media @tablet {
+      padding: 60px 0;
+    }
   }
   
   
   &--about {
     padding:90px 0;
+    @media @tablet {
+      padding:80px 0;
+    }
   }
   &--form {
     background-color: #fcfcfd;
@@ -548,6 +610,10 @@ ul {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    @media @tablet {
+      flex-wrap: wrap;
+    }
   }
 
 
@@ -569,11 +635,17 @@ ul {
       box-shadow: inset 0 0 20px rgba(180, 180, 180, 0.1);
       background: #fcfcfd;
     }
+    @media @tablet {
+      padding-top: 80px;
+    }
   }
 
   &--gex {
     padding: 120px 0 80px 0;
     
+    @media @tablet {
+      padding-top: 100px;
+    }
     &:before {
       content: '';
       position: absolute;
@@ -594,10 +666,32 @@ ul {
   &--reviews {
     background-image: linear-gradient(270deg, #4ece5f 0%, #37c851 100%);
     padding: 80px 0 30px 0;
+    @media @tablet {
+      padding-top: 70px;
+    }
   }
 }
 
+.reports  {
+  display: flex;
+  @media @not-desktop {
+    display: block;
+  }
+  &__image {
+    order: 1;
+    @media @tablet {
+      padding:0 60px;
+    }
+  }
 
+  &__selector {
+    order:2;
+    @media @not-desktop {
+      margin-bottom: 60px;
+    }
+
+  }
+}
 .info {
   padding: 42px 30px;
   border-top: 10px solid;
@@ -612,12 +706,29 @@ ul {
   font-size: 14px;
   font-weight: 400;
   line-height: 28px;
+
+  @media @tablet {
+    width: 32%;
+    padding: 25px;
+  }
   
   &__title {
     font-weight: 700;
-    
   }
   
+  &__text {
+    visibility: hidden;
+    opacity: 0;
+    max-height: 0;
+    transition:opacity 0.6s ease-in;
+    
+    &--active {
+      visibility: visible;
+      opacity: 1;
+      max-height: 100%;
+    }
+  }
+
   &--gray {
     border-color: #646464;
     
@@ -644,6 +755,9 @@ ul {
 }
 
 .radioblock {
+  @media @tablet {
+    width: 100%;
+  }
   &__item {
     position: relative;
     padding: 0 5px 0 45px ;
@@ -679,10 +793,15 @@ ul {
     &:hover,&--active {
       box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
       border-radius: 8px;
-      
+      font-weight: 600;
       &:before {
         background-color: #646464;
       }
+    }
+
+    @media @tablet {
+      width: 70%;
+
     }
   }
 
@@ -699,6 +818,17 @@ ul {
       }
     }
   }
+  &--info {
+    @media @tablet {
+      margin-bottom: 30px;
+    }
+    .radioblock__item {
+      @media @tablet {
+        width: 49%;
+        display: inline-block;
+      }
+    }
+  }
 }
 
 .system {
@@ -708,7 +838,15 @@ ul {
   
   &__item {
     color: #646464;
-    width: 300px;
+    width: 33%;
+    max-width: 300px;
+
+    @media @tablet {
+      margin-right: 15px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
   }
 
   &__title {
@@ -731,10 +869,24 @@ ul {
     padding-right: 60px;
     padding: 70px 70px 70px 0;
     border-right: 1px solid #e6e6e6;
+
+    @media @tablet {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+
+      padding:70px 20px 70px 0;
+      width: 410px;
+    }
   }
   &__desc {
     background-color: #fcfcfd;
     padding:70px 0 70px 65px;
+
+    @media @tablet {
+      padding:70px 0 70px 20px;
+    }
   }
 }
 
@@ -763,10 +915,19 @@ ul {
 
     margin-right: 10px;
     padding:0 15px;
+
+    &--hidden-tablet {
+      @media @not-desktop {
+        display: none;
+      }
+    }
   }
 
   &__btn {
     width: 200px;
+    @media @not-desktop {
+      width: auto;
+    }
   }
 }
 
@@ -816,6 +977,7 @@ ul {
       font-weight: 400;
       padding-right: 10px;
       margin-right: 5px;
+      margin-bottom: 0;
       
       &:after {
         content: '|';
@@ -831,6 +993,17 @@ ul {
         &:after {
           content: none;
         }
+      }
+
+      @media @tablet {
+        &:nth-child(2n) {
+          margin-right: 0;
+          padding-right: 0;
+          &:after {
+            content: none;
+          }
+        }
+        
       }
     }
   }
@@ -857,6 +1030,11 @@ ul {
   right: 0;
   margin:auto;
   
+  @media @tablet {
+    margin-bottom: 100px;
+    margin-top: 170px;
+  }
+
   &:before {
     content: '';
     position: absolute;
@@ -908,7 +1086,14 @@ ul {
         &:after {
           content: '1';
         }
+
+        @media @tablet {
+          left: unset;
+          top: -140px;
+        }
       }
+
+
     }
     &:nth-child(2) {
       background-image: url('../img/icon-cycle-2.png');
@@ -919,6 +1104,11 @@ ul {
         top: 70px;
         &:after {
           content: '2';
+        }
+
+        @media @tablet {
+          right: unset;
+          top: -140px;
         }
       }
     }
@@ -932,6 +1122,12 @@ ul {
         &:after {
           content: '3';
         }
+
+        @media @tablet {
+          right: unset;
+          top:unset;
+          bottom: -150px;
+        }
       }
     }
     &:nth-child(4) {
@@ -943,6 +1139,12 @@ ul {
         top: -15px;
         &:after {
           content: '4';
+        }
+
+        @media @tablet {
+          left: unset;
+          top:unset;
+          bottom: -150px;
         }
       }
     }
@@ -1015,7 +1217,6 @@ ul {
   display: flex;
   margin-bottom: 80px;
   &__item {
-    width: 50%;
   }
   &__info {
     padding:40px;
@@ -1061,19 +1262,40 @@ ul {
     &--quality:before {
       background-image: url('../img/icon-facts-quality.png');
     }
+  
+    @media @tablet {
+      margin-right: 15px;
+      padding-left: 65px;
+      &:last-child {
+        margin-right: 0;
+      }
 
+    }
   }
 }
 .sertificates {
   display: flex;
   padding-right: 70px;
-
+  
+  @media @tablet {
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 15px;
+  }
   &__item {
     width: 50%;
     padding: 40px 20px;
     img {
       box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
       cursor: pointer;
+    }
+    @media @tablet {
+      width: 100%;
+      margin-bottom: 20px;
+      padding:0 10px;
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 }
@@ -1096,6 +1318,8 @@ ul {
   &__fields {
 
   }
+
+
 }
 
 .footer {
@@ -1119,6 +1343,17 @@ ul {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    
+    @media @tablet {
+      padding:40px 0;
+      align-items: center;
+    }
+
+    @media @tablet {
+      .list--footer {
+        text-align: right;
+      }
+    }
   }
 
   &__copyright {
@@ -1132,6 +1367,10 @@ ul {
     font-weight: 400;
     line-height: 20px;
     font-size: 14px;
+
+    @media @tablet {
+      align-items: center;
+    }
     
   }
 }
@@ -1156,6 +1395,7 @@ ul {
 
 }
 .develop {
+  width: 200px;
   float:right;
 }
 
@@ -1169,7 +1409,13 @@ ul {
   will-change: opacity,transform;
   opacity: 1;
   transition: transform 1s cubic-bezier(.165,.84,.44,1),opacity .5s cubic-bezier(.165,.84,.44,1);
-
+  
+  @media @tablet {
+    width: 380px;
+    height: 380px;
+    position: absolute;
+    left: -280px;
+  }
   &__marker {
     position: absolute;
     display: none;
@@ -1245,9 +1491,6 @@ canvas {
 /* table */
 .table {
   width: 100%;
-  
-  margin-bottom: 50px;
-  
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
   border-radius: 10px;
@@ -1405,7 +1648,8 @@ canvas {
 .table__switcher {
   cursor: pointer;
   margin-bottom: 15px;
-  //display: none;
+  display: none;
+  
   &--active {
     color:red;
   }
