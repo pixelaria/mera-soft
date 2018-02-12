@@ -261,6 +261,17 @@ var Table = {
       return false;
     });
 
+    $('.table__switcher .spinner__button').click(function(e){
+      if ($(this).hasClass('spinner__button--active')) {
+        var target = $(this).siblings('.spinner__input');
+        var value = $(this).data('value');
+        target.val(value);
+        $('.row__body .table__cell').toggleClass('table__cell--active');
+        $('.table__switcher .spinner__button').toggleClass('spinner__button--active');
+      }
+      return false;
+    });
+
     $('.spinner__button').click(function(e){
       console.log('spinner button click');
       var target = $(this).siblings('.spinner__input--main');
@@ -283,6 +294,8 @@ var Table = {
       $(target).val(val).change();
       return false;
     });
+
+
 
     $('.spinner__input').change(function(e){
       console.log('spinner input changed');
@@ -421,17 +434,12 @@ $(function (){
 
   $('.table__cell:nth-child(1)').addClass('table__cell--active');
 
-  $('.table__switcher').click(function(e){
-    $(this).toggleClass('table__switcher--active');
-    $('.row__body .table__cell').toggleClass('table__cell--active');
-  });
-
   $('.scroll-to-target').click(function(e) {
     console.log('scroll-to-target');
     var target = $(this).attr('href');
     var offset = 100;
     if ($(this).data('offset') != undefined) offset = $(this).data('offset');
-    
+    $('.nav').removeClass('nav--active');
     $.scrollTo(target, 600, { offset: -offset });
     return false;
   });

@@ -15,7 +15,7 @@
   <header class="header">
     <div class="container header__container">
       <a class="header__item header__item--logo" title="Мера - Софт" href="/"></a>
-      <nav class="header__item header__item--nav nav" id="nav">
+      <nav class="header__item header__item--nav nav nav--top" id="nav">
         <div class="nav__list">
           <li class="nav__item"><a href="#app" class="link nav__link scroll-to-target">Возможности</a></li>  
           <li class="nav__item"><a href="#tariffs" class="link nav__link scroll-to-target">Тарифы</a></li>  
@@ -266,7 +266,16 @@
         <h2 class="section__title section__title--center">Тарифные планы</h2>
         <div class="table">
           <div class="table__head">
-            <div class="table__switcher">Переключалка</div>
+            <div class="table-switcher">
+              <div class="table-switcher__cell"></div>
+              <div class="table-switcher__cell table__switcher">
+                <div class="spinner">
+                  <input id="table__switcher" class="spinner__input" value="Аренда" type="text">
+                  <span data-value="Аренда" class="spinner__button spinner__button--left"></span>
+                  <span data-value="Лицензия" class="spinner__button spinner__button--right spinner__button--active"></span>
+                </div>
+              </div>
+            </div>
             <div class="table__row">
               <div class="row__title">
               </div>
@@ -395,13 +404,13 @@
     <section class="section section--about" id="about">
       <div class="container">
         <div class="about">
-          <div class="about__item about__info col-md-9 col-lg-6">
+          <div class="about__item about__item--info">
             <h2 class="section__title">О нашей команде</h2>
             <p class="section__text">Владелец и разработчик продуктов под торговой маркой «МЕРАСОФТ» (MERASOFT) — ООО «Оптимальные алгоритмы». Компания основана в 2010 году, официальным партнером фирмы «1С».</p>
             <p class="section__text">Основное направление деятельности компании — разработка, внедрение и сопровождение информационных систем на базе программных продуктов фирмы «1С».</p>
             <a href="#" class="link link--red">Узнайте больше о наших возможностях</a>
           </div>
-          <div class="about__item sertificates col-md-3 col-lg-6">
+          <div class="about__item about__item--sertificates sertificates">
             <div class="sertificates__item">
               <img src="./img/sert-1.png" alt="" class="img img--responsive">
             </div>
