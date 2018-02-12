@@ -2034,19 +2034,6 @@ canvas {
     }
   }
 
-  &__switcher {
-    cursor: pointer;
-    margin-bottom: 15px;
-    display: none;
-    
-    &--active {
-      color:red;
-    }
-    @media @mobiles {
-      display: block;
-    }
-  }
-
   &__head {
     @media @mobiles {
       .table__row {
@@ -2135,7 +2122,11 @@ canvas {
 }
 
 .table-switcher {
-  display: flex;
+  display: none;
+
+  @media @mobiles {
+    display: flex;
+  }
   &__cell {
     width: 50%;
     text-align: center;
