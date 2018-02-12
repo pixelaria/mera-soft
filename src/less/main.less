@@ -423,7 +423,8 @@ ul {
   }
   &__item {
     position: absolute;
-    &:nth-child(1) {
+    
+    &--1 {
       height: 120px;
       width: 100%;
       top: -45px;
@@ -436,7 +437,7 @@ ul {
       }
     }
     
-    &:nth-child(2) {
+    &--2 {
       height: 100px;
       width: 50%;
       bottom: 0;
@@ -455,7 +456,7 @@ ul {
       
     }
 
-    &:nth-child(3) {
+    &--3 {
       width: 320px;
       height: 320px;
       right: 7.5%;
@@ -463,6 +464,49 @@ ul {
       
       margin: auto;
       background: linear-gradient(75deg,#66cf70 0%,#e7e377 100%);
+      @media @not-desktop {
+        display: none;
+      }
+    }
+    
+    &--4 {
+      height: 450px;
+      width: 50%;
+      bottom: 0;
+      left: 0;
+
+      background: linear-gradient(150deg,#4dcd5e 0%,#2bc54b 100%);
+      @media @not-desktop {
+        width: 75%;
+        background: linear-gradient(150deg,#4dcd5e 0%,#32c74f 100%);
+      }
+
+      @media @mobiles {
+        height: 80px;
+      }
+    }
+
+    &--5 {
+      width: 320px;
+      height: 100px;
+      right: 0;
+      top: 0;
+      
+      margin: auto;
+      background: linear-gradient(75deg,#66cf70 0%,#e7e377 100%);
+      @media @not-desktop {
+        display: none;
+      }
+    }
+
+    &--6 {
+      width: 60%;
+      height: 100px;
+      right: 0;
+      bottom: -2px;
+      
+      margin: auto;
+      background-color: #ffffff;
       @media @not-desktop {
         display: none;
       }
@@ -580,18 +624,36 @@ ul {
     @media @mobiles {
       text-align: center;
     }
-    &:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      
-      width: 44px;
-      height: 44px;
 
-      background-image: url('../img/ckecklist-logo.png');
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
+    &--checklist {
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        
+        width: 44px;
+        height: 44px;
+
+        background-image: url('../img/ckecklist-logo.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+      }
+    }
+    &--rack {
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        
+        width: 44px;
+        height: 44px;
+
+        background-image: url('../img/ckecklist-logo.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+      }
     }
   }
 
@@ -796,6 +858,20 @@ ul {
       background: #fcfcfd;
     }
   }
+
+  &--keys-reverse {
+    &:after {
+      background: #ffffff !important;
+      right: 0;
+      left: unset;
+    }
+    &:before {
+      background: #fcfcfd !important;
+      right: unset;
+      left: 0;
+    }
+  }
+
   &__text {
     color: #646464;
     font-size: 14px;
@@ -1146,40 +1222,49 @@ ul {
     margin-left: -20px;
     margin-right: -20px;
   }
+  &__item {
+    &:nth-child(1) {
+      padding: 70px 70px 70px 0;
+      border-right: 1px solid #e6e6e6;
+    }
+    &:nth-child(2) {
+      padding:70px 0 70px 65px;
 
-  &__info {
-    padding-right: 60px;
-    padding: 70px 70px 70px 0;
-    border-right: 1px solid #e6e6e6;
+      @media @tablet {
+        padding:70px 0 70px 20px;
+      }
+      @media @mobiles {
+        padding:40px 20px;
+      }
+    }
+
+    &--info {
+      background-color: #ffffff;
+    
+      @media @tablet {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+
+        padding:70px 20px 70px 0;
+        width: 410px;
+      }
+
+      @media @mobiles {
+        padding:40px 20px;
+
+        border-right: none;
+        border-bottom: 1px solid #e6e6e6;
+      }
+    }
+
+    &--desc {
+      background-color: #fcfcfd;
+    }
+  }
+
   
-    @media @tablet {
-      display: flex;
-      flex-direction: column;
-      align-content: center;
-      justify-content: center;
-
-      padding:70px 20px 70px 0;
-      width: 410px;
-    }
-
-    @media @mobiles {
-      padding:40px 20px;
-
-      border-right: none;
-      border-bottom: 1px solid #e6e6e6;
-    }
-  }
-  &__desc {
-    background-color: #fcfcfd;
-    padding:70px 0 70px 65px;
-
-    @media @tablet {
-      padding:70px 0 70px 20px;
-    }
-    @media @mobiles {
-      padding:40px 20px;
-    }
-  }
 }
 
 
@@ -1244,6 +1329,7 @@ ul {
     font-weight: 400;
     line-height: 28px;
     margin-bottom: 10px;
+    color:#646464;
   }
 
   &--check {
@@ -2042,6 +2128,16 @@ canvas {
         display: none;
       }
     }
+  }
+  margin-bottom: 30px;
+  &__text {
+    width: 75%;
+    max-width: 700px;
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

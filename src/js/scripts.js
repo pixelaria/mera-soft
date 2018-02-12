@@ -10,10 +10,21 @@ function initMap() {
   });
 }
 
-function getVertexLabels() {
-  var labels = ["Кафе", "Рестораны", "Пиццерии", "Отели", "Фитнес-клубы", "Частные клиники", "Аквапарки", "Торговые сети", "Служба доставки", "Такси", "Кинотеатры", "Банки"];
-
-  return labels;
+function getVertexLabels(labels) {
+  console.log(labels);
+  var checklist = ["Кафе", "Рестораны", "Пиццерии", "Отели", "Фитнес-клубы", "Частные клиники", "Аквапарки", "Торговые сети", "Служба доставки", "Такси", "Кинотеатры", "Банки"];
+  var rack = ["Супермаркеты", "FMCG", "Ритейл", "Косметика", "Парфюмерия", "Одежда и обувь", "Сети АЗС", "Торговые сети", "Служба доставки", "Такси", "Кинотеатры", "Банки"];
+  
+  var result = [];
+  switch (labels) {
+    case 'checklist':
+      result=checklist;
+    break;
+    case 'rack':
+      result=rack;
+    break;
+  }
+  return result;
 };
 
 
@@ -485,10 +496,20 @@ $(function (){
     path: './icons/smartphone.json'
   });
 
+  bodymovin.loadAnimation({
+    container: document.getElementById('system'), 
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: './icons/arrows.json'
+  });
+
+  var labels = $('.icosahedron').data('labels');
+  console.log(labels);
   var icosahedron = new Icosahedron({
     container: document.querySelector(".icosahedron"),
     radius: 100,
-    vertexLabels: getVertexLabels()
+    vertexLabels: getVertexLabels(labels)
   });
 
   icosahedron.show(1e3);
