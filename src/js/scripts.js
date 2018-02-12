@@ -436,6 +436,11 @@ $(function (){
     return false;
   });
 
+  $('.navbar-toggler').click(function(e){
+    var target = $(this).data('target');
+    $('#'+target).toggleClass('nav--active');
+  });
+  
   bodymovin.loadAnimation({
     container: document.getElementById('gears'), 
     renderer: 'svg',
