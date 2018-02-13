@@ -141,6 +141,16 @@ ul {
     }
   }
 
+  &--black {
+    color: #ffffff;
+    background-color: #313131;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    &:hover {
+      background-color:#606060;
+    }
+  }
+
   &--callback {
     color:#ffffff;
     font-size: 18px;
@@ -689,6 +699,14 @@ ul {
         background-image: url('../img/logo-rack.png');
       }
     }
+    &--portal {
+      @media @mobiles {
+        width: 190px;
+      }
+      &:before {
+        background-image: url('../img/logo-portal.png');
+      }
+    }
 
     @media @mobiles {
       left: 0;
@@ -752,6 +770,13 @@ ul {
     border-bottom: 1px solid #dbdde5;
     margin-bottom: 25px;
     padding-bottom: 25px;
+  }
+  &__subtitle {
+    color: #515151;
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    margin-top: -15px;
   }
   &__title {
     position: relative;
@@ -1094,6 +1119,11 @@ ul {
     @media @tablet {
       padding-top: 70px;
     }
+  }
+
+  &--tips {
+    padding: 60px 0;
+    background-image: linear-gradient(90deg, #23c245 0%, #39c861 50%,#4fce7d 100%);
   }
 }
 
@@ -1909,11 +1939,78 @@ ul {
   }
 }
 
+.tips {
+   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  @media @mobiles {
+    display: block;
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+  
+    &__item {
+    width: 33%;
+    max-width: 280px;
+    position: relative;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 32px;
+
+    padding-left: 35px;
+    
+    &:before {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      overflow: hidden;
+      left: 0;
+      top: 7px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &--earth:before {
+      background-image: url('../img/icon-earth.png');
+    }
+    &--cursor:before {
+      background-image: url('../img/icon-cursor.png');
+    }
+    &--star:before {
+      background-image: url('../img/icon-star.png');
+    }
+
+    @media @tablet {
+      margin-right: 15px;
+      padding-left: 65px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    @media @mobiles {
+      width: 80%;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 15px;
+    }
+  }
+}
+
 .facts {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  
+  flex-wrap: wrap;
+
   @media @mobiles {
     display: block;
     margin-left: -20px;
@@ -1921,6 +2018,8 @@ ul {
   }
 
   &__item {
+    width: 33%;
+    max-width: 315px;
     position: relative;
     color: #646464;
     font-size: 14px;
@@ -1928,6 +2027,7 @@ ul {
     line-height: 28px;
 
     padding-left: 75px;
+    margin-bottom: 60px;
 
     &:before {
       content: '';
@@ -1953,6 +2053,35 @@ ul {
       background-image: url('../img/icon-facts-quality.png');
     }
   
+    &--clock:before {
+      background-image: url('../img/portal-1.png'); 
+    }
+    &--docs:before {
+      background-image: url('../img/portal-2.png'); 
+    }
+    &--calc:before {
+      background-image: url('../img/portal-3.png'); 
+    }
+    &--list:before {
+      background-image: url('../img/portal-4.png'); 
+    }
+    &--chart:before {
+      background-image: url('../img/portal-5.png'); 
+    }
+    &--funnel:before {
+      background-image: url('../img/portal-6.png'); 
+    }
+    &--graph:before {
+      background-image: url('../img/portal-7.png'); 
+    }
+    &--bigchart:before {
+      background-image: url('../img/portal-8.png'); 
+    }
+    &--manager:before {
+      background-image: url('../img/portal-9.png'); 
+    }
+
+
     @media @tablet {
       margin-right: 15px;
       padding-left: 65px;
@@ -2608,5 +2737,35 @@ canvas {
     &--active {
       opacity: 1;
     }
+  }
+}
+
+.saas {
+  position: relative;
+  padding: 60px;
+  box-shadow: 0 10px 16px rgba(227, 231, 235, 0.5), 0 0 4px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  background-color: #fcfcfd;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 28px;
+  color:#4d4d4d;
+
+  &:before {
+    content: 'SAAS';
+    position: absolute;
+    right: -30px;
+    top: -30px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: #36c85d;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 90px;
+    color:#ffffff;
+    font-size: 18px;
+    
+
   }
 }
