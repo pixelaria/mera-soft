@@ -35,38 +35,41 @@
     </div>
   </header>
   <main>
-    <section class="section">
-      <div class="stripes stripes--rack">
+    <section class="section section--rack">
+      <div class="stripes stripes--2">
         <div class="stripes__item stripes__item--4"></div>
         <div class="stripes__item stripes__item--5"></div>
         <div class="stripes__item stripes__item--6"></div>
       </div>
       <div class="container">
-        <div class="page">
+        <div class="page page--rack">
           <h1 class="page__title page__title--rack">Полка</h1>
           <h2 class="page__subtitle">Умный контроль мерчандайзинга и торговой аналитики </h2>
           <div class="page__desc">
-            <p class="section__text section__text--white">От выкладки товара до расчета KPI</p>
+            <p class="page__text">От выкладки товара до расчета KPI</p>
             <a href="#" class="btn btn--red btn--apple"> Скачать для iOS</a><a href="#" class="btn btn--red btn--android">Скачать для Android</a>
           </div>
         </div>
       </div>
     </section>
-    <section class="section">
+    <section class="section section--stripe">
       <div class="container">
+        <div class="gadgets__item gadgets__item--smartphones">
+          <img src="./img/gadgets-smartphones.png" alt="">
+        </div>
         <div class="section__row">
-          <div class="col-lg-6"></div>
+          <div class="col-md-3 col-lg-6"></div>
           <div class="col-md-9 col-lg-6">
-            <h2 class="section__title section__title--list">Чек-листы для контроля наличия и выкладки товара  <span class="body body--list" id="list"></span></h2>
+            <h2 class="section__title section__title--list-left"><span class="body body--list body--left" id="list"></span>Чек-листы для контроля наличия и выкладки товара</h2>
             <div class="section__desc">
               <p class="section__text">Приложение включает чек-листы, составленные при участии профессионалов мерчандайзинга: для контроля наличия всего ассортимента товара, соблюдения правил выкладки, необходимого количества  фейсов, качества расстановки, размещения рекламных материалов и ценников.</p>
             </div>
-            <a href="#" class="link link--red link--right">Скачать бесплатную демо-версию</a>
+            <a href="#" class="link link--red">Скачать бесплатную демо-версию</a>
           </div>
         </div>
       </div>
     </section>
-    <section class="section section--problems">
+    <section class="section section--problems section--problems-sm">
       <div class="container">
         <div class="body body--gears" id="gears"></div>
         <h2 class="section__title section__title--center">Типичные проблемы мерчандайзинга</h2>
@@ -121,7 +124,7 @@
             <div id="icosahedron" class="icosahedron" data-labels = "rack"></div>
           </div>
           <div class="col-md-9 col-lg-6">
-            <h2 class="section__title section__title--nmobiles">Подходит для контроля качества в самых разных отраслях</h2>
+            <h2 class="section__title section__title--nmobiles">Подходит для мерчандайзинга во всех отраслях торговли</h2>
             <div class="section__desc">
               <p class="section__text">В «Полка» гибкий конструктор чек-листов позволяет создать любые чек-листы по стандарту предприятия.  Для удобства пользователей показатели группируются в разделы. Значения можно добавлять в ручном режиме или загружать список.</p>
               <p class="section__text">Предусмотрено разделение торговых точек сети на категории (уровни).  Загрузка перечня номенклатуры товаров  с привязкой к видам торговых точек – по запросу. Количество позиций в чек-листе и проверок по ним  не ограничено.</p>
@@ -156,11 +159,11 @@
     <section class="section section--keys">
       <div class="container">
         <div class="keys">
-          <div class="keys__info col-lg-4">
+          <div class="keys__item keys__item--info col-lg-4">
             <h2 class="section__title">Ключевые возможности системы</h2>
             <p class="section__text">Автоматизируйте рабочие процессы супервайзеров. Сделайте работу сотрудников удобной и приятной.</p>
           </div>
-          <div class="keys__desc col-lg-8">
+          <div class="keys__item keys__item--desc col-lg-8">
             <ul class="list list--check">
               <li class="list__item">Удобный планировщик и конструктор чек-листов</li>
               <li class="list__item">Прозрачная и комфортная работа супервайзеров по стандартизированным чек-листам</li>
@@ -181,15 +184,21 @@
           <div class="reports__selector col-lg-6">
             <h2 class="section__title">Торговая аналитика</h2>
             <div class="radioblock radioblock--green radioblock--reports">
-              <div class="radioblock__item">Количественная оценка показателей <span>Учет количества товара на полках.</span></div>
-              <div class="radioblock__item">Сравнительная оценка  <span>Кол-во товаров в сравнении с конкурентами</span></div>
-              <div class="radioblock__item">Рейтинг ТУ <span>Результаты в разрезе территориальных групп</span></div>
-              <div class="radioblock__item radioblock__item--active">Рейтинг торговых точек <span> Строит диаграмму рейтинга ТТ</span></div>
-              <div class="radioblock__item">Оценка ценовой политики товаров конкурентов <span>В разработке</span></div>
+              <div class="radioblock__item" data-target="1">Количественная оценка показателей <span>Учет количества товара на полках.</span></div>
+              <div class="radioblock__item radioblock__item--active" data-target="2">Сравнительная оценка  <span>Кол-во товаров в сравнении с конкурентами</span></div>
+              <div class="radioblock__item" data-target="3">Рейтинг ТУ <span>Результаты в разрезе территориальных групп</span></div>
+              <div class="radioblock__item" data-target="4">Рейтинг торговых точек <span> Строит диаграмму рейтинга ТТ</span></div>
+              <div class="radioblock__item" data-target="5">Оценка ценовой политики товаров конкурентов <span>В разработке</span></div>
             </div>
           </div>
           <div class="reports__image col-lg-6">
-            <img src="./img/tablet-reports.png" alt="" class="img img--responsive">
+            <div class="report">
+              <img data-index="1" src="./img/checklist-report-1.png" alt="" class="img img--responsive report__img">
+              <img data-index="2" src="./img/checklist-report-2.png" alt="" class="img img--responsive report__img  report__img--active">  
+              <img data-index="3" src="./img/checklist-report-3.png" alt="" class="img img--responsive report__img">  
+              <img data-index="4" src="./img/checklist-report-4.png" alt="" class="img img--responsive report__img">  
+              <img data-index="5" src="./img/checklist-report-5.png" alt="" class="img img--responsive report__img">  
+            </div>
           </div>
         </div>
       </div>
@@ -224,25 +233,25 @@
       <div class="container">
         <h2 class="section__title section__title--center">Пример схемы работы с Полка </h2>
         <div class="cycle">
-          <div class="cycle__item">
+          <div class="cycle__item cycle__item--2-1">
             <div class="cycle__desc">
               <p class="cycle__title">Планирование</p>
               <p class="cycle__text">Руководитель определяет стандарты и правила выкладки товара, формирует график проверок.</p>  
             </div>
           </div>
-          <div class="cycle__item">
+          <div class="cycle__item cycle__item--2-2">
             <div class="cycle__desc">
               <p class="cycle__title">Действие</p>
               <p class="cycle__text">Супервайзер проводит проверку наличия и выкладки товара, отмечает результат в мобильном приложении.</p>
             </div>
           </div>
-          <div class="cycle__item">
+          <div class="cycle__item cycle__item--2-3">
             <div class="cycle__desc">
               <p class="cycle__title">Проверка</p>
               <p class="cycle__text">Руководитель получает сводные отчеты по всем торговым точкам в режиме реального времени.</p>
             </div>
           </div>
-          <div class="cycle__item">
+          <div class="cycle__item cycle__item--2-4">
             <div class="cycle__desc">
               <p class="cycle__title">Корректировка</p>
               <p class="cycle__text">Мерчандайзер устраняет выявленные нарушения,  после чего отчитывается о результате.</p>
@@ -402,12 +411,12 @@
             <p class="section__text">Существуют общепризнанные принципы выкладки, которыми руководствуются как мерчандайзеры, так и продавцы: обзор; доступность; опрятность; соответствующий вид товаров переднего ряда; заполненность полок; привлекательность упаковки; хорошо читаемая маркировка цены; определенное место на полке; постоянное восполнение запасов.</p>
 
             <p class="section__text">Мы разработали удобный инструмент для:</p>
-            <ul class="list">
-              <li class="list__item">—   Безбумажных проверок по чек-листам.</li>
-              <li class="list__item">—   Быстрой коррекции ситуации на полочном пространстве.</li>
-              <li class="list__item">—   Плановых и оперативных проверок торговых точек,</li>
-              <li class="list__item">—   Автоматического формирования отчетов в режиме реального времени,</li>
-              <li class="list__item">—   Расчета KPI сотрудников торговой сети.</li>
+            <ul class="list list--text">
+              <li class="list__item">— Безбумажных проверок по чек-листам.</li>
+              <li class="list__item">— Быстрой коррекции ситуации на полочном пространстве.</li>
+              <li class="list__item">— Плановых и оперативных проверок торговых точек,</li>
+              <li class="list__item">— Автоматического формирования отчетов в режиме реального времени,</li>
+              <li class="list__item">— Расчета KPI сотрудников торговой сети.</li>
             </ul>
           </div>
 

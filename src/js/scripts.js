@@ -59,8 +59,6 @@ Icosahedron.prototype = {
     i.position.z = 350, i.position.y = 200, i.position.x = -200, t.scene.add(i);
     var n = new THREE.PointLight(16756699, .4);
     n.position.z = 150, n.position.y = 100, n.position.x = 250, t.scene.add(n);
-    var r = new THREE.PointLight(16777215, .4);
-    r.position.z = 150, r.position.y = -300, r.position.x = 25, t.scene.add(r)
   },
   setupObject: function() {
     var t = this;
@@ -68,9 +66,9 @@ Icosahedron.prototype = {
     t.material = new THREE.MeshPhongMaterial({
       color: new THREE.Color("rgb(47,198,85)"),
       emissive: new THREE.Color("rgb(65,180,102)"),
-      emissiveIntensity: 0.2,
+      emissiveIntensity: 0.25,
       specular: new THREE.Color("rgb(56,149,98)"),
-      shininess: 5
+      shininess: 8
     });
 
     t.geometry = new THREE.IcosahedronGeometry(t.radius, 0); 
@@ -424,6 +422,12 @@ $(function (){
     var target = $(this).data('target');
     $('.info__text').removeClass('info__text--active');
     $('.info__text[data-text="'+target+'"]').addClass('info__text--active');
+  });
+
+  $('.radioblock--reports .radioblock__item').click(function(e){
+    var target = $(this).data('target');
+    $('.report__img').removeClass('report__img--active');
+    $('.report__img[data-index="'+target+'"]').addClass('report__img--active');
   });
 
   $('.checkbox').click(function(e){
