@@ -449,7 +449,14 @@ ul {
       background: linear-gradient(75deg,#31c74d 0%,#93d76a 75%, #e3e377 100%);
     }
   }
+  
+  &--3 {
+    background: linear-gradient(75deg,#2bc550 0%,#3ac961 60%,#44cb6d 75%);
 
+    @media @mobiles {
+      background: linear-gradient(75deg,#2bc550 0%,#3ac961 75%, #44cb6d 100%);
+    }
+  }
  
   &__item {
     position: absolute;
@@ -528,6 +535,37 @@ ul {
         display: none;
       }
     }
+    
+    &--6 {
+      width: 35%;
+      height: 55%;
+      left: 0;
+      bottom: 0;
+      top: 0;
+      margin: auto;
+      background: linear-gradient(75deg,#46d06b 0%,#39c95f 100%);
+    }
+
+    &--7 {
+      width: 10%;
+      height: 100%;
+      right: 0;
+      
+      top: 0;
+      margin: auto;
+      background: linear-gradient(90deg,#3abd61 0%,#37c261 100%);
+ 
+    }
+
+    &--8 {
+      width: 25%;
+      height: 40%;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      margin: auto;
+      background: linear-gradient(90deg,#43ce68 0%,#50cd71 100%);
+    }
   }
 }
 .main {
@@ -543,12 +581,18 @@ ul {
   z-index: 1;
   transform: rotateZ(-5deg);
   
+
   &--fw {
     position: relative;
     width: auto;
     top: 100px;
     overflow: hidden;
     height: 500px;
+  }
+  
+
+  &--portal {
+    width: 800px;
   }
   @media @desktop {
     width: 550px;
@@ -630,6 +674,50 @@ ul {
 
       @media @tablet {
         width: 180px;
+      }
+
+      @media @mobiles {
+        display: none;
+      }
+    }
+
+    &--portal-1 {
+      left: 0px;
+      top: 35px;
+      width: 320px;
+      z-index: 4;
+
+      @media @desktop {
+        width: 250px;
+        left: 50px
+      }
+
+      @media @tablet {
+        width: 180px;
+        top: 450px;
+        right:100px;
+        left: unset;
+      }
+
+      @media @mobiles {
+        display: none;
+      }
+    }
+
+    &--portal-2 {
+      right: 40px;
+      top: 250px;
+      width: 500px;
+      z-index: 3;
+      transform: rotateZ(5deg);
+      
+      @media @desktop {
+        width: 450px;
+      }
+
+      @media @tablet {
+        width: 280px;
+        top: 500px
       }
 
       @media @mobiles {
@@ -905,6 +993,7 @@ ul {
 
     @media @mobiles {
       padding-top: 0;
+      padding-bottom: 60px;
     }
   }
   &--form {
@@ -970,6 +1059,14 @@ ul {
       left: 0;
     }
   }
+  &__info {
+    width: 60%;
+    margin-bottom: 80px;
+
+    @media @mobiles {
+      width: 100%;
+    }
+  }
 
   &__text {
     color: #646464;
@@ -984,7 +1081,11 @@ ul {
         text-align: left;
       }
     }
+    &--big {
+      font-size: 18px;
+      line-height: 32px;
 
+    }
     &--white {
       color:#ffffff;
     }
@@ -1123,7 +1224,34 @@ ul {
 
   &--tips {
     padding: 60px 0;
-    background-image: linear-gradient(90deg, #23c245 0%, #39c861 50%,#4fce7d 100%);
+    background-image: linear-gradient(100deg, #23c245 0%, #39c861 50%,#4fce7d 100%);
+  }
+  &--facts {
+    padding-top: 60px;
+    padding-bottom: 30px;
+
+    .facts__item {
+      margin-bottom: 60px;
+
+      @media @mobiles {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &--saas {
+    padding-top: 120px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid #e6e6e6;
+
+    @media @mobiles {
+      padding-top: 60px;
+    }
+  }
+
+  &--gray {
+    box-shadow: inset 0 0 20px rgba(180, 180, 180, 0.1);
+    background-color: #fcfcfd;
   }
 }
 
@@ -1945,15 +2073,16 @@ ul {
   justify-content: space-between;
   flex-wrap: wrap;
 
+
   @media @mobiles {
     display: block;
     margin-left: -20px;
     margin-right: -20px;
   }
   
-    &__item {
+  &__item {
     width: 33%;
-    max-width: 280px;
+    
     position: relative;
     color: #ffffff;
     font-size: 18px;
@@ -1984,14 +2113,6 @@ ul {
     }
     &--star:before {
       background-image: url('../img/icon-star.png');
-    }
-
-    @media @tablet {
-      margin-right: 15px;
-      padding-left: 65px;
-      &:last-child {
-        margin-right: 0;
-      }
     }
 
     @media @mobiles {
@@ -2027,8 +2148,7 @@ ul {
     line-height: 28px;
 
     padding-left: 75px;
-    margin-bottom: 60px;
-
+    
     &:before {
       content: '';
       position: absolute;
@@ -2041,6 +2161,10 @@ ul {
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
+      @media @tablet {
+        width: 50px;
+        height: 50px;
+      }
     }
 
     &--eight:before {
@@ -2083,7 +2207,6 @@ ul {
 
 
     @media @tablet {
-      margin-right: 15px;
       padding-left: 65px;
       &:last-child {
         margin-right: 0;
@@ -2750,6 +2873,15 @@ canvas {
   font-weight: 400;
   line-height: 28px;
   color:#4d4d4d;
+  
+  @media @tablet {
+    padding: 30px;
+  }
+
+  @media @mobiles {
+    padding: 15px 30px;
+    margin-top: 30px;
+  }
 
   &:before {
     content: 'SAAS';
@@ -2762,9 +2894,23 @@ canvas {
     background-color: #36c85d;
     text-align: center;
     text-transform: uppercase;
-    line-height: 90px;
+    line-height: 95px;
     color:#ffffff;
     font-size: 18px;
+
+    @media @tablet {
+      width: 60px;
+      height: 60px;
+      line-height: 65px;
+    }
+    @media @mobiles {
+      width: 50px;
+      height: 50px;
+      line-height: 55px;
+      font-size: 15px;
+      top: -20px;
+      right: -20px;
+    }
     
 
   }

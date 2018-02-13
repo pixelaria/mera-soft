@@ -34,12 +34,21 @@
       </div>
     </div>
   </header>
-  <main>
+  <main class="main">
+    <section class="gadgets gadgets">
+      <div class="gadgets__item gadgets__item--portal-1">
+        <img src="./img/portal-phone-1.png" alt="">
+      </div>
+      <div class="gadgets__item gadgets__item--portal-2">
+        <img src="./img/portal-phone-2.png" alt="">
+      </div>
+
+    </section>
     <section class="section">
-      <div class="stripes stripes--1">
-        <div class="stripes__item stripes__item--1"></div>
-        <div class="stripes__item stripes__item--2"></div>
-        <div class="stripes__item stripes__item--3"></div>
+      <div class="stripes stripes--3">
+        <div class="stripes__item stripes__item--6"></div>
+        <div class="stripes__item stripes__item--7"></div>
+        <div class="stripes__item stripes__item--8"></div>
       </div>
       <div class="container">
         <div class="page">
@@ -51,10 +60,13 @@
         </div>
       </div>
     </section>
-    <section class="section">
+    <section class="section section--facts">
       <div class="container">
         <div class="section__row">
-          <p class="section__text">Портал – это дополнительный сервис, работающий на базе уже используемых мобильных приложений Чек-лист. Для удобной и комфортной работы пользователей мы разработали простой интуитивно понятный интерфейс, со всеми необходимыми функциями.</p>
+          <div class="section__info">
+            <p class="section__text section__text--big">Портал – это дополнительный сервис, работающий на базе уже используемых мобильных приложений Чек-лист. Для удобной и комфортной работы пользователей мы разработали простой интуитивно понятный интерфейс, со всеми необходимыми функциями.</p>  
+          </div>
+          
         </div>
         <div class="facts">
           <div class="facts__item facts__item--clock">Данные проверок в режиме реального времени</div>
@@ -70,18 +82,17 @@
         </div>
       </div>
     </section>
-    <section class="section section--reports">
+    <section class="section section--reports section--gray">
       <div class="container">
         <div class="reports row">
           <div class="reports__selector col-lg-6">
-            <h2 class="section__title">Аналитические отчеты</h2>
+            <h2 class="section__title">Виды отчетов</h2>
             <div class="radioblock radioblock--green radioblock--reports">
-              <div class="radioblock__item" data-target="1">Общая динамика <span>Результаты в разрезе разделов учета, по месяцам</span></div>
-              <div class="radioblock__item radioblock__item--active" data-target="2">Динамика причин <span>Причины негативных оценок показателей</span></div>
-              <div class="radioblock__item" data-target="3">Рейтинг ТУ <span>Результаты в разрезе территориальных групп</span></div>
-              <div class="radioblock__item" data-target="4">Ошибки при ручном вводе</div>
-              <div class="radioblock__item" data-target="5">Рейтинг торговых точек <span>Строит диаграмму рейтинга ТТ</span></div>
-              <div class="radioblock__item" data-target="6">Результаты аудита <span>Детальная информация о проведении аудита</span></div>
+              <div class="radioblock__item" data-target="1">Рейтинг торговых точек</div>
+              <div class="radioblock__item radioblock__item--active" data-target="2">Рейтинг территориальных управляющих</div>
+              <div class="radioblock__item" data-target="3">Динамика разделов</div>
+              <div class="radioblock__item" data-target="4">Динамика причин</div>
+              <div class="radioblock__item" data-target="5">Динамика общая</div>
             </div>
           </div>
           <div class="reports__image col-lg-6">
@@ -92,9 +103,7 @@
               <img data-index="3" src="./img/checklist-report-3.png" alt="" class="img img--responsive report__img">  
               <img data-index="4" src="./img/checklist-report-4.png" alt="" class="img img--responsive report__img">  
               <img data-index="5" src="./img/checklist-report-5.png" alt="" class="img img--responsive report__img">  
-              <img data-index="6" src="./img/checklist-report-6.png" alt="" class="img img--responsive report__img">  
             </div>
-            
           </div>
         </div>
       </div>
@@ -128,19 +137,24 @@
         </div>
       </div>
     </section>
-    <section class="section">
+    <section class="section section--saas">
       <div class="container">
-        <h2 class="section__title">Наиболее удобная форма оплаты</h2>
-        <p class="section__subtitle">Аренда сервиса по модели SAAS</p>
-        <ul class="list list--check">
-          <li class="list__item">Вы платите только за то, чем пользуетесь</li>
-          <li class="list__item">Нет крупных единовременных расходов на приобретение ПО и разработку</li>
-          <li class="list__item">Возможность более гибкого планирования бюджета</li>
-          <li class="list__item">Не нужно беспокоиться об обновлениях и техподдержке</li>
-        </ul>
-
-        <div class="saas">
-          Модель SAAS (аренда, подписка) хорошо подходит растущим компаниям, с помесячным или поквартальным бюджетированием, предпочитающих аренду ресурсов, а не покупку.
+        <div class="section__row">
+          <div class="col-md-6">
+            <h2 class="section__title">Наиболее удобная форма оплаты</h2>
+            <p class="section__subtitle">Аренда сервиса по модели SAAS</p>
+            <ul class="list list--check">
+              <li class="list__item">Вы платите только за то, чем пользуетесь</li>
+              <li class="list__item">Нет крупных единовременных расходов на приобретение ПО и разработку</li>
+              <li class="list__item">Возможность более гибкого планирования бюджета</li>
+              <li class="list__item">Не нужно беспокоиться об обновлениях и техподдержке</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <div class="saas">
+              Модель SAAS (аренда, подписка) хорошо подходит растущим компаниям, с помесячным или поквартальным бюджетированием, предпочитающих аренду ресурсов, а не покупку.
+            </div>
+          </div>
         </div>
       </div>
     </section>
