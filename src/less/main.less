@@ -495,10 +495,12 @@ ul {
   }
   
   &--main {
-    background: linear-gradient(90deg,#24c346 0%, #39c861 50%, #46cb72 75%, #4fce7d 100%);
+    background: linear-gradient(60deg,#24c346 0%, #39c861 50%, #46cb72 75%, #4fce7d 100%);
     height: 95%;
-    transform: skewY(-5deg);
-    opacity: 0.97;
+    transform: skewY(0);
+    
+
+   
   }
   &__item {
     position: absolute;
@@ -1029,7 +1031,7 @@ ul {
 
   &--price {
     padding-top: 80px;
-    padding-bottom: 60px;
+    
     overflow: hidden;
     @media @mobiles {
       padding-top: 50px;
@@ -1073,7 +1075,8 @@ ul {
   }
 
   &--black {
-    background-image: linear-gradient(135deg, #585858 0%, #454545 50%, #323232 100%);
+    //background-image: linear-gradient(135deg, #585858 0%, #454545 50%, #323232 100%);
+    background-image: linear-gradient(135deg, #595959 0%, #404040 50%, #313131 100%);
     padding-top: 180px;
     padding-bottom: 80px;
     @media @mobiles {
@@ -1358,23 +1361,38 @@ ul {
       content: '';
       background-image: url('../img/circles.png');
       background-repeat: no-repeat;
-      background-size: contain;
+      background-size: 120%;
       background-position: center;
       z-index: 1;  
       position: absolute;
       width: 100%;
-      height: 100%;
-      left: -30%;
-      top: 0;
+      height: 200%;
+      left: -25%;
+      top: -50%;
       border-radius: 50%;
-      
-      animation:spin 80s linear infinite;
+      animation:spin 45s linear infinite;
 
+      @media @tablet {
+        background-size: 200%;
+      }
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      height: 180px;
+      bottom: -60px;
+      left: 0;
+      transform: skewY(-5deg);
+      background-color: #fcfcfc;
+      z-index: 2;
     }
   
 
     .container {
-      z-index: 1;
+      z-index: 3;
     }
     
   }
@@ -2211,7 +2229,9 @@ ul {
     }
 
     &--sertificates {
+      position: relative;
       order: 1;
+      padding-bottom: 30px;
       @media @tablet {
         width: 20%;
       }
@@ -2219,6 +2239,35 @@ ul {
 
     @media @mobiles {
       width: auto;
+    }
+  }
+
+  &__1c {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin:auto;
+
+    padding-left: 80px;
+    
+    color: #646464;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 14px;
+
+    max-width: 350px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    &:before {
+      content: '';
+      position: absolute;
+      width: 65px;
+      height: 38px;
+      background-image: url('../img/logo-1c.png');
+
+      top:0;
+      left: 0;
     }
   }
 }
