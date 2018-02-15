@@ -1,39 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="format-detection" content="telephone=no">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Мера - софт</title>
-  <link rel="stylesheet" href="./css/libs.min.css">
-  <link rel="stylesheet" href="./css/bundle.css">
-</head>
-<body>
-  <header class="header">
-    <div class="container header__container">
-      <a class="header__item header__item--logo" title="Мера - Софт" href="/"></a>
-      <nav class="header__item header__item--nav nav nav--top" id="nav">
-        <div class="nav__list">
-          <li class="nav__item"><a href="#app" class="link nav__link scroll-to-target">Возможности</a></li>  
-          <li class="nav__item"><a href="#tariffs" class="link nav__link scroll-to-target">Тарифы</a></li>  
-          <li class="nav__item"><a href="#about" class="link nav__link scroll-to-target">О разработчике</a></li>  
-          <li class="nav__item"><a href="#contacts" class="link nav__link scroll-to-target">Контакты</a></li>  
-        </div>
-      </nav>
-      <div class="header__item header__item--callback">
-        <a href="tel:88123376820" class="link link--phone">+7 (499) 268-07-94</a>
-        <a href="#" class="btn btn--callback">Заказать звонок</a>
-      </div>
-      <div class="nav__toggler navbar-toggler" data-target="nav">
-        <span class="navbar-toggler__bar"></span>
-        <span class="navbar-toggler__bar"></span>
-        <span class="navbar-toggler__bar"></span>
-      </div>
-    </div>
-  </header>
+@@include('_html/_head.html')
+@@include('_html/_header.html')
   <main class="main">
     <section class="gadgets">
       <div class="gadgets__item gadgets__item--tablet-land">
@@ -58,7 +24,7 @@
       <div class="container">
         <div class="page">
           <h1 class="page__title page__title--checklist">Чек-лист</h1>
-          <h2 class="page__subtitle">Автоматизируйте ваши процессы контроля  и коррекции качества</h2>
+          <h2 class="page__subtitle">Автоматизируйте ваши <br> процессы контроля <br> и коррекции качества</h2>
           <div class="page__desc">
             <a href="#" class="btn btn--red btn--apple"> Скачать для iOS</a><a href="#" class="btn btn--red btn--android">Скачать для Android</a>
           </div>
@@ -92,30 +58,31 @@
           <div class="info info--gray">
             <p class="info__title">Проблема</p>
             <p class="info__text" data-text="0">Нет единой базы результатов проверок. Аналитические отчеты формируются вручную, трудоемко и долго.</p>
-            <p class="info__text" data-text="1">Нет единой базы результатов проверок. Аналитические отчеты формируются вручную, трудоемко и долго.</p>
-            <p class="info__text" data-text="2">Нет единой базы результатов проверок. Аналитические отчеты формируются вручную, трудоемко и долго.</p>
-            <p class="info__text info__text--active" data-text="3">Нет единой базы результатов проверок. Аналитические отчеты формируются вручную, трудоемко и долго.</p>
-            <p class="info__text" data-text="4">Нет единой базы результатов проверок. Аналитические отчеты формируются вручную, трудоемко и долго.</p>
+            <p class="info__text" data-text="1">Отчеты в виде кипы бумаг теряются, оседают в столах. Нужно обрабатывать, хранить и утилизировать.</p>
+            <p class="info__text" data-text="2">Долго! Ручное внесение данных проверок в формы Excel, отправка по эл. почте.</p>
+            <p class="info__text info__text--active" data-text="3">Неизбежные ошибки при ручном вводе данных до 5-7%.</p>
+            <p class="info__text" data-text="4">Данные проверок не всегда достоверны, непрозрачны, спорны.</p>
+            <p class="info__text" data-text="4">Не тратится время на споры о достоверности нарушения. Растет уровень ответственности.</p>
             <p class="info__text" data-text="5">Нет единой базы результатов проверок. Аналитические отчеты формируются вручную, трудоемко и долго.</p>
           </div>
           <div class="info info--yellow">
             <p class="info__title">Решение в «Чек-лист»</p>
             <p class="info__text" data-text="0">Результаты всех проверок в единой базе. Отчеты формируются в 2 клика, гибко настраиваются.</p>
-            <p class="info__text" data-text="1">Результаты всех проверок в единой базе. Отчеты формируются в 2 клика, гибко настраиваются.</p>
-            <p class="info__text" data-text="2">Результаты всех проверок в единой базе. Отчеты формируются в 2 клика, гибко настраиваются.</p>
-            <p class="info__text info__text--active" data-text="3">Результаты всех проверок в единой базе. Отчеты формируются в 2 клика, гибко настраиваются.</p>
-            <p class="info__text" data-text="4">Результаты всех проверок в единой базе. Отчеты формируются в 2 клика, гибко настраиваются.</p>
-            <p class="info__text" data-text="5">Результаты всех проверок в единой базе. Отчеты формируются в 2 клика, гибко настраиваются.</p>
+            <p class="info__text" data-text="1">Никаких бумаг. Все бумажные чек-листы становятся электронными.</p>
+            <p class="info__text" data-text="2">Быстро! Данные проверок мгновенно попадают на сервер, не требуют обработки.</p>
+            <p class="info__text info__text--active" data-text="3">Данные передаются "как есть". Человеческий фактор не влияет на результат.</p>
+            <p class="info__text" data-text="4">Прозрачные, подтвержденные документально результаты проверок. Фото, видео, геопозиция, фиксация времени, верификация.</p>
+            <p class="info__text" data-text="5">Проблема решается на том уровне, на котором возникла, максимально быстро.</p>
 
           </div>
           <div class="info info--green">
             <p class="info__title">Результат</p>
             <p class="info__text" data-text="0">Управляемые потоки информации. Экономия времени. Контролируемый бизнес.</p>
-            <p class="info__text" data-text="1">Управляемые потоки информации. Экономия времени. Контролируемый бизнес.</p>
-            <p class="info__text info__text--active" data-text="2">Управляемые потоки информации. Экономия времени. Контролируемый бизнес.</p>
-            <p class="info__text" data-text="3">Управляемые потоки информации. Экономия времени. Контролируемый бизнес.</p>
-            <p class="info__text" data-text="4">Управляемые потоки информации. Экономия времени. Контролируемый бизнес.</p>
-            <p class="info__text" data-text="5">Управляемые потоки информации. Экономия времени. Контролируемый бизнес.</p>
+            <p class="info__text" data-text="1">Безбумажные технологии - это современно, экологично, удобно.</p>
+            <p class="info__text info__text--active" data-text="2">Время принятия решения и повышения качества сокращается в разы.</p>
+            <p class="info__text" data-text="3">Снижение процента ошибок и искажений до 0%.</p>
+            <p class="info__text" data-text="4">Не тратится время на споры о достоверности нарушения. Растет уровень ответственности.</p>
+            <p class="info__text" data-text="5">Повышение качества происходит максимально быстро.</p>
           </div>
         </div>
       </div>
@@ -146,11 +113,6 @@
         <h2 class="section__title section__title--center">Единая система контроля качества на основе 1С</h2>
         <div class="system">
           <div class="system__item">
-            <div class="body body--system system__body" id="monitor"></div>
-            <p class="system__title">Аналитический сайт</p>
-            <p class="system__text">Формирование отчетов и рейтингов в браузере на основе данных из Центральной базы; организация общения между участниками процесса контроля качества.</p>
-          </div>
-          <div class="system__item">
             <div class="body body--system system__body" id="cloud"></div>
             <p class="system__title">Центральная база</p>
             <p class="system__text">Разработана на платформе «1С:Предприятие». В ней собирается информация о проведенных проверках  и формируются аналитические отчеты. </p>
@@ -159,7 +121,14 @@
             <div class="body body--system system__body" id="smartphone"></div>
             <p class="system__title">Мобильное приложение </p>
             <p class="system__text">Контролер запускает приложение на планшете или смартфоне, проводит аудит, после чего отправляет результат в Центральную базу. </p>
-          </div>          
+          </div>
+          <div class="system__item">
+            <div class="body body--system system__body" id="monitor"></div>
+            <p class="system__title">Отчеты и рейтинги</p>
+            <p class="system__text">Автоматизированная рассылка результатов проверок ответственным лицам. На основе данных из Центральной базы формируются рейтинги, настраиваемые отчеты.</p>
+          </div>
+          
+          
         </div>
       </div>
     </section>
@@ -192,22 +161,17 @@
               <div class="radioblock__item" data-target="1">Общая динамика <span>Результаты в разрезе разделов учета, по месяцам</span></div>
               <div class="radioblock__item radioblock__item--active" data-target="2">Динамика причин <span>Причины негативных оценок показателей</span></div>
               <div class="radioblock__item" data-target="3">Рейтинг ТУ <span>Результаты в разрезе территориальных групп</span></div>
-              <div class="radioblock__item" data-target="4">Ошибки при ручном вводе</div>
-              <div class="radioblock__item" data-target="5">Рейтинг торговых точек <span>Строит диаграмму рейтинга ТТ</span></div>
-              <div class="radioblock__item" data-target="6">Результаты аудита <span>Детальная информация о проведении аудита</span></div>
+              <div class="radioblock__item" data-target="4">Рейтинг торговых точек <span>Строит диаграмму рейтинга ТТ</span></div>
             </div>
           </div>
           <div class="reports__image col-lg-6">
             <div class="report">
-              <img data-index="1" src="./img/report-template.png" alt="" class="img img--responsive">
+              <img src="./img/report-template.png" alt="" class="img img--responsive">
               <img data-index="1" src="./img/checklist-report-1.png" alt="" class="img img--responsive report__img">
               <img data-index="2" src="./img/checklist-report-2.png" alt="" class="img img--responsive report__img  report__img--active">  
               <img data-index="3" src="./img/checklist-report-3.png" alt="" class="img img--responsive report__img">  
               <img data-index="4" src="./img/checklist-report-4.png" alt="" class="img img--responsive report__img">  
-              <img data-index="5" src="./img/checklist-report-5.png" alt="" class="img img--responsive report__img">  
-              <img data-index="6" src="./img/checklist-report-6.png" alt="" class="img img--responsive report__img">  
             </div>
-            
           </div>
         </div>
       </div>
@@ -245,25 +209,25 @@
         <div class="cycle">
           <div class="cycle__item cycle__item--1-1">
             <div class="cycle__desc">
-              <p class="cycle__title">Планирование</p>
+              <p class="cycle__title"><span>Plan</span> Планирование</p>
               <p class="cycle__text">Директор по качеству составляет стандарты, чек-листы, график проверок.</p>  
             </div>
           </div>
           <div class="cycle__item cycle__item--1-2">
             <div class="cycle__desc">
-              <p class="cycle__title">Действие</p>
+              <p class="cycle__title"><span>Do</span> Действие</p>
               <p class="cycle__text">Контролер проводит проверку  по чек-листам с помощью мобильного приложения.</p>
             </div>
           </div>
           <div class="cycle__item cycle__item--1-3">
             <div class="cycle__desc">
-              <p class="cycle__title">Проверка</p>
+              <p class="cycle__title"><span>Check</span> Проверка</p>
               <p class="cycle__text">Директор по качеству получает сводные отчеты и составляет Action-plan.</p>
             </div>
           </div>
           <div class="cycle__item cycle__item--1-4">
             <div class="cycle__desc">
-              <p class="cycle__title">Корректировка</p>
+              <p class="cycle__title"><span>Act</span> Корректировка</p>
               <p class="cycle__text">Руководитель торговой точки устраняет проблемы качества и отчитывается о результате.</p>
             </div>
           </div>
@@ -436,7 +400,7 @@
         </div>
         <div class="facts">
           <div class="facts__item facts__item--eight">Надежный производитель — 8 лет успешно работаем на рынке 1С</div>
-          <div class="facts__item facts__item--demo">Бесплатная демо-версия для теста всех функций на 21 день</div>
+          <div class="facts__item facts__item--demo">Бесплатная демо-версия для теста функций на 21 день</div>
           <div class="facts__item facts__item--quality">Гарантия качества системы и сохранности данных</div>  
         </div>
         
@@ -461,43 +425,4 @@
       </div>
     </section>
   </main>
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__links">
-        <ul class="nav nav--footer">
-          <li class="nav__item"><a href="#" class="nav__link link">Чек-лист</a></li>
-          <li class="nav__item"><a href="#" class="nav__link link">Полка+</a></li>
-          <li class="nav__item"><a href="#" class="nav__link link">Портал</a></li>
-        </ul>
-        <ul class="list list--footer">
-          <li class="list__item">
-            <a href="tel:+74952680749" class="link link--footer">+7 (495) 268 07 49</a>
-          </li>
-          <li class="list__item">
-            <a href="mailto:checklist@mera-soft.ru" class="link link--footer">checklist@mera-soft.ru</a>
-          </li>
-          <li class="list__item">115419, Москва, ул. Орджоникидзе, д. 11, стр. 1А</li>
-          <li class="list__item">пн-пт. 9:00-19:00</li>
-      </div>
-      <div class="footer__copyright">
-        <ul class="list list--footer list--dark">
-          <li class="list__item">(С) 2011-2018 Оптимальные алгоритмы</li>
-          <li class="list__item"><a href="#" class="link link--footer">Политика конфиденциальности </a>
-          <li class="list__item">Копирование материалов сайта с разрешения владельца</li>  
-        </ul>
-        
-        <div class="develop"><span>Разработано в </span><a href="http://pixelaria.ru" targer="_blank" class="link link--green">Pixelaria</a></div>
-      </div>
-    </div>
-  </footer>
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUlags8KVbNQxTok7RlaJNVUDtuJ0lRxU&callback=initMap">
-  </script>
-
-  <script type="text/javascript" src="./js/libs.min.js"></script>
-  <script type="text/javascript" src="./js/bodymovin.min.js"></script>
-  <script type="text/javascript" src="./js/three.min.js"></script>
-  <script type="text/javascript" src="./js/objloader.js"></script>
-  <script type="text/javascript" src="./js/bundle.js"></script>
-</body>
-</html>
+  @@include('_html/_footer.html')

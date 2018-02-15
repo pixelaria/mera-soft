@@ -95,6 +95,7 @@ ul {
   &:hover {
     border-color:transparent;
   }
+
   &--red {
     color: #fa8072;
 
@@ -130,14 +131,14 @@ ul {
   display: inline-block;
 
   height: 40px;
-  line-height: 42px;
+  padding: 13px 18px;
+  
 
   margin-right: 10px;
   font-size: 14px;
   font-weight: 400;
 
   text-align: center;
-  padding:0 18px;
   border-radius: 4px;
 
   
@@ -149,6 +150,16 @@ ul {
     transition: background-color 0.3s ease;
     &:hover {
       background-color:lighten(#fa8072,5%);
+    }
+  }
+  
+  &--brown {
+    color: #ffffff;
+    background-color: #bdaa89;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    &:hover {
+      background-color:#d5b885;
     }
   }
 
@@ -167,7 +178,7 @@ ul {
     font-size: 18px;
     font-weight: 400;
     background-color: transparent;
-    padding: 0 30px;
+    padding: 10px 30px;
     
     border: 1px solid #ffffff;
     border-radius: 4px;
@@ -185,7 +196,7 @@ ul {
     font-size: 14px;
     font-weight: 400;
     background-color: transparent;
-    padding: 0 30px;
+    padding: 12px 30px;
     
     border: 1px solid #ffffff;
     border-radius: 4px;
@@ -278,7 +289,7 @@ ul {
   right: 0;
   
   margin: auto;
-  
+  color:#ffffff;
   @media @mobiles {
     top: 15px;
   }
@@ -359,8 +370,6 @@ ul {
     }
   }
   &--top {
-
-
     @media @mobiles {
       right: 20px !important;    
     }
@@ -391,6 +400,7 @@ ul {
     font-weight: 400;
     line-height: 28px;
     text-decoration: none;
+    
     @media @not-xl {
       font-size: 0;
       color: #4d4d4d;
@@ -618,7 +628,7 @@ ul {
 }
 .gadgets {
   
-  width: 600px;
+  width: 660px;
   position: absolute;
   right: 0;
   top: 75px;
@@ -654,7 +664,7 @@ ul {
     }
 
     &--phone-part {
-      width: 60px;
+      width: 65px;
       right: 0;
       top: 0;
 
@@ -663,14 +673,14 @@ ul {
       }
 
       @media @desktop {
-        width: 40px;
+        width: 45px;
       }
     }
 
     &--tablet-land {
-      top: 300px;
+      top: 270px;
       left: 0;
-      width: 550px;
+      width: 600px;
       height: 350px;
 
       @media @tablet {
@@ -683,7 +693,7 @@ ul {
     }
 
     &--phone-full {
-      width: 230px;
+      width: 250px;
       left: 0;
       top: 680px;
 
@@ -698,7 +708,7 @@ ul {
     }
 
     &--tablet-full {
-      width:380px;
+      width:400px;
       top: 682px;
       right: 0;
 
@@ -879,7 +889,13 @@ ul {
     line-height: 54px;
     margin-bottom: 40px;
     letter-spacing: 1px;
+    
 
+    @media @not-desktop {
+      br {
+        display: none;
+      }
+    }
     @media @mobiles {
       font-size: 24px;
       line-height: 36px;
@@ -1031,7 +1047,7 @@ ul {
 
   &--price {
     padding-top: 80px;
-    padding-bottom: 30px;
+    padding-bottom: 90px;
     overflow: hidden;
     @media @mobiles {
       padding-top: 50px;
@@ -1541,6 +1557,7 @@ ul {
   font-weight: 400;
   line-height: 28px;
 
+  transition: height 0.3s ease;
   @media @desktop {
     padding: 30px 25px;
     width: 230px;
@@ -1606,6 +1623,7 @@ ul {
     width: 100%;
   }
   &__item {
+    width: 260px;
     position: relative;
     padding: 0 5px 0 45px ;
     
@@ -1659,6 +1677,7 @@ ul {
 
   &--green {
     .radioblock__item {
+      width: 100%;
       &:hover,&--active {
         box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
@@ -2038,8 +2057,8 @@ ul {
 
   &__item {
     position: absolute;
-    width: 175px;
-    height: 175px;
+    width: 190px;
+    height: 190px;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -2201,10 +2220,14 @@ ul {
   }
 
   &__title {
-    color: #515151;
     font-size: 20px;
     line-height: 32px;
     margin-bottom: 10px;
+    color:#9F9F9F;
+    span {
+      font-weight: 600;
+      color: #515151;
+    }
   }
 
   &__text {
@@ -2310,8 +2333,8 @@ ul {
   &__1c {
     position: absolute;
     bottom: 0;
-    left: 0;
-    right: 0;
+    left: 15px;
+    
     margin:auto;
 
     padding-left: 80px;
@@ -2351,7 +2374,7 @@ ul {
 }
 
 .tips {
-   display: flex;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -2365,7 +2388,7 @@ ul {
   
   &__item {
     width: 33%;
-    
+    max-width: 270px;
     position: relative;
     color: #ffffff;
     font-size: 18px;
@@ -2523,7 +2546,7 @@ ul {
 
   &__item {
     width: 50%;
-    padding: 20px;
+    padding: 0 20px;
     img {
       box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
       cursor: pointer;
@@ -2721,7 +2744,7 @@ ul {
     top: 0;
     left: 0;
     
-    margin-top: -30px;
+    margin-top: -1px;
     margin-left: -5px;
    
     z-index: 1;
@@ -2887,16 +2910,15 @@ canvas {
   margin-bottom: 30px;
   &__text {
     color: #646464;
-    width: 75%;
+    width: 450px;
     max-width: 700px;
     text-align: center;
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
-
+    font-size: 10px;
     @media @mobiles {
-      font-size: 14px;
       width: 100%;
     }
   }
@@ -3244,7 +3266,7 @@ canvas {
     font-size: 24px;
     font-weight: 600;
     line-height: 36px;
-    text-decoration: underline;
+    text-decoration: none;
     text-transform: uppercase;
     padding-right: 100px;
     margin-bottom: 20px;
@@ -3312,7 +3334,7 @@ canvas {
     font-weight: 600;
     line-height: 36px;
     text-transform: uppercase;
-    margin-bottom: 15px;
+    margin-bottom: 1px;
     @media @desktop {
       max-width: 60%;
       width: 60%;
@@ -3331,6 +3353,7 @@ canvas {
       text-align: center;
       font-size: 18px;
       line-height: 32px;
+      margin-bottom: 15px;
     }
   } 
 
