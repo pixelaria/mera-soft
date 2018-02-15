@@ -504,13 +504,13 @@ ul {
     }
   }
   
+  &--4 {
+    background: linear-gradient(75deg,#2ec64d 0%,#42ca57 50%,#70d364 75%,#b6dd6f 100%);
+  }
   &--main {
     background: linear-gradient(60deg,#24c346 0%, #39c861 50%, #46cb72 75%, #4fce7d 100%);
     height: 95%;
     transform: skewY(0);
-    
-
-   
   }
   &__item {
     position: absolute;
@@ -806,7 +806,11 @@ ul {
       padding-bottom: 0 !important;
     }
   }
+  
+  &--center {
+    width: 100%;
 
+  }
   @media @mobiles {
     width: auto;
     padding-bottom: 100px;
@@ -872,6 +876,10 @@ ul {
         font-size: 21px;
         line-height: 32px;
       }
+    }
+
+    &--center {
+      text-align: center;
     }
 
     @media @mobiles {
@@ -1451,6 +1459,10 @@ ul {
       border-bottom: none;
       box-shadow: none;
     }
+  }
+
+  &--faq {
+    background-image: linear-gradient(to right, #23c345 0%, #4fce7d 100%);
   }
 }
 
