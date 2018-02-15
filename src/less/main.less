@@ -1835,7 +1835,21 @@ ul {
 
 .list {
   list-style: none;
+  
+  &--demo {
+    padding-top: 150px;
+    .list__link {
+      font-size: 21px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+      color:#ffffff;
 
+
+      &:hover {
+        color: #fa8072;
+      }
+    }
+  }
 
   &__item {
     
