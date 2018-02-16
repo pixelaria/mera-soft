@@ -52,15 +52,21 @@
     </section>
     <section class="section section--form">
       <div class="container">
-        <div class="form">
-          <div class="form__info">
-            <p class="form__title">Готовы начать?</p>
-            <p class="form__text">Поможем подобрать наиболее  оптимальное решение</p>
+        <div class="form form--faq">
+          <div class="form__info form__info--faq">
+            <p class="form__title">Не нашли нужный ответ?</p>
+            <p class="form__text">Задайте свой вопрос, мы будем рады ответить на него</p>
           </div>
-          <div class="form__fields">
-            <input type="text" class="form__input" name="name" placeholder="Имя">
-            <input type="text" class="form__input form__input--hidden-tablet" name="phone" placeholder="Телефон">
+          <div class="form__fields form__fields--faq">
+            <div class="form__textarea">
+              <textarea name="question" class="form__input form__input--text" placeholder="Текст вопроса"></textarea>  
+            </div>
+            <div class="form__buttons">
+              <input type="text" class="form__input form__input--fw" name="name" placeholder="Имя">
             <a href="#" class="btn btn--brown form__btn">Отправить</a>
+            </div>
+            
+            
           </div>
         </div>
       </div>
