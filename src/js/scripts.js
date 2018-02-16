@@ -413,6 +413,37 @@ var Table = {
 $(function (){
   console.log('init');
 
+
+  console.log();
+  if ($('.circles').length){
+    var maxDiam = 150;
+    var nums = [7,2,4,2,3];
+    var diams = [30,75,100,120,50];
+
+    var container = $(".circles")
+    var containerWidth = container.width();
+    var containerHeight = container.height();
+
+    for (var i = 0; i < nums.length; i++) {
+      var num = nums[i];
+      for (var j = 0; j < num; j++) {
+        var newCircle = $("<div />")
+        var d = Math.floor(diams[j]);
+        newCircle.addClass("circles__item");
+ 
+        newCircle.css({
+            width: d,
+            height: d,
+            left: Math.random() * Math.max(containerWidth - d, 0),
+            top: Math.random() * Math.max(containerHeight - d, 0)
+        });
+        container.append(newCircle);
+      } 
+    }
+
+
+  }
+
   $('.radioblock__item').click(function(e){
     $(this).parent().find('.radioblock__item').removeClass('radioblock__item--active');
     $(this).addClass('radioblock__item--active');

@@ -505,7 +505,7 @@ ul {
   }
   
   &--4 {
-    background: linear-gradient(75deg,#2ec64d 0%,#42ca57 50%,#70d364 75%,#b6dd6f 100%);
+    background: linear-gradient(75deg,#2ec64d 0%,#42ca57 65%,#70d364 80%,#b6dd6f 100%);
   }
   &--main {
     background: linear-gradient(60deg,#24c346 0%, #39c861 50%, #46cb72 75%, #4fce7d 100%);
@@ -619,6 +619,50 @@ ul {
       top: 0;
       margin: auto;
       background: linear-gradient(90deg,#43ce68 0%,#50cd71 100%);
+    }
+
+    &--9 {
+      height: 120px;
+      width: 100%;
+      top:0;
+      left: 0;
+
+      background: linear-gradient(75deg,#43c857 0%,#27bf46 50%,#24be46 100%);
+
+      @media @not-desktop {
+        height:50px;
+
+      }
+    }
+    
+    &--10 {
+      height: 100px;
+      width: 25%;
+      bottom: 0;
+      left: 0;
+
+      background: linear-gradient(90deg,#3eca55 0%,#2bc54b 100%);
+      
+
+      @media @mobiles {
+        height: 80px;
+        width: 50%;
+      }
+
+      
+    }
+
+    &--11 {
+      width: 30%;
+      height: 320px;
+      right: 0;
+      top: 220px;
+      
+      margin: auto;
+      background: linear-gradient(90deg,#37c650 0%,#a9da6b 100%);
+      @media @mobiles {
+        height: 30%;
+      }
     }
   }
 }
@@ -805,6 +849,10 @@ ul {
     @media @mobiles {
       padding-bottom: 0 !important;
     }
+  }
+
+  &--fw {
+    width: 95%;
   }
   
   &--center {
@@ -1727,6 +1775,22 @@ ul {
     color: #646464;
     width: 33%;
     max-width: 300px;
+  
+    &--arrow {
+      position: relative;
+      &:after {
+        position: absolute;
+        content: '';
+        right: 0;
+        top: 20px;
+        width: 70px;
+        height: 25px;
+        background-image: url('../img/right-arrow.png');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    }
 
     @media @tablet {
       margin-right: 15px;
@@ -2706,7 +2770,7 @@ ul {
   width: 200px;
   float:right;
   line-height: 28px;
-
+  text-align: right;
   @media @mobiles {
     float: none;
     text-align: center;
@@ -3583,5 +3647,28 @@ canvas {
     font-size: 14px;
     font-weight: 400;
     line-height: 28px;
+  }
+}
+
+
+
+
+.circles {
+    width:500px;
+    height:400px;
+    position:relative;
+
+  &__item { 
+    border-radius:50%;
+    position:absolute;
+    box-shadow: 0 10px 16px rgba(227, 231, 235, 0.5), 0 0 4px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    
+    transition: all 0.6s ease;
+    cursor: pointer;
+    &:hover {
+      background-color: #40ca55;
+      z-index: 1;
+    }
   }
 }
