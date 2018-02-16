@@ -440,8 +440,6 @@ $(function (){
         container.append(newCircle);
       } 
     }
-
-
   }
 
   $('.radioblock__item').click(function(e){
@@ -461,6 +459,10 @@ $(function (){
     $('.report__img[data-index="'+target+'"]').addClass('report__img--active');
   });
 
+  $('.accordeon__preview').click(function(e){
+    $(this).closest('.accordeon').toggleClass('accordeon--active');
+  });
+  
   $('.checkbox').click(function(e){
     
     var checkbox = $(this);
