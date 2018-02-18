@@ -13,8 +13,9 @@ function initMap() {
 function getVertexLabels(labels) {
   console.log(labels);
   var checklist = ["Кафе", "Рестораны", "Пиццерии", "Отели", "Фитнес-клубы", "Частные клиники", "Аквапарки", "Торговые сети", "Клиники", "Такси", "Кинотеатры", "Банки"];
-  var rack = ["Супермаркеты", "FMCG", "Ритейл", "Косметика", "Парфюмерия", "Одежда и обувь", "Сети АЗС", "Торговые сети", "Клиники", "Такси", "Кинотеатры", "Банки"];
-  
+  var rack = ["Продукты питания","Косметика","Парфюмерия","Медикаменты","Одежда","Обувь","Мебель","Электроника","Книги, газеты","Строительство","Бытовые товары","Текстиль"];
+        
+
   var result = [];
   switch (labels) {
     case 'checklist':
@@ -413,35 +414,6 @@ var Table = {
 $(function (){
   console.log('init');
 
-
-  console.log();
-  if ($('.circles').length){
-    var maxDiam = 150;
-    var nums = [7,2,4,2,3];
-    var diams = [30,75,100,120,50];
-
-    var container = $(".circles")
-    var containerWidth = container.width();
-    var containerHeight = container.height();
-
-    for (var i = 0; i < nums.length; i++) {
-      var num = nums[i];
-      for (var j = 0; j < num; j++) {
-        var newCircle = $("<div />")
-        var d = Math.floor(diams[j]);
-        newCircle.addClass("circles__item");
- 
-        newCircle.css({
-            width: d,
-            height: d,
-            left: Math.random() * Math.max(containerWidth - d, 0),
-            top: Math.random() * Math.max(containerHeight - d, 0)
-        });
-        container.append(newCircle);
-      } 
-    }
-  }
-
   $('.radioblock__item').click(function(e){
     $(this).parent().find('.radioblock__item').removeClass('radioblock__item--active');
     $(this).addClass('radioblock__item--active');
@@ -472,7 +444,17 @@ $(function (){
     input.trigger('change');
   });
 
-
+  
+  $('.circles__layer').parallax(
+    { mouseport: $("body"), xorigin: 0, yorigin: 0 },
+    { xparallax: '100px', yparallax: '100px' },
+    { xparallax: '50px', yparallax: '50px' },
+    { xparallax: '75px', yparallax: '75px' },
+    { xparallax: '15px', yparallax: '15px' },
+    { xparallax: '30px', yparallax: '30px' }
+  );
+  
+  
   $('.slider').unslider({
     arrows:false,
     autoplay: true
@@ -497,59 +479,80 @@ $(function (){
     $('#'+target).toggleClass('nav--active');
   });
   
-  bodymovin.loadAnimation({
-    container: document.getElementById('gears'), 
-    renderer: 'svg',
-    loop: true,
-    autoplay: true,
-    path: './icons/gears.json'
-  });
-  bodymovin.loadAnimation({
-    container: document.getElementById('list'), 
-    renderer: 'svg',
-    loop: true,
-    autoplay: true,
-    path: './icons/checklist.json'
-  });
-  bodymovin.loadAnimation({
-    container: document.getElementById('monitor'), 
-    renderer: 'svg',
-    loop: true,
-    autoplay: true,
-    path: './icons/monitor.json'
-  });
-  bodymovin.loadAnimation({
-    container: document.getElementById('cloud'), 
-    renderer: 'svg',
-    loop: true,
-    autoplay: true,
-    path: './icons/cloud.json'
-  });
-  bodymovin.loadAnimation({
-    container: document.getElementById('smartphone'), 
-    renderer: 'svg',
-    loop: true,
-    autoplay: true,
-    path: './icons/smartphone.json'
-  });
+  if ($('#gears').length) {
+    bodymovin.loadAnimation({
+      container: document.getElementById('gears'), 
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: './icons/gears.json'
+    });
+  }
 
-  bodymovin.loadAnimation({
-    container: document.getElementById('system'), 
-    renderer: 'svg',
-    loop: true,
-    autoplay: true,
-    path: './icons/arrows.json'
-  });
+  if ($('#list').length) {
+    bodymovin.loadAnimation({
+      container: document.getElementById('list'), 
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: './icons/checklist.json'
+    });
+  }
 
-  var labels = $('.icosahedron').data('labels');
-  console.log(labels);
-  var icosahedron = new Icosahedron({
-    container: document.querySelector(".icosahedron"),
-    radius: 100,
-    vertexLabels: getVertexLabels(labels)
-  });
+  if ($('#monitor').length) {
+    bodymovin.loadAnimation({
+      container: document.getElementById('monitor'), 
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: './icons/monitor.json'
+    });
+  }
 
-  icosahedron.show(1e3);
+  if ($('#cloud').length) {
+    bodymovin.loadAnimation({
+      container: document.getElementById('cloud'), 
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: './icons/cloud.json'
+    });
+  }
 
-  Table.init();
+  if ($('#smartphone').length) {
+    bodymovin.loadAnimation({
+      container: document.getElementById('smartphone'), 
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: './icons/smartphone.json'
+    });
+  }
+
+  if ($('#system').length) {
+    bodymovin.loadAnimation({
+      container: document.getElementById('system'), 
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: './icons/arrows.json'
+    });
+  }
+
+  if ($('.icosahedron').length) {
+    var labels = $('.icosahedron').data('labels');
+    var icosahedron = new Icosahedron({
+      container: document.querySelector(".icosahedron"),
+      radius: 100,
+      vertexLabels: getVertexLabels(labels)
+    });
+    icosahedron.show(1e3);  
+  }
+  if ($('.table').length) {
+    Table.init();
+  }
+
+  initMap();
+
+  
 });
