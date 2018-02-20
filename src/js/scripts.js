@@ -81,7 +81,7 @@ Icosahedron.prototype = {
 
     t.lowResMesh = new THREE.Mesh(t.geometry, t.material);
 
-    (new THREE.OBJLoader).load("./img/icosa.min.obj", function(e) {
+    (new THREE.OBJLoader).load("/assets/icosa.min.obj", function(e) {
       e.traverse(function(e) {
         if(e instanceof THREE.Mesh) {
           var i = (new THREE.Geometry).fromBufferGeometry(e.geometry);
@@ -515,7 +515,7 @@ $(function (){
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      path: './icons/gears.json'
+      path: '/assets/gears.json'
     });
   }
 
@@ -525,7 +525,7 @@ $(function (){
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      path: './icons/checklist.json'
+      path: '/assets/checklist.json'
     });
   }
 
@@ -535,7 +535,7 @@ $(function (){
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      path: './icons/monitor.json'
+      path: '/assets/monitor.json'
     });
   }
 
@@ -545,7 +545,7 @@ $(function (){
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      path: './icons/cloud.json'
+      path: '/assets/cloud.json'
     });
   }
 
@@ -555,7 +555,7 @@ $(function (){
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      path: './icons/smartphone.json'
+      path: '/assets/smartphone.json'
     });
   }
 
@@ -565,7 +565,7 @@ $(function (){
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      path: './icons/arrows.json'
+      path: '/assets/arrows.json'
     });
   }
 

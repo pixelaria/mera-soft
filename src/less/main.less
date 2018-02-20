@@ -3483,7 +3483,8 @@ canvas {
     padding: 40px;
     margin-bottom: 30px;
     width: ~'calc(50% - 15px)';
-
+    
+    box-shadow: 0 10px 16px rgba(227,231,235,.5),0 0 4px rgba(0,0,0,.1);
     @media @mobiles {
       width: 100%;
       padding: 30px;
@@ -3538,8 +3539,13 @@ canvas {
     height: 70px;  
     
     background-color: #cccccc;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
     border-radius: 50%;
 
+    overflow:hidden;
     @media @mobile-xs {
       right: 20px;
       top: 20px;
@@ -3707,6 +3713,7 @@ canvas {
   }
 
   &__item {
+    display: block;
     width: ~'calc(33.33% - 15px)';
     max-width: 350px;
     padding: 30px;
@@ -3718,7 +3725,7 @@ canvas {
     z-index: 1;
     cursor: pointer;
     backface-visibility: hidden;
-    
+    text-decoration: none;
     &:hover {
       .products__title {
         color: #23c345;
@@ -3860,6 +3867,10 @@ canvas {
     height: 70px;
     border-radius: 50%;
     overflow:hidden;
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   &__title {
