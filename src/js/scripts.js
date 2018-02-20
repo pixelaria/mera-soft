@@ -14,7 +14,9 @@ function getVertexLabels(labels) {
   console.log(labels);
   var checklist = ["Кафе", "Рестораны", "Пиццерии", "Отели", "Фитнес-клубы", "Частные клиники", "Аквапарки", "Торговые сети", "Клиники", "Такси", "Кинотеатры", "Банки"];
   var rack = ["Продукты питания","Косметика","Парфюмерия","Медикаменты","Одежда","Обувь","Мебель","Электроника","Книги, газеты","Строительство","Бытовые товары","Текстиль"];
+  var portal = ["Сеть ресторанов", "Сеть быстрого питания", "Пиццерии", "Кофейни", "Сети АЗС", "Аптечные сети", "Сети магазинов", "Фитнес-клуб"];
         
+
 
   var result = [];
   switch (labels) {
@@ -23,6 +25,9 @@ function getVertexLabels(labels) {
     break;
     case 'rack':
       result=rack;
+    break;
+    case 'portal':
+      result=portal;
     break;
   }
   return result;
@@ -455,13 +460,38 @@ $(function (){
   );
   
   
-  $('.slider').unslider({
-    arrows:false,
-    autoplay: true
-  });  
 
-  $('.slider').unslider('initSwipe');
-
+  $('.slider ul').lightSlider({
+    item:6    ,
+    loop:false,
+    slideMove:2,
+    easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+    speed:600,
+    responsive : [
+      {
+        breakpoint:1200,
+        settings: {
+          item:4,
+          slideMove:1,
+        }
+      },
+      {
+        breakpoint:768,
+        settings: {
+          item:2,
+          slideMove:1
+        }
+      },
+      {
+        breakpoint:560,
+        settings: {
+          item:1,
+          slideMove:1
+        }
+      }
+    ]
+  });   
+  
   $('.table__cell:nth-child(1)').addClass('table__cell--active');
 
   $('.scroll-to-target').click(function(e) {

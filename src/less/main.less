@@ -59,6 +59,22 @@ ul {
     left: 0;
     right: unset;
   }
+  
+  &--icon {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 30px;
+  }
+  &--ic1 {
+    background-image: url('../img/ic1.png');  
+  }
+  &--ic2 {
+    background-image: url('../img/ic2.png');  
+  }
+  &--ic3 {
+    background-image: url('../img/ic3.png');  
+  }
 }
 
 .img {
@@ -1401,9 +1417,10 @@ ul {
 
   &--reviews {
     background-image: linear-gradient(270deg, #4ece5f 0%, #37c851 100%);
-    padding: 80px 0 30px 0;
+    padding: 80px 0 50px 0;
+
     @media @tablet {
-      padding-top: 70px;
+      padding: 70px 0 40px 0;
     }
   }
 
@@ -2099,15 +2116,14 @@ ul {
         }
       }
 
-      @media @tablet {
-        &:nth-child(2n) {
-          margin-right: 0;
-          padding-right: 0;
-          &:after {
-            content: none;
-          }
+      &:nth-child(2n) {
+        margin-right: 0;
+        padding-right: 0;
+        &:after {
+          content: none;
         }
       }
+      
       @media @mobiles {
         font-size: 12px;
         * {
@@ -2387,19 +2403,14 @@ ul {
 
 .slider {
   &--reviews {
-    margin-bottom: 40px;
     overflow-y: hidden;
     overflow: hidden;
   }
 }
 .review {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: center;
-  align-content: center;
-  
+ 
+  text-align: center;
+
   @media @mobiles {
     display: block;
   }
@@ -2408,9 +2419,11 @@ ul {
     text-align: center;
     font-size: 0;
     overflow: hidden;
+    display: inline-block;
     
     img {
-      width: 200px;
+      height: 45px;
+      width: auto;
     
       @media @mobiles {
         width: 150px;
@@ -2743,8 +2756,20 @@ ul {
   }
 
   &--faq {
+    .form__fields {
+       width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
     @media @tablet {
       display: block;
+      .form__info {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
     }
   }
 
@@ -2759,26 +2784,9 @@ ul {
       width: 100%;
       margin-bottom: 15px;
     }
-
-    &--faq {
-      
-      @media @tablet {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin-bottom: 20px;
-      }
     }
-  }
 
   &__fields {
-    &--faq {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      
-    }
     @media @mobiles {
       display: flex;
       flex-wrap: wrap;
@@ -2842,6 +2850,14 @@ ul {
     align-items: center;
     align-content: center;
     
+    .list--footer {
+      
+      width: 425px;
+      @media @mobiles {
+        width: 100%;
+      }
+    }
+
     @media @tablet {
       padding:40px 0;
       align-items: center;
@@ -3985,6 +4001,20 @@ canvas {
   }
 }
 
-.unslider-nav ol {
-  margin: 1px 0;
+.lightSlider {
+  margin-bottom: 20px;
+}
+
+.lSSlideOuter .lSPager.lSpg > li {
+  
+}
+
+.lSSlideOuter .lSPager.lSpg > li a {
+  width: 10px;
+  height: 10px;
+  background-color: hsla(0,0%,100%,.5);
+}
+
+.lSSlideOuter .lSPager.lSpg > li.active a, .lSSlideOuter .lSPager.lSpg > li:hover a {
+  background-color: #ffffff;
 }
