@@ -1985,7 +1985,7 @@ ul {
   }
 
   &__input {
-    width: 150px;
+    width: 175px;
     height: 40px;
     box-shadow: inset 0 1px 10px rgba(188, 188, 188, 0.3);
     border-radius: 4px 0 4px 4px;
@@ -2767,6 +2767,9 @@ ul {
       display: flex;
       justify-content: space-between;
     }
+    .form__result {
+      top:-15px;
+    }
     @media @tablet {
       display: block;
       .form__info {
@@ -2793,6 +2796,7 @@ ul {
     }
 
   &__fields {
+    position: relative;
     @media @mobiles {
       display: flex;
       flex-wrap: wrap;
@@ -3572,7 +3576,7 @@ canvas {
 
 .promo {
   display: flex;
-  height: 310px;
+  height: 335px;
   flex-flow: column wrap; /* Располагаем в виде колонок */
   
   &__title {
@@ -4042,4 +4046,138 @@ canvas {
 
 .lSSlideOuter .lSPager.lSpg > li.active a, .lSSlideOuter .lSPager.lSpg > li:hover a {
   background-color: #ffffff;
+}
+
+
+.popup {
+  
+  background-color: #ffffff;
+
+  &__header {
+    padding: 15px 40px;
+    background: linear-gradient(150deg,#4dcd5e 0,#2bc54b 100%);
+
+     @media @mobiles {
+      padding: 15px;
+    }
+  }
+
+  &__info {
+    color: #000000;
+    span {
+      float: right;
+      font-weight: bold;
+    }   
+  }
+
+  &__title {
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 500;
+    margin:0;
+   
+    color:#ffffff;
+  
+
+    @media @mobiles {
+
+      font-size: 18px;
+      line-height: 28px;
+    }
+    
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 500;
+    margin-top: 5px;
+    margin-bottom:0;
+    color:#ffffff; 
+  }
+
+  &__body {
+    padding: 15px 40px;
+    @media @mobiles {
+      padding: 15px;
+    }
+  }
+  
+  &__closer {
+    position: absolute;
+    right: 40px;
+    top: 25px;
+    display: none;
+  }
+
+  &__error {
+    margin-bottom: 15px;
+    color:#BC0101;
+  }
+
+  .form__input {
+    width:48%;
+    margin-right: 0;
+  }
+  
+  &__buttons {
+    margin-top: 15px;
+    text-align: center;
+  }
+
+  &__btn {
+    margin: 0;
+    width: 100%;
+  }
+}
+
+
+.closer {
+  width:15px;
+  height:15px;
+  display:block;
+  float:right;
+  position:relative;
+  margin:0;
+  padding:0;
+  overflow:hidden;
+  border-radius:2px;
+  transition: transform .3s ease-out;
+  cursor:pointer;
+
+ 
+  background-image: url('../img/icon-close.png');
+  background-position: center;
+  background-size: contain;
+  
+  cursor: pointer;
+  transition:transform 0.3s ease;
+
+  &:hover {
+    transform: rotateZ(180deg);
+  }
+
+ 
+}
+
+.jqmWindow {
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  top:10% !important;
+  left:0 !important;
+  right:0 !important;
+  margin: auto !important;
+  z-index: 10001 !important;
+  @media @mobiles {
+    width:90% !important;
+    top:1% !important;
+  }
+}
+
+.jqmClose {
+  display: none;
 }

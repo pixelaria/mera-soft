@@ -1,3 +1,68 @@
+function onLoadjqm(hash){
+  var name = $(hash.t).data('name');
+
+  if($(hash.t).data('autohide')){
+    $(hash.w).data('autohide', $(hash.t).data('autohide'));
+  }
+}
+
+function onHide(hash){
+  if($(hash.w).data('autohide')){
+    eval($(hash.w).data('autohide'));
+  }
+  hash.w.empty();
+  hash.o.remove();
+  hash.w.removeClass('show');
+}
+
+$.fn.jqmEx = function(){
+  
+  $(this).each(function(){
+    var _this = $(this);
+    var name = _this.data('name');
+
+    if(name.length){
+      var script = '/bitrix/components/pixelaria/form/ajax/form.php';
+      var paramsStr = ''; var trigger = ''; var arTriggerAttrs = {};
+      
+      $.each(_this.get(0).attributes, function(index, attr){
+        var attrName = attr.nodeName;
+        var attrValue = _this.attr(attrName);
+        trigger += '[' + attrName + '=\"' + attrValue + '\"]';
+        arTriggerAttrs[attrName] = attrValue;
+        if(/^data\-param\-(.+)$/.test(attrName)){
+          var key = attrName.match(/^data\-param\-(.+)$/)[1];
+          paramsStr += key + '=' + attrValue + '&';
+        }
+      });
+      
+      var triggerAttrs = JSON.stringify(arTriggerAttrs);
+      var encTriggerAttrs = encodeURIComponent(triggerAttrs);
+      script += '?' + paramsStr + 'data-trigger=' + encTriggerAttrs;
+      
+      if(!$('.' + name + '_frame[data-trigger="' + encTriggerAttrs + '"]').length){
+        if(_this.attr('disabled') != 'disabled'){
+          $('body').find('.' + name + '_frame[data-trigger="' + encTriggerAttrs + '"]').remove();
+          $('body').append('<div class="' + name + '_frame jqmWindow" style="width:500px" data-trigger="' + encTriggerAttrs + '"></div>');
+          
+          $('.' + name + '_frame[data-trigger="' + encTriggerAttrs + '"]').jqm({
+            trigger: trigger, 
+            onLoad: function(hash){
+              onLoadjqm(hash);
+            }, 
+            onHide: function(hash){
+              onHide(hash);
+            },
+            ajax:script,
+          });
+
+
+        }
+      }
+    }
+  })
+}
+
 function initMap() {
   var uluru = {lat: 55.709759, lng: 37.597026};
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -16,8 +81,6 @@ function getVertexLabels(labels) {
   var rack = ["Продукты питания","Косметика","Парфюмерия","Медикаменты","Одежда","Обувь","Мебель","Электроника","Книги, газеты","Строительство","Бытовые товары","Текстиль"];
   var portal = ["Сеть ресторанов", "Сеть быстрого питания", "Пиццерии", "Кофейни", "Сети АЗС", "Аптечные сети", "Сети магазинов", "Фитнес-клуб"];
         
-
-
   var result = [];
   switch (labels) {
     case 'checklist':
@@ -418,7 +481,12 @@ var Table = {
 
 $(function (){
   console.log('init');
-
+  $('body').delegate('*[data-event="jqm"]','click', function(e){
+    e.preventDefault();
+    $(this).jqmEx();
+    $(this).trigger('click');
+  });
+  
   $('.radioblock__item').click(function(e){
     $(this).parent().find('.radioblock__item').removeClass('radioblock__item--active');
     $(this).addClass('radioblock__item--active');
