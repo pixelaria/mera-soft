@@ -2158,7 +2158,7 @@ ul {
       font-size: 14px;
       font-weight: 400;
       padding-right: 10px;
-      margin-right: 5px;
+      margin-right: 7px;
       margin-bottom: 0;
       
       &:after {
@@ -2176,14 +2176,8 @@ ul {
           content: none;
         }
       }
-
-      &:nth-child(2n) {
-        margin-right: 0;
-        padding-right: 0;
-        &:after {
-          content: none;
-        }
-      }
+      
+      
       
       @media @mobiles {
         font-size: 12px;
@@ -2207,6 +2201,15 @@ ul {
   }
 }
 
+.footer__links {
+  .list__item:nth-child(2n) {
+    margin-right: 0;
+    padding-right: 0;
+    &:after {
+      content: none;
+    }
+  }
+} 
 .cycle {
   position: relative;
   height: 600px;
@@ -4127,10 +4130,10 @@ canvas {
 
   &__title {
     font-size: 20px;
-    line-height: 32px;
+    line-height: 25px;
     font-weight: 500;
     margin:0;
-   
+    padding-right: 15px;
     color:#ffffff;
   
 
@@ -4171,8 +4174,10 @@ canvas {
   }
 
   .form__input {
-    width:48%;
+    width: 100%;
     margin-right: 0;
+    display: block;
+    margin-bottom: 15px;
   }
   
   &__buttons {
@@ -4227,6 +4232,9 @@ canvas {
   right:0 !important;
   margin: auto !important;
   z-index: 10001 !important;
+
+  width: 380px;
+
   @media @mobiles {
     width:90% !important;
     top:1% !important;

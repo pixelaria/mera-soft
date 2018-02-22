@@ -4,6 +4,16 @@ function onLoadjqm(hash){
   if($(hash.t).data('autohide')){
     $(hash.w).data('autohide', $(hash.t).data('autohide'));
   }
+  if(name == 'tariff'){
+    if($(hash.t).data('tariff')) {
+      var tariff = $(hash.t).data('tariff');
+      $('input[name="TARIFF"]').val(tariff);
+    }
+
+    if($(hash.t).data('title')) {
+      $('span.title').html($(hash.t).data('title'));
+    }
+  }
 }
 
 function onHide(hash){
@@ -43,7 +53,7 @@ $.fn.jqmEx = function(){
       if(!$('.' + name + '_frame[data-trigger="' + encTriggerAttrs + '"]').length){
         if(_this.attr('disabled') != 'disabled'){
           $('body').find('.' + name + '_frame[data-trigger="' + encTriggerAttrs + '"]').remove();
-          $('body').append('<div class="' + name + '_frame jqmWindow" style="width:500px" data-trigger="' + encTriggerAttrs + '"></div>');
+          $('body').append('<div class="' + name + '_frame jqmWindow" data-trigger="' + encTriggerAttrs + '"></div>');
           
           $('.' + name + '_frame[data-trigger="' + encTriggerAttrs + '"]').jqm({
             trigger: trigger, 
@@ -79,7 +89,7 @@ function getVertexLabels(labels) {
   console.log(labels);
   var checklist = ["Кафе", "Рестораны", "Пиццерии", "Отели", "Фитнес-клубы", "Частные клиники", "Аквапарки", "Торговые сети", "Клиники", "Такси", "Кинотеатры", "Банки"];
   var rack = ["Продукты питания","Косметика","Парфюмерия","Медикаменты","Одежда","Обувь","Мебель","Электроника","Книги, газеты","Строительство","Бытовые товары","Текстиль"];
-  var portal = ["Сеть ресторанов", "Сеть быстрого питания", "Пиццерии", "Кофейни", "Сети АЗС", "Аптечные сети", "Сети магазинов", "Фитнес-клуб"];
+  var portal = ["Сеть ресторанов", "Сеть быстрого питания", "Пиццерии", "Кофейни", "Сети АЗС", "Аптечные сети", "Сети магазинов", "Фитнес-клуб","Спортивные сети", "Винные сети", "Продуктовые сети", "Продажа электроники"];
         
   var result = [];
   switch (labels) {
