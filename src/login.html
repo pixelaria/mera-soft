@@ -1,0 +1,80 @@
+@@include('_html/_head.html')
+@@include('_html/_header.html')
+  <main class="main">
+    <section class="section section--login">
+      <div class="container">
+        <div class="page page--login">
+          <h1 class="page__subtitle">Вход в личный кабинет</h1>
+          <div class="page__row">
+            <div class="page__form page-form">
+              <div class="page-form__fields">
+                <div class="page-form__wrapper">
+                  <label for="email" class="page-form__label">E-mail *</label>
+                  <input class="page-form__input" name="email" placeholder="Введите ваш E-mail" type="text">
+                </div>
+                <div class="page-form__wrapper">
+                  <label for="password" class="page-form__label">Пароль *</label>
+                  <input class="page-form__input" name="password" placeholder="Ваш Пароль" type="password">
+                </div>
+              </div>
+              <div class="page-form__buttons">
+                <a href="#" class="btn btn--black page-form__btn">Войти</a>
+              </div>
+            </div>
+            <div class="page__desc">
+              <p class="page__text page__text--small">Причины, которым стоит зарегистрироваться. Этот текст может быть полезен пользователям, которые зашли на страницу случайно. Кнопка может открывать форму заявки</p>
+              <a href="" class="btn btn--register">Зарегистрироваться</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section section--about" id="about">
+      <div class="container">
+        <div class="about">
+          <div class="about__item about__item--info">
+            <h2 class="section__title">О нашей команде</h2>
+            <p class="section__text">Владелец и разработчик продуктов под торговой маркой «МЕРАСОФТ» (MERASOFT) — ООО «Оптимальные алгоритмы». Компания основана в 2010 году, официальным партнером фирмы «1С».</p>
+            <p class="section__text">Основное направление деятельности компании — разработка, внедрение и сопровождение информационных систем на базе программных продуктов фирмы «1С».</p>
+            <a href="#" class="link link--red">Узнайте больше о наших возможностях</a>
+          </div>
+          <div class="about__item about__item--sertificates sertificates">
+            <div class="sertificates__item">
+              <img src="./img/sert-1.png" alt="" class="img img--responsive">
+            </div>
+            <div class="sertificates__item">
+              <img src="./img/sert-2.png" alt="" class="img img--responsive">
+            </div>
+            <div class="about__1c">
+              Продукты Мерасофт имеют актуальные сертификаты "Совместимо! Система программ 1С:Предприятие"
+            </div>            
+          </div>
+        </div>
+        <div class="facts">
+          <div class="facts__item facts__item--eight">Надежный производитель — 8 лет успешно работаем на рынке 1С</div>
+          <div class="facts__item facts__item--demo">Бесплатная демо-версия для теста всех функций на 21 день</div>
+          <div class="facts__item facts__item--quality">Гарантия качества системы и сохранности данных</div>  
+        </div>
+        
+      </div>
+    </section>        
+    <section class="section section--map" id="contacts">
+      <div class="map" id="map"></div>  
+    </section>
+    <section class="section section--form">
+      <div class="container">
+        <div class="form">
+          <div class="form__info">
+            <p class="form__title">Готовы начать?</p>
+            <p class="form__text">Поможем подобрать наиболее  оптимальное решение</p>
+          </div> 
+          <div class="form__fields">
+            <input type="text" class="form__input" name="name" placeholder="Имя">
+            <input type="text" class="form__input form__input--hidden-tablet" name="phone" placeholder="Телефон">
+            <a href="#" class="btn btn--red form__btn">Отправить</a>
+          </div>
+        </div>
+      </div>
+    </section>    
+  </main>
+@@include('_html/_footer.html')
