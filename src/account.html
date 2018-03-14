@@ -1,0 +1,100 @@
+@@include('_html/_head.html')
+@@include('_html/_header_account.html')
+  <main class="main">
+    <section class="section section--account">
+      <div class="container">
+        <div class="page page--account">
+          <h1 class="page__subtitle">Личный кабинет</h1>
+          <div class="page-table">
+            <div class="page-table__head">
+              <div class="page-table__row">
+                <div class="page-table__cell">№</div>
+                <div class="page-table__cell">Наименование ПП иои сервиса</div>
+                <div class="page-table__cell">№ релиза</div>
+                <div class="page-table__cell">Файлы для загрузки</div>
+                <div class="page-table__cell">Арт.</div>
+                <div class="page-table__cell">Рег. номер</div>
+                <div class="page-table__cell">Дата приобретения</div>
+                <div class="page-table__cell">Окончание действия</div>
+              </div>
+            </div>
+            <div class="page-table__body">
+              @@include('_html/_rows.html')
+              @@include('_html/_rows.html')
+              @@include('_html/_rows.html')
+              @@include('_html/_rows.html')
+              @@include('_html/_rows.html')
+              @@include('_html/_rows.html')
+            </div>
+          </div>
+        </div>
+        <p class="section__text">* Номер наиболее старшего родительского релиза</p>
+      </div>
+    </section>
+    <section class="section section--license">
+      <div class="container">
+        
+        <div class="order">
+          <h2 class="order__title">Заказать дополнительные лицензии</h2>
+          <div class="order__row">
+            <div class="order__info">Абзац с пояснением, что произойдет после отправки формы. Например «Наш менеджер свяжется с вами в такое-то время, дальше будет нужен такой-то шаг, потом другой, потом третий.</div>
+            <div class="order__form">
+              <div class="page-form__fields">
+                <div class="page-form__wrapper">
+                  <label for="email" class="page-form__label">Тип лицензии</label>
+                  <div class="select">
+                    <input class="select__input" name="office" value="не определился" type="hidden">
+                    <div class="select__placeholder">cписок лицензий</div>
+                    <div class="select__inner">
+                      <div class="select__item">Лицензия 1</div>
+                      <div class="select__item">Лицензия 2</div>
+                      <div class="select__item">Лицензия 3</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="page-form__wrapper">
+                  <label for="password" class="page-form__label">Количество лицензий</label>
+                  <div class="spinner">
+                    <input id="rent_user" class="spinner__input spinner__input--main" value="5" type="text">
+                    <span class="spinner__button spinner__button--down">-</span>
+                    <span class="spinner__button spinner__button--up">+</span>
+                  </div>
+                </div>
+              </div>
+              <div class="page-form__buttons">
+                <a href="#" class="btn btn--brown page-form__btn">Заказать</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h2 class="order__title">Контактные данные</h2>
+        
+        <ul class="contacts">
+          <li class="contacts__item"><span class="contacts__title">Название компании</span>Пошаговые инструкции</li>
+          <li class="contacts__item"><span class="contacts__title">Контактное лицо</span>Синицин Алексей Федерович</li>
+          <li class="contacts__item"><span class="contacts__title">E-mail</span>poshagam@office.ru</li>
+          <li class="contacts__item"><span class="contacts__title">Телефон</span>8 (812) 108-42-23</li>
+          <li class="contacts__item"><span class="contacts__title">Логин</span>sinich_72</li>
+          <li class="contacts__item"><span class="contacts__title">Пароль (показать)</span>****************</li>
+        </ul>
+      <p class="section__text section__text--tip">Для уточнения и изменения контактной информации свяжитель с вашим менеджером</p>
+
+      </div>
+    </section>
+    <section class="section section--form section--problems">
+      <div class="container">
+        <div class="form">
+          <div class="form__info">
+            <p class="form__title">Полезная рассылка Мерасофт</p>
+            <p class="form__text">О важных новостях и обновлениях. Не больше 1 письма в месяц</p>
+          </div> 
+          <div class="form__fields">
+            <input type="text" class="form__input" name="name" placeholder="Имя">
+            <input type="text" class="form__input form__input--hidden-tablet" name="phone" placeholder="Телефон">
+            <a href="#" class="btn btn--red form__btn">Отправить</a>
+          </div>
+        </div>
+      </div>
+    </section>    
+  </main>
+@@include('_html/_footer.html')
