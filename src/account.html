@@ -1,5 +1,34 @@
 @@include('_html/_head.html')
 @@include('_html/_header_account.html')
+<div class="jqmOverlay"></div>
+
+  <div class="popup popup--single">
+    <div class="popup__closer popup__closer--single closer"><b></b><b></b><b></b><b></b></div>    
+    <div class="popup__header">
+      <p class="popup__title">МЕРАСОФТ Чек-лист</p>
+      <p class="popup__subtitle">Основная поставка. Электронная поставка</p>
+    </div>
+    <div class="popup__body">
+      <div class="page-table">
+        <div class="page-table__head">
+          <div class="page-table__row">
+            <div class="page-table__cell">№ релиза</div>
+            <div class="page-table__cell">Родительский релиз</div>
+            <div class="page-table__cell">Дистрибутив</div>
+            <div class="page-table__cell">Рукодство пользователя</div>
+            <div class="page-table__cell">Моб.</div>
+          </div>
+        </div>
+        <div class="page-table__body">
+          @@include('_html/_rows2.html')
+          @@include('_html/_rows2.html')
+          @@include('_html/_rows2.html')
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
   <main class="main">
     <section class="section section--account">
       <div class="container">
@@ -10,8 +39,6 @@
               <div class="page-table__row">
                 <div class="page-table__cell">№</div>
                 <div class="page-table__cell">Наименование ПП иои сервиса</div>
-                <div class="page-table__cell">№ релиза</div>
-                <div class="page-table__cell">Файлы для загрузки</div>
                 <div class="page-table__cell">Арт.</div>
                 <div class="page-table__cell">Рег. номер</div>
                 <div class="page-table__cell">Дата приобретения</div>
@@ -28,7 +55,6 @@
             </div>
           </div>
         </div>
-        <p class="section__text">* Номер наиболее старшего родительского релиза</p>
       </div>
     </section>
     <section class="section section--license">
@@ -70,12 +96,12 @@
         <h2 class="order__title">Контактные данные</h2>
         
         <ul class="contacts">
-          <li class="contacts__item"><span class="contacts__title">Название компании</span>Пошаговые инструкции</li>
-          <li class="contacts__item"><span class="contacts__title">Контактное лицо</span>Синицин Алексей Федерович</li>
-          <li class="contacts__item"><span class="contacts__title">E-mail</span>poshagam@office.ru</li>
-          <li class="contacts__item"><span class="contacts__title">Телефон</span>8 (812) 108-42-23</li>
-          <li class="contacts__item"><span class="contacts__title">Логин</span>sinich_72</li>
-          <li class="contacts__item"><span class="contacts__title">Пароль (показать)</span>****************</li>
+          <li class="contacts__item"><span class="contacts__title contacts__title--star">Название компании</span>Пошаговые инструкции</li>
+          <li class="contacts__item"><span class="contacts__title contacts__title--manager">Контактное лицо</span>Синицин Алексей Федерович</li>
+          <li class="contacts__item"><span class="contacts__title contacts__title--envelope">E-mail</span>poshagam@office.ru</li>
+          <li class="contacts__item"><span class="contacts__title contacts__title--phone">Телефон</span>8 (812) 108-42-23</li>
+          <li class="contacts__item"><span class="contacts__title contacts__title--login">Логин</span>sinich_72</li>
+          <li class="contacts__item"><span class="contacts__title contacts__title--key">Пароль (показать)</span>****************</li>
         </ul>
       <p class="section__text section__text--tip">Для уточнения и изменения контактной информации свяжитель с вашим менеджером</p>
 

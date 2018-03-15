@@ -496,7 +496,19 @@ $(function (){
     $(this).jqmEx();
     $(this).trigger('click');
   });
+
+  $('body').delegate('*[data-event="jqms"]','click', function(e){
+    console.log('jqms');
+    $('.jqmOverlay').addClass('jqmOverlay--active');
+    $('.popup--single').addClass('active');
+    jqmOverlay
+  });
   
+  $('body').delegate('.popup__closer--single','click', function(e){
+    $('.jqmOverlay').removeClass('jqmOverlay--active');
+    $(this).closest('.popup').removeClass('active');
+  });
+
   $('.radioblock__item').click(function(e){
     $(this).parent().find('.radioblock__item').removeClass('radioblock__item--active');
     $(this).addClass('radioblock__item--active');
