@@ -501,12 +501,14 @@ $(function (){
     console.log('jqms');
     $('.jqmOverlay').addClass('jqmOverlay--active');
     $('.popup--single').addClass('active');
-    jqmOverlay
+    $('body').addClass('noscroll');
+    return false;
   });
   
   $('body').delegate('.popup__closer--single','click', function(e){
     $('.jqmOverlay').removeClass('jqmOverlay--active');
     $(this).closest('.popup').removeClass('active');
+    $('body').removeClass('noscroll');
   });
 
   $('.radioblock__item').click(function(e){

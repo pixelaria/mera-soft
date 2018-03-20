@@ -381,10 +381,12 @@ ul {
       justify-content: space-between;
 
       @media @mobiles {
+        display: block;
         margin-left: 0;
 
         position: absolute;
         top: 50px;
+        width: auto;
       }
 
 
@@ -1829,6 +1831,8 @@ ul {
       top: 0; 
       background-image: linear-gradient(to right, #23c345 0%, #4fce7d 100%);
     }
+
+
   }
 
   &--account {
@@ -4535,8 +4539,7 @@ canvas {
 
   &--single {
     width: 850px;
-    position: fixed;
-    top: 30%;
+    position: relative;
     left: 0;
     right: 0;
     z-index: 10001;
@@ -4546,8 +4549,7 @@ canvas {
     
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease;
-
+    
     &.active {
       visibility: visible;
       opacity: 1;
@@ -4555,6 +4557,11 @@ canvas {
 
     .popup__body {
       padding: 0;
+    }
+    
+    @media @mobiles {
+      width: 90%;
+      margin-bottom: 30px;
     }
 
   }
@@ -4590,8 +4597,23 @@ canvas {
 }
 
 .jqmOverlay {
-  transition: opacity 0.3s ease;
   opacity: 0;
+  overflow-y: scroll;
+  
+  position: fixed;
+  overflow-y: scroll;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  z-index: -1;
+
+  background-color: rgba(0,0,0,.4);
+  
+  
+  padding: 50px 0;
+
+
   &--active {
     height: 100%; 
     width: 100%; 
@@ -4599,7 +4621,11 @@ canvas {
     left: 0px; 
     top: 0px; 
     z-index: 10000; 
-    opacity: 0.5;
+    opacity: 1;
+  }
+
+  @media @mobiles {
+    padding: 30px 0;
   }
 }
 
@@ -4797,10 +4823,17 @@ canvas {
     border-right:1px solid #e6e6e6;
     border-bottom:1px solid #e6e6e6;
 
+
+    &--left {
+      text-align:left;
+    }
     &:last-child {
       border-right: none;
     }
-
+    
+    span {
+      display: none;
+    }
     @media @mobiles {
       display: block;
       height: auto;
@@ -4812,6 +4845,10 @@ canvas {
       &:nth-child(2) {
         background-color: #f4f2f2;
         color: #646464;
+      }
+
+      span {
+        display: block;
       }
     }
   }
@@ -4945,4 +4982,63 @@ canvas {
   }
 
 
+}
+
+.account {
+  &__info {
+    position: relative;
+    margin-right: 15px;
+    width: 50%;
+    span {
+      content: '';
+      width: 14px;
+      height: 14px;
+      margin-left: 10px;
+      display: inline-block;
+      
+      
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url('../img/icon-tip.png');
+      
+      cursor: pointer;
+
+    }
+
+    @media @mobiles {
+      width: 100%;
+      margin-bottom: 5px;
+    }
+  }
+
+  &__account {
+    position: relative;
+    word-wrap: nowrap;
+    width: 50%;
+    text-align: right;
+    
+    span {
+      content: '';
+      width: 14px;
+      height: 14px;
+      margin-left: 10px;
+      display: inline-block;
+      
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url('../img/icon-edit.png');
+    }
+
+    @media @mobiles {
+      width: 100%;
+      text-align: left;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.noscroll {
+  overflow: hidden;
 }
