@@ -5021,7 +5021,7 @@ canvas {
   }
 
   &__tip  {
-    content: '';
+    position: relative;
     width: 14px;
     height: 14px;
     margin-left: 10px;
@@ -5035,6 +5035,35 @@ canvas {
     
     cursor: pointer;
 
+
+    
+  }
+
+  &__popup {
+    position: absolute;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    color: #646464;
+    padding: 15px 30px;
+    font-size: 16px;
+    min-height: 100px;
+    
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    p {
+      width: 100%;
+      word-wrap: normal;
+      margin-bottom: 15px;
+      &:last-child {
+        margin-bottom: 0;
+      }  
+    }
   }
 
   &__account {
