@@ -26,4 +26,4 @@ if($('#smartphone').length){bodymovin.loadAnimation({container:document.getEleme
 if($('#system').length){bodymovin.loadAnimation({container:document.getElementById('system'),renderer:'svg',loop:true,autoplay:true,path:'/assets/arrows.json'});}
 if($('.icosahedron').length){var labels=$('.icosahedron').data('labels');var icosahedron=new Icosahedron({container:document.querySelector(".icosahedron"),radius:100,vertexLabels:getVertexLabels(labels)});icosahedron.show(1e3);}
 if($('.table').length){Table.init();}
-initMap();});
+$('.sertificates__item').featherlight({type:'image'});initMap();});

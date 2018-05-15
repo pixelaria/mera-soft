@@ -674,6 +674,8 @@ $(function (){
     Table.init();
   }
 
+  //$('.sertificates__item').featherlight({type: 'image'});
+
   initMap();
 
   
