@@ -553,12 +553,15 @@ $(function (){
   
   
 
-  $('.slider ul').lightSlider({
+  var reviews = $('.slider--reviews ul').lightSlider({
     item:6,
     loop:true,
+    infinite:true,
     slideMove:2,
     easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
     speed:600,
+    controls:false,
+    pager:false,
     responsive : [
       {
         breakpoint:1200,
@@ -584,6 +587,14 @@ $(function (){
     ]
   });   
   
+  $('.slider--reviews .slider__arrow--prev').on('click', function(e) {
+      reviews.goToPrevSlide();
+  });
+
+  $('.slider--reviews .slider__arrow--next').on('click', function(e) {
+      reviews.goToNextSlide();
+  });
+
   $('.table__cell:nth-child(1)').addClass('table__cell--active');
 
   $('.scroll-to-target').click(function(e) {
@@ -599,6 +610,10 @@ $(function (){
   $('.navbar-toggler').click(function(e){
     var target = $(this).data('target');
     $('#'+target).toggleClass('nav--active');
+  });
+
+  $('.language').click(function(e){
+    $(this).toggleClass('language--active');
   });
   
   if ($('#gears').length) {
