@@ -85,22 +85,65 @@ function initMap() {
   });
 }
 
-function getVertexLabels(labels) {
+function getVertexLabels(labels,language) {
   console.log(labels);
+  
   var checklist = ["Кафе", "Рестораны", "Пиццерии", "Отели", "Фитнес-клубы", "Частные клиники", "Аквапарки", "Торговые сети", "Клиники", "Такси", "Кинотеатры", "Банки"];
   var rack = ["Продукты питания","Косметика","Парфюмерия","Медикаменты","Одежда","Обувь","Мебель","Электроника","Книги, газеты","Строительство","Бытовые товары","Текстиль"];
   var portal = ["Сеть ресторанов", "Сеть быстрого питания", "Пиццерии", "Кофейни", "Сети АЗС", "Аптечные сети", "Сети магазинов", "Фитнес-клуб","Спортивные сети", "Винные сети", "Продуктовые сети", "Продажа электроники"];
-        
+  
+  var checklist_en = ["Cafes", "Restaurants", "Pizzerias", "Hotels", "Fitness clubs", "Частные клиники", "Water parks", "Retail networks", "Клиники", "Taxis", "Clinics", "Banks"];
+  var rack_en = ["Grocery","Cosmetics","Perfumery","Medical supplies","Clothes","Footwear","Furniture","Electronics","Books and newspapers","Construction","Consumer goods","Textile"];
+  var portal_en = ["Restaurant networks", "Fast food networks", "Pizzerias", "Coffee-shops", "Petrol station networks", "Pharmacy networks", "Retail networks", "Fitness clubs","Sport goods networks", "Wine shops networks", "Grocery shops networks", "Electronics stores networks"];
+
+  var checklist_de = ["Cafés", "Restaurants", "Pizzerias", "Hotels", "Fitnessstudios", "Частные клиники", "Spaßbäder", "Handelsketten", "Kliniken", "Taxi", "Kinos", "Banken"];
+  var rack_de = ["Nahrungsmitel","Kosmetik","Parfümerie","Medikamenten","Kleidung","Schuhwaren","Möbel","Elektronik","Bücher, Zeitungen","Baubetrieb","Haushaltswaren","Textilien"];
+  var portal_de = ["Restaurantkette", "Fast-Food-Kette", "Пиццерии", "Kaffeehäuser", "Tankstellenkette", "Apothekennkette", "Handelskette", "Fitnessstudio","Sportketten", "Weinhandelskette", "Lebensmittelkette", "Elektronikverkauf"];
+
+
   var result = [];
   switch (labels) {
     case 'checklist':
-      result=checklist;
+      switch (language) {
+        case 'en':
+          result=checklist_en;
+        break;
+        case 'de':
+          result=checklist_de;
+        break;
+        case 'ru':
+        default:
+          result=checklist;
+        break;
+      }
     break;
     case 'rack':
-      result=rack;
+       switch (language) {
+        case 'en':
+          result=rack_en;
+        break;
+        case 'de':
+          result=rack_de;
+        break;
+        case 'ru':
+        default:
+          result=rack;
+        break;
+      }
     break;
     case 'portal':
-      result=portal;
+      switch (language) {
+        case 'en':
+          result=portal_en;
+        break;
+        case 'de':
+          result=portal_de;
+        break;
+        case 'ru':
+        default:
+          result=portal;
+        break;
+      }
     break;
   }
   return result;
@@ -612,9 +655,7 @@ $(function (){
     $('#'+target).toggleClass('nav--active');
   });
 
-  $('.language').click(function(e){
-    $(this).toggleClass('language--active');
-  });
+  
   
   if ($('#gears').length) {
     bodymovin.loadAnimation({
@@ -678,10 +719,14 @@ $(function (){
 
   if ($('.icosahedron').length) {
     var labels = $('.icosahedron').data('labels');
+
+    var current_language = document.cookie.match(new RegExp("(?:^|; )current_language=([^;]*)"));
+    current_language = current_language ? decodeURIComponent(current_language[1]) : undefined;
+
     var icosahedron = new Icosahedron({
       container: document.querySelector(".icosahedron"),
       radius: 100,
-      vertexLabels: getVertexLabels(labels)
+      vertexLabels: getVertexLabels(labels,current_language)
     });
     icosahedron.show(1e3);  
   }
