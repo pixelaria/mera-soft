@@ -1750,6 +1750,10 @@ ul {
         padding-top: 50px;
       }
     }
+
+    .radioblock {
+      max-width: 320px;
+    }
     @media @tablet {
       padding-top: 80px;
     }
@@ -2198,7 +2202,7 @@ ul {
     color: #646464;
     font-size: 14px;
     font-weight: 400;
-    line-height: 36px;
+    line-height: 28px;
 
     cursor: pointer;
     
@@ -2672,6 +2676,18 @@ ul {
     background-size: contain;
     background-repeat: no-repeat;
     z-index: 1;
+  }
+  
+  &--en {
+    &:before {
+      background-image: url('../img/cycle_center_en.png');
+    }
+  }
+
+  &--de {
+    &:before {
+      background-image: url('../img/cycle_center_de.png');
+    }
   }
 
   @media @mobiles {
@@ -3347,6 +3363,7 @@ ul {
   &__info {
     width: 400px;
     min-width: 400px;
+    margin-right: 15px;
     @media @tablet {
       width: 550px;
       min-width: 550px;
@@ -3355,6 +3372,7 @@ ul {
       width: 100%;
       min-width: 100%;
       margin-bottom: 15px;
+      margin-right: 0;
     }
   }
 
@@ -3401,7 +3419,8 @@ ul {
     font-size: 16px; 
     position: absolute;
     right: 0;
-    top: 0;
+    top: -30px;
+    z-index: 1;
     color:#fa8072;
   }
 }

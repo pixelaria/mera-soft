@@ -92,11 +92,11 @@ function getVertexLabels(labels,language) {
   var rack = ["Продукты питания","Косметика","Парфюмерия","Медикаменты","Одежда","Обувь","Мебель","Электроника","Книги, газеты","Строительство","Бытовые товары","Текстиль"];
   var portal = ["Сеть ресторанов", "Сеть быстрого питания", "Пиццерии", "Кофейни", "Сети АЗС", "Аптечные сети", "Сети магазинов", "Фитнес-клуб","Спортивные сети", "Винные сети", "Продуктовые сети", "Продажа электроники"];
   
-  var checklist_en = ["Cafes", "Restaurants", "Pizzerias", "Hotels", "Fitness clubs", "Частные клиники", "Water parks", "Retail networks", "Клиники", "Taxis", "Clinics", "Banks"];
+  var checklist_en = ["Cafes", "Restaurants", "Pizzerias", "Hotels", "Fitness clubs", "Private clinics", "Water parks", "Retail networks", "Клиники", "Taxis", "Clinics", "Banks"];
   var rack_en = ["Grocery","Cosmetics","Perfumery","Medical supplies","Clothes","Footwear","Furniture","Electronics","Books and newspapers","Construction","Consumer goods","Textile"];
   var portal_en = ["Restaurant networks", "Fast food networks", "Pizzerias", "Coffee-shops", "Petrol station networks", "Pharmacy networks", "Retail networks", "Fitness clubs","Sport goods networks", "Wine shops networks", "Grocery shops networks", "Electronics stores networks"];
 
-  var checklist_de = ["Cafés", "Restaurants", "Pizzerias", "Hotels", "Fitnessstudios", "Частные клиники", "Spaßbäder", "Handelsketten", "Kliniken", "Taxi", "Kinos", "Banken"];
+  var checklist_de = ["Cafés", "Restaurants", "Pizzerias", "Hotels", "Fitnessstudios", "Privatkliniken", "Spaßbäder", "Handelsketten", "Kliniken", "Taxi", "Kinos", "Banken"];
   var rack_de = ["Nahrungsmitel","Kosmetik","Parfümerie","Medikamenten","Kleidung","Schuhwaren","Möbel","Elektronik","Bücher, Zeitungen","Baubetrieb","Haushaltswaren","Textilien"];
   var portal_de = ["Restaurantkette", "Fast-Food-Kette", "Пиццерии", "Kaffeehäuser", "Tankstellenkette", "Apothekennkette", "Handelskette", "Fitnessstudio","Sportketten", "Weinhandelskette", "Lebensmittelkette", "Elektronikverkauf"];
 
@@ -332,7 +332,10 @@ var Table = {
   its: 45000,
   base: 28600,
   _its:0,
-  
+  language: 'ru',
+  month: 'мес.',
+  ruble: 'руб.',
+
   //variables
   _rent_user:5, //количество пользователей по умолчанию 5
   _license_user:5, 
@@ -344,7 +347,8 @@ var Table = {
   _rent_per_user:0,
   _license_per_user:0,
 
-  periods:['1 мес.', '3 мес.', '12 мес.'],
+  periods:['1', '3', '12'],
+  
   users:[0,5,10,20,30,50,100,150],
 
   rents:[
@@ -377,6 +381,15 @@ var Table = {
     Table.rent_per_user = $('#rent_per_user');
     Table.license_per_user = $('#license_per_user');
     Table.license_its = $('#license_its');
+
+    var current_language = document.cookie.match(new RegExp("(?:^|; )current_language=([^;]*)"));
+    Table.language = current_language ? decodeURIComponent(current_language[1]) : 'ru';
+
+    if (Table.language!='ru') {
+      Table.month = 'mon.';
+      Table.ruble = 'rub.';
+    }
+    Table.rent_period_visible.val(Table.periods[1]+' '+Table.month);
 
     $('.spinner__input').on('keydown', function(e){
       console.log('spinner input keydown');
@@ -451,7 +464,7 @@ var Table = {
       console.log('rent_period');
       var val = parseInt($(this).val());
       Table._rent_period = val;
-      Table.rent_period_visible.val(Table.periods[val]);
+      Table.rent_period_visible.val(Table.periods[val]+' '+Table.month);
       Table.calc_rent();
     });
 
@@ -508,8 +521,8 @@ var Table = {
     }
 
     Table._rent_per_user = Table.rents[rent_index][Table._rent_period];
-    Table.rent_per_user.html(Table._rent_per_user+' руб./мес.');
-    Table.rent_total.html((Table._rent_per_user*Table._rent_user)+' руб./мес.');
+    Table.rent_per_user.html(Table._rent_per_user+' '+Table.ruble+'/'+Table.month);
+    Table.rent_total.html((Table._rent_per_user*Table._rent_user)+' '+Table.ruble+'/'+Table.month);
   },
   
   calc_license:function(){
@@ -525,8 +538,8 @@ var Table = {
 
     Table._license_per_user = (Table._license_total / Table._license_user).toFixed();
      
-    Table.license_total.html('от '+Table._license_total+' руб.');
-    Table.license_per_user.html('от '+Table._license_per_user+' руб.');
+    Table.license_total.html('от '+Table._license_total+' '+Table.ruble);
+    Table.license_per_user.html('от '+Table._license_per_user+' '+Table.ruble);
   }
 
 };
