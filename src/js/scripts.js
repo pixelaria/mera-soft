@@ -92,9 +92,9 @@ function getVertexLabels(labels,language) {
   var rack = ["Продукты питания","Косметика","Парфюмерия","Медикаменты","Одежда","Обувь","Мебель","Электроника","Книги, газеты","Строительство","Бытовые товары","Текстиль"];
   var portal = ["Сеть ресторанов", "Сеть быстрого питания", "Пиццерии", "Кофейни", "Сети АЗС", "Аптечные сети", "Сети магазинов", "Фитнес-клуб","Спортивные сети", "Винные сети", "Продуктовые сети", "Продажа электроники"];
   
-  var checklist_en = ["Cafes", "Restaurants", "Pizzerias", "Hotels", "Fitness clubs", "Private clinics", "Water parks", "Retail networks", "Клиники", "Taxis", "Clinics", "Banks"];
+  var checklist_en = ["Cafes", "Restaurants", "Pizzerias", "Hotels", "Fitness clubs", "Private clinics", "Water parks", "Retail networks", "Clinics", "Taxis", "Cinemas", "Banks"];
   var rack_en = ["Grocery","Cosmetics","Perfumery","Medical supplies","Clothes","Footwear","Furniture","Electronics","Books and newspapers","Construction","Consumer goods","Textile"];
-  var portal_en = ["Restaurant networks", "Fast food networks", "Pizzerias", "Coffee-shops", "Petrol station networks", "Pharmacy networks", "Retail networks", "Fitness clubs","Sport goods networks", "Wine shops networks", "Grocery shops networks", "Electronics stores networks"];
+  var portal_en = ["Restaurant chain", "Fast-food chain", "Pizzerias", "Coffee-shops", "Network of petrol stations", "Pharmacy chain", "Retail chain", "Fitness clubs","Sport goods chain", "Wine shops chain", "Grocery shops chain", "Chain of electronics stores"];
 
   var checklist_de = ["Cafés", "Restaurants", "Pizzerias", "Hotels", "Fitnessstudios", "Privatkliniken", "Spaßbäder", "Handelsketten", "Kliniken", "Taxi", "Kinos", "Banken"];
   var rack_de = ["Nahrungsmitel","Kosmetik","Parfümerie","Medikamenten","Kleidung","Schuhwaren","Möbel","Elektronik","Bücher, Zeitungen","Baubetrieb","Haushaltswaren","Textilien"];
