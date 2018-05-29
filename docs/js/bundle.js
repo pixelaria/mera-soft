@@ -30,4 +30,4 @@ if($('#smartphone').length){bodymovin.loadAnimation({container:document.getEleme
 if($('#system').length){bodymovin.loadAnimation({container:document.getElementById('system'),renderer:'svg',loop:true,autoplay:true,path:'/assets/arrows.json'});}
 if($('.icosahedron').length){var labels=$('.icosahedron').data('labels');var current_language=document.cookie.match(new RegExp("(?:^|; )current_language=([^;]*)"));current_language=current_language?decodeURIComponent(current_language[1]):undefined;var icosahedron=new Icosahedron({container:document.querySelector(".icosahedron"),radius:100,vertexLabels:getVertexLabels(labels,current_language)});icosahedron.show(1e3);}
 if($('.table').length){Table.init();}
-initMap();});
+initMap();var test=0;let test2=100;});

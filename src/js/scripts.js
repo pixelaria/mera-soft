@@ -751,5 +751,8 @@ $(function (){
 
   initMap();
 
+
+  var test = 0;
+  let test2 = 100;
   
 });
