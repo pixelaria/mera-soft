@@ -1138,7 +1138,7 @@ ul {
 
     &--control {
       @media @mobiles {
-        width: 250px;
+        width: 300px;
       }
       &:before {
         background-image: url('../img/logo-control.png');
@@ -1162,6 +1162,25 @@ ul {
       text-align: center;
       padding-left: 0;
       margin-bottom: 0;
+    }
+
+    &--novelty {
+      position: relative;
+      display: inline-block;
+      &:after {
+        content: 'Новика';
+        position: absolute;
+        right: -50px;
+        top: -30px;
+        color: #ffffff;
+        font-size: 13px;
+        font-weight: 400;
+        border-radius: 8px;
+        border: 1px solid #ffffff;
+        padding: 0 15px;
+        height: 25px;
+        line-height: 25px;
+      }      
     }
 
     @media @mobiles {
@@ -5383,21 +5402,52 @@ canvas {
   }
 }
 
-.control-gadget {
-  &--phones {
-    position: absolute;
-    left: 0;
-    top: -50px;
+.control-gadgets {
+    
+  @media @mobiles {
+    display: none;
   }
   &--tablet {
-    position: absolute;
-    left: -50px;
-    top: -50px; 
+    padding-right:30px;
+  }
+
+  &__item {
+    width: 400px;
+    @media @desktop {
+      width: 300px;
+    }
+    @media @tablet {
+      width: 250px;
+    }
+    &--phone-1 {
+      top: 50px;
+      left: -135px;
+      position: absolute;
+      transform: rotateZ(80deg);
+      z-index: 2;
+      @media @desktop {
+        left: -50px;
+      }
+      @media @tablet {
+        left: 0;
+      }
+    }
+    &--phone-2 {
+      left: 50px;
+      top: 175px;
+      position: absolute;
+      transform: rotateZ(110deg);
+      z-index: 1;
+    }
+    &--tablet {
+      width: 100% !important;
+      transform: rotateZ(-5deg);
+    }
   }
 }
 
 .control-messages {
-  width: 350px;
+  width: 380px;
   height: 350px;
   position: absolute;
   right: 0;
@@ -5408,6 +5458,10 @@ canvas {
   background-repeat: no-repeat;
   background-position: center;
   background-image: url('../img/control-messages.png');
+
+  @media @mobiles {
+    display: none;
+  }
 }
 .contacts {
   list-style: none;
