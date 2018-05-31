@@ -91,17 +91,17 @@ function getVertexLabels(labels,language) {
   var checklist = ["Кафе", "Рестораны", "Пиццерии", "Отели", "Фитнес-клубы", "Частные клиники", "Аквапарки", "Торговые сети", "Клиники", "Такси", "Кинотеатры", "Банки"];
   var rack = ["Продукты питания","Косметика","Парфюмерия","Медикаменты","Одежда","Обувь","Мебель","Электроника","Книги, газеты","Строительство","Бытовые товары","Текстиль"];
   var portal = ["Сеть ресторанов", "Сеть быстрого питания", "Пиццерии", "Кофейни", "Сети АЗС", "Аптечные сети", "Сети магазинов", "Фитнес-клуб","Спортивные сети", "Винные сети", "Продуктовые сети", "Продажа электроники"];
-  var control = ["Сеть ресторанов", "Сеть быстрого питания", "Пиццерии", "Кофейни", "Сети АЗС", "Аптечные сети", "Сети магазинов", "Фитнес-клуб","Спортивные сети", "Винные сети", "Продуктовые сети", "Продажа электроники"];
+  var control = ["Желдорнадзор", "МЧС", "Ространснадзор", "Россельхознадзор", "Росприроднадзор", "Росприроднадзор"];
   
   var checklist_en = ["Cafes", "Restaurants", "Pizzerias", "Hotels", "Fitness clubs", "Private clinics", "Water parks", "Retail networks", "Clinics", "Taxis", "Cinemas", "Banks"];
   var rack_en = ["Grocery","Cosmetics","Perfumery","Medical supplies","Clothes","Footwear","Furniture","Electronics","Books and newspapers","Construction","Consumer goods","Textile"];
   var portal_en = ["Restaurant chain", "Fast-food chain", "Pizzerias", "Coffee-shops", "Network of petrol stations", "Pharmacy chain", "Retail chain", "Fitness clubs","Sport goods chain", "Wine shops chain", "Grocery shops chain", "Chain of electronics stores"];
-  var control_en = ["Restaurant chain", "Fast-food chain", "Pizzerias", "Coffee-shops", "Network of petrol stations", "Pharmacy chain", "Retail chain", "Fitness clubs","Sport goods chain", "Wine shops chain", "Grocery shops chain", "Chain of electronics stores"];
+  var control_en = ["Желдорнадзор", "МЧС", "Ространснадзор", "Россельхознадзор", "Росприроднадзор", "Росприроднадзор"];
 
   var checklist_de = ["Cafés", "Restaurants", "Pizzerias", "Hotels", "Fitnessstudios", "Privatkliniken", "Spaßbäder", "Handelsketten", "Kliniken", "Taxi", "Kinos", "Banken"];
   var rack_de = ["Nahrungsmitel","Kosmetik","Parfümerie","Medikamenten","Kleidung","Schuhwaren","Möbel","Elektronik","Bücher, Zeitungen","Baubetrieb","Haushaltswaren","Textilien"];
   var portal_de = ["Restaurantkette", "Fast-Food-Kette", "Пиццерии", "Kaffeehäuser", "Tankstellenkette", "Apothekennkette", "Handelskette", "Fitnessstudio","Sportketten", "Weinhandelskette", "Lebensmittelkette", "Elektronikverkauf"];
-  var control_de = ["Restaurantkette", "Fast-Food-Kette", "Пиццерии", "Kaffeehäuser", "Tankstellenkette", "Apothekennkette", "Handelskette", "Fitnessstudio","Sportketten", "Weinhandelskette", "Lebensmittelkette", "Elektronikverkauf"];
+  var control_de = ["Желдорнадзор", "МЧС", "Ространснадзор", "Россельхознадзор", "Росприроднадзор", "Росприроднадзор"];
 
 
   var result = [];
@@ -225,17 +225,29 @@ Icosahedron.prototype = {
 
     t.vertices = [];
     for(var e = 0; e < t.geometry.vertices.length; e++) {
+      console.log(t.vertexLabels[e]);
       var i = document.createElement("div");
-      i.classList.add("icosahedron__marker"), i.classList.add("initially-hidden");
       var n = document.createElement("div");
-      n.classList.add("icosahedron__container");
       var r = document.createElement("div");
-      r.classList.add("icosahedron__label"), r.innerHTML = t.vertexLabels[e], n.appendChild(r), i.appendChild(n), t.container.appendChild(i), t.vertices.push({
+      
+      if (t.vertexLabels[e]!=undefined) {
+        i.classList.add("icosahedron__marker");
+        i.classList.add("initially-hidden");
+        n.classList.add("icosahedron__container");
+        r.classList.add("icosahedron__label");
+        r.innerHTML = t.vertexLabels[e];
+      }
+      
+      n.appendChild(r);
+      i.appendChild(n);
+      t.container.appendChild(i);
+
+      t.vertices.push({
         marker: i,
         labelContainer: n,
         label: r,
         z: -1
-      })
+      });
     }
   },
   onDragStart: function(t) {

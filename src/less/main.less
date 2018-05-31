@@ -1168,7 +1168,7 @@ ul {
       position: relative;
       display: inline-block;
       &:after {
-        content: 'Новика';
+        content: 'Новинка';
         position: absolute;
         right: -50px;
         top: -30px;
@@ -4601,9 +4601,12 @@ canvas {
     display: block;
   }
 
+  @media @tablet {
+    flex-wrap: wrap;
+  }
   &__item {
     display: block;
-    width: ~'calc(33.33% - 15px)';
+    width: ~'calc(25% - 20px)';
     max-width: 350px;
     padding: 30px;
     box-shadow: 0 10px 16px rgba(227, 231, 235, 0.5), 0 0 4px rgba(0, 0, 0, 0.1);
@@ -4628,6 +4631,9 @@ canvas {
       transform: scale(1.05);
     }
     &:nth-child(3):hover {
+      transform: scale(1.05);
+    }
+    &:nth-child(4):hover {
       transform: scale(1.05) rotateZ(-1deg);
     }
     
@@ -4648,7 +4654,8 @@ canvas {
       padding: 30px 20px;
       //margin-right: 30px;
       
-
+      width: ~'calc(50% - 15px)';
+      margin-bottom: 30px;
       &:last-child {
         margin-right: 0;
       }
@@ -4656,13 +4663,16 @@ canvas {
   }
 
   &__title {
+    display: flex;
+    align-items: center;
+    height: 40px;
     position: relative;
     color: #6e6e6e;
     font-size: 24px;
     font-weight: 600;
     margin-bottom: 20px;
     padding-left: 60px;
-    line-height: 40px;
+    line-height: 24px;
     transition:  color 0.6s ease;
     
     &:hover {
@@ -4693,6 +4703,11 @@ canvas {
 
     &--portal:before {
       background-image: url('../img/logo-portal.png');
+    }
+
+    &--control:before {
+      background-image: url('../img/logo-control.png');
+      background-position: 8px 8px;
     }
   }
 
