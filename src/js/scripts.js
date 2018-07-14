@@ -635,7 +635,7 @@ $(function (){
     { xparallax: '30px', yparallax: '30px' }
   );
   
-  var reviews = $('.slider--big ul').lightSlider({
+  var reviews_big = $('.slider--big ul').lightSlider({
     item:1,
     loop:true,
     infinite:true,
@@ -643,8 +643,17 @@ $(function (){
     easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
     speed:600,
     controls:true,
-    pager:true
+    pager:false,
+    adaptiveHeight:true
   });  
+
+  $('.slider--big .slider__arrow--prev').on('click', function(e) {
+      reviews_big.goToPrevSlide();
+  });
+
+  $('.slider--big .slider__arrow--next').on('click', function(e) {
+      reviews_big.goToNextSlide();
+  });
 
 
   var reviews = $('.slider--reviews ul').lightSlider({
