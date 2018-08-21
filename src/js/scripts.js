@@ -30,9 +30,13 @@ $.fn.jqmEx = function(){
   $(this).each(function(){
     var _this = $(this);
     var name = _this.data('name');
+    var lang = _this.data('language');
 
     if(name.length){
       var script = '/bitrix/components/pixelaria/form/ajax/form.php';
+      if (lang && lang != 'ru')
+        script = '/'+lang+script;
+      
       var paramsStr = ''; var trigger = ''; var arTriggerAttrs = {};
       
       $.each(_this.get(0).attributes, function(index, attr){
