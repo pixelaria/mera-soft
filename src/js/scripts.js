@@ -371,11 +371,15 @@ var Table = {
 
   //variables
   _rent_user:5, //количество пользователей по умолчанию 5
+  _rent_p_user:5, //аренда профи
+  
   _license_user:5, 
   _rent_mobile:5,
   _license_mobile:0,
   _rent_period:1, //период по умолчанию 3 месяца
+  _rent_p_period:1, //период по умолчанию 3 месяца
   _rent_total:0,
+  _rent_p_total:0,
   _license_total:0,
   _rent_per_user:0,
   _license_per_user:0,
@@ -401,16 +405,23 @@ var Table = {
     Table = this; 
 
     Table.rent_user = $('#rent_user');
+    Table.rent_p_user = $('#rent_p_user');
     Table.license_user = $('#license_user');
     Table.license_user_visible = $('#license_user_visible');
     Table.rent_mobile = $('#rent_mobile');
+    Table.rent_p_mobile = $('#rent_p_mobile');
+
     Table.license_mobile = $('#license_mobile');
     Table.license_mobile_visible = $('#license_mobile_visible');
     Table.rent_period = $('#rent_period');
     Table.rent_period_visible = $('#rent_period_visible');
+    Table.rent_p_period = $('#rent_period');
+    Table.rent_p_period_visible = $('#rent_period_visible');
     Table.rent_total = $('#rent_total');
+    Table.rent_p_total = $('#rent_p_total');
     Table.license_total = $('#license_total');
     Table.rent_per_user = $('#rent_per_user');
+    Table.rent_p_per_user = $('#rent_p_per_user');
     Table.license_per_user = $('#license_per_user');
     Table.license_its = $('#license_its');
 
@@ -492,12 +503,29 @@ var Table = {
       Table.calc_rent();
     });
 
+    Table.rent_p_user.change(function(e){
+      var val = parseInt($(this).val());
+      Table._rent_p_user = val;
+      Table._rent_p_mobile = val;
+      Table.rent_p_mobile.html(val);
+
+      Table.calc_rent_p();
+    });
+
     Table.rent_period.change(function(e){
       console.log('rent_period');
       var val = parseInt($(this).val());
       Table._rent_period = val;
       Table.rent_period_visible.val(Table.periods[val]+' '+Table.month);
       Table.calc_rent();
+    });
+
+    Table.rent_p_period.change(function(e){
+      console.log('rent_p_period');
+      var val = parseInt($(this).val());
+      Table._rent_p_period = val;
+      Table.rent_p_period_visible.val(Table.periods[val]+' '+Table.month);
+      Table.calc_rent_p();
     });
 
     Table.license_user.change(function(e){
@@ -540,7 +568,8 @@ var Table = {
     Table.calc_license();
     Table.calc_rent();
   },
-  calc_rent:function(){
+  
+  calc_rent:function() {
     var rent_index = 0;
     if (Table._rent_user < 10) {
       rent_index=0;
@@ -557,6 +586,23 @@ var Table = {
     Table.rent_total.html((Table._rent_per_user*Table._rent_user)+' '+Table.ruble+'/'+Table.month);
   },
   
+  calc_rent_p:function() {
+    var rent_p_index = 0;
+    if (Table._rent_p_user < 10) {
+      rent_p_index=0;
+    } else if (Table._rent_p_user < 50) {
+      rent_p_index=1;
+    } else if (Table._rent_p_user < 100) {
+      rent_p_index=2;
+    } else if (Table._rent_p_user < 200) {
+      rent_p_index=3;
+    }
+
+    Table._rent_p_per_user = Table.rents[rent_p_index][Table._rent_period];
+    Table.rent_p_per_user.html(Table._rent_p_per_user+' '+Table.ruble+'/'+Table.month);
+    Table.rent_p_total.html((Table._rent_p_per_user*Table._rent_p_user)+' '+Table.ruble+'/'+Table.month);
+  },
+
   calc_license:function(){
     console.log('calc_license');
     Table._license_total = Table.base + 

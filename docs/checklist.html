@@ -306,6 +306,9 @@
                   Аренда
                 </div>
                 <div class="table__cell">
+                  Аренда Проф
+                </div>
+                <div class="table__cell">
                   Лицензия
                 </div>
               </div>
@@ -314,12 +317,19 @@
           <div class="table__body">
             <div class="table__row">
               <div class="row__title">
-                <div class="table__cell">Общее количество пользователей</div>
+                <div class="table__cell">Количество пользователей Центральной базы</div>
               </div>
               <div class="row__body">
                 <div class="table__cell">
                   <div class="spinner">
                     <input id="rent_user" class="spinner__input spinner__input--main" value="5" type="text">
+                    <span class="spinner__button spinner__button--down">-</span>
+                    <span class="spinner__button spinner__button--up">+</span>
+                  </div>
+                </div>
+                <div class="table__cell">
+                  <div class="spinner">
+                    <input id="rent_p_user" class="spinner__input spinner__input--main" value="5" type="text">
                     <span class="spinner__button spinner__button--down">-</span>
                     <span class="spinner__button spinner__button--up">+</span>
                   </div>
@@ -336,11 +346,45 @@
             </div>
             <div class="table__row">
               <div class="row__title">
-                <div class="table__cell">В том числе кол-во пользователей моб. устройств</div>
+                <div class="table__cell">Кол-во пользователей мобильного приложения</div>
+              </div>
+              <div class="row__body">
+                <div class="table__cell">
+                  <div class="spinner">
+                    <input id="rent_mobile" class="spinner__input spinner__input--main spinner__input--hidden" data-min="0" data-max="10" value="0" type="text">
+                    <input  id="rent_mobile_visible" class="spinner__input" value="0" type="text">
+                    <span class="spinner__button spinner__button--down">-</span>
+                    <span class="spinner__button spinner__button--up">+</span>
+                  </div>
+                </div>
+                <div class="table__cell">
+                  <div class="spinner">
+                    <input id="rent_p_mobile" class="spinner__input spinner__input--main spinner__input--hidden" data-min="0" data-max="10" value="0" type="text">
+                    <input  id="rent_p_mobile_visible" class="spinner__input" value="0" type="text">
+                    <span class="spinner__button spinner__button--down">-</span>
+                    <span class="spinner__button spinner__button--up">+</span>
+                  </div>
+                </div>
+                <div class="table__cell">
+                  <div class="spinner">
+                    <input id="license_mobile" class="spinner__input spinner__input--main spinner__input--hidden" data-min="0" data-max="10" value="0" type="text">
+                    <input  id="license_mobile_visible" class="spinner__input" value="0" type="text">
+                    <span class="spinner__button spinner__button--down">-</span>
+                    <span class="spinner__button spinner__button--up">+</span>
+                  </div>                  
+                </div>
+              </div>
+            </div>
+            <div class="table__row">
+              <div class="row__title">
+                <div class="table__cell">Кол-во пользователей web-сервиса Портал</div>
               </div>
               <div class="row__body">
                 <div class="table__cell table__cell--gray">
-                  <span id="rent_mobile">5</span>
+                  <span id="rent_portal">-</span>
+                </div>
+                <div class="table__cell table__cell--gray">
+                  <span id="rent_p_portal">5</span>
                 </div>
                 <div class="table__cell">
                   <div class="spinner">
@@ -365,6 +409,14 @@
                     <span class="spinner__button spinner__button--up">+</span>
                   </div>
                 </div>
+                <div class="table__cell">
+                  <div class="spinner spinner--period">
+                    <input id="rent_period" class="spinner__input spinner__input--main spinner__input--hidden" data-min="0" data-max="2" value="0" type="text">
+                    <input id="rent_period_visible" class="spinner__input" value="3 мес." type="text">
+                    <span class="spinner__button spinner__button--down">-</span>
+                    <span class="spinner__button spinner__button--up">+</span>
+                  </div>
+                </div>
                 <div class="table__cell table__cell--gray">единоразовая оплата</div>
               </div>
             </div>
@@ -373,6 +425,7 @@
                 <div class="table__cell">ИТС ТЕХНО НА 12 месяцев</div>
               </div>
               <div class="row__body">
+                <div class="table__cell">включено</div>
                 <div class="table__cell">включено</div>
                 <div class="table__cell">
                   45 000 р.
@@ -393,6 +446,9 @@
                   <span id="rent_total">5 650 р/мес</span>
                 </div>
                 <div class="table__cell">
+                  <span id="rent_p_total">5 650 р/мес</span>
+                </div>
+                <div class="table__cell">
                   <span id="license_total">108 310 р</span>
                 </div>
               </div>
@@ -406,6 +462,9 @@
                   <span id="rent_per_user">1 120 р/мес</span>
                 </div>
                 <div class="table__cell table__cell--bold">
+                  <span id="rent_p_per_user">1 120 р/мес</span>
+                </div>
+                <div class="table__cell table__cell--bold">
                   <span id="license_per_user">21 662 р</span>
                 </div>
               </div>
@@ -415,6 +474,7 @@
             <div class="table__row">
               <div class="row__title"><div class="table__cell"></div></div>
               <div class="row__body">
+                <a href="#" class="table__cell table__cell--link">Выбрать</a>
                 <a href="#" class="table__cell table__cell--link">Выбрать</a>
                 <a href="#" class="table__cell table__cell--link">Выбрать</a>
               </div>
