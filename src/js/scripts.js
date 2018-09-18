@@ -648,7 +648,7 @@ $(function (){
     speed:600,
     controls:true,
     pager:false,
-    adaptiveHeight:true
+    adaptiveHeight:false
   });  
 
   $('.slider--big .slider__arrow--prev').on('click', function(e) {

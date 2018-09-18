@@ -3184,6 +3184,9 @@ ul {
     width: 70%;
     min-width: 70%;
 
+    font-size: 14px;
+    line-height: 28px;
+
     @media @tablet {
       width: 60%;
       min-width: 60%;
@@ -3195,15 +3198,14 @@ ul {
     }
   }
   &__logo {
-    padding: 15px;
+    margin-bottom: 30px;
+
     @media @mobiles {
-      
       max-width: 100px;
-      
     }
   }
   &__about {
-    margin-bottom: 30px;
+    margin-bottom: auto;
     @media @mobiles {
       width: ~'calc(100% - 100px)';
       min-width: ~'calc(100% - 100px)';
@@ -3219,7 +3221,7 @@ ul {
   
   
   &__text {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 
   &__info {
@@ -5026,6 +5028,42 @@ canvas {
 
 .slider--big .lSSlideOuter .lSPager.lSpg > li.active a,.slider--big .lSSlideOuter .lSPager.lSpg > li:hover a {
   background-color:#ffffff;
+}
+
+.slider--big .lightSlider {
+    display: flex;
+}
+
+.slider--big .lSAction {
+  display: none !important;
+}
+
+.slider--big {
+  .slider__arrow {
+    position: relative;
+    background-image: none;
+    margin:0;
+    &:before {
+      position: absolute;
+      content: '';
+      border: 30px solid transparent;
+      border-left: 30px solid #f8f8f8;
+      z-index: 1;
+      left: 0;
+      top: -22px;
+    }
+    &:after {
+      position: absolute;
+      content: '';
+      width: 15px;
+      height: 15px;
+      background-image: url(../img/arrow.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      z-index: 2;
+      right: -5px;
+    }
+  }
 }
 
 .popup {
