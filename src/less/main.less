@@ -4038,6 +4038,10 @@ canvas {
     width: 40%;
     cursor: pointer;
     
+    @media @mobiles {
+      width: 50%;
+    }
+
     .table__cell {
       text-align: left !important;
       justify-content: left;
@@ -4072,8 +4076,9 @@ canvas {
     align-content: stretch;
     
     border-bottom: 1px solid  #e6e6e6;
-
+  
     @media @mobiles {
+      width: 50%;
       .table__cell {
         position: absolute;
         right: -100%;

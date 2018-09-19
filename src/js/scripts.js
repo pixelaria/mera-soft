@@ -390,6 +390,7 @@ var Table = {
   _license_per_user:0,
 
   periods:['1', '3', '12'],
+  types:['Аренда', 'Проф.', 'Лицензия'],
   
   //rent
   t_rent:[
@@ -424,19 +425,15 @@ var Table = {
     Table.rent_user = $('#rent_user');
     Table.rent_p_user = $('#rent_p_user');
     Table.license_user = $('#license_user');
-    Table.license_user_visible = $('#license_user_visible');
     
     //rent_mobile
     Table.rent_mobile = $('#rent_mobile');
-    Table.rent_mobile_visible = $('#rent_mobile_visible');
     
     //rent_p_mobile
     Table.rent_p_mobile = $('#rent_p_mobile');
-    Table.rent_p_mobile_visible = $('#rent_p_mobile_visible');
     
     //license_mobile
     Table.license_mobile = $('#license_mobile');
-    Table.license_mobile_visible = $('#license_mobile_visible');
     
     Table.license_portal = $('#license_portal');
     Table.rent_period = $('#rent_period');
@@ -476,16 +473,17 @@ var Table = {
       return false;
     });
 
-    $('.table__switcher .spinner__button').click(function(e){
-      if ($(this).hasClass('spinner__button--active')) {
-        var target = $(this).siblings('.spinner__input');
-        var value = $(this).data('value');
-        target.val(value);
-        $('.row__body .table__cell').toggleClass('table__cell--active');
-        $('.table__switcher .spinner__button').toggleClass('spinner__button--active');
-      }
-      return false;
+    $('#table__switcher').change(function(e){
+      console.log('table__switcher change');
+      var val = parseInt($(this).val());
+      $('#table__switcher_visible').val(Table.types[val]);
+
+      $('.row__body .table__cell').removeClass('table__cell--active');
+      $('.row__body .table__cell:nth-child('+(val+1)+')').addClass('table__cell--active');
+      console.log(val);
+
     });
+    
 
     $('.spinner__button').click(function(e){
       console.log('spinner button click');
@@ -497,11 +495,14 @@ var Table = {
       if (target.data('max') != undefined) max = parseInt(target.data('max'));
       
       var val;
-      
+      var current = parseInt(target.val());
+
       if ($(this).hasClass('spinner__button--up')) {
-        val=parseInt(target.val()) + change;
+        if (current < 6 && (current+1)!=6) change = 1;
+        val=parseInt(current) + change;
       } else {
-        val=parseInt(target.val()) - change;
+        if (current < 6) change = 1;
+        val=parseInt(current) - change;
       }
       
       if (val<min) val=min;
@@ -531,15 +532,9 @@ var Table = {
 
     Table.rent_mobile.change(function(e){
       var val = parseInt($(this).val());
-      console.log('rent_mobile_main: '+val);
       
       Table._rent_mobile = val;
       
-      Table.rent_mobile_visible.val(Table._rent_mobile);
-
-      console.log("rent_user: "+Table._rent_user);
-      console.log("rent_mobile: "+Table._rent_mobile);
-
       Table.calc_rent();
     });
 
@@ -553,15 +548,7 @@ var Table = {
 
     Table.rent_p_mobile.change(function(e){
       var val = parseInt($(this).val());
-      console.log('rent_p_mobile_main: '+val);
-      
       Table._rent_p_mobile = val;
-      
-      Table.rent_p_mobile_visible.val(Table._rent_p_mobile);
-
-      console.log("_rent_p_user: "+Table._rent_p_user);
-      console.log("_rent_p_mobile: "+Table._rent_p_mobile);
-
       Table.calc_rent_p();
     });
 
@@ -592,20 +579,13 @@ var Table = {
 
     Table.license_user.change(function(e){
       var val = parseInt($(this).val());
-      
       Table._license_user = val;
-      Table.license_user_visible.val(val);
-
       Table.calc_license();
     }); 
 
     Table.license_mobile.change(function(e){
       var val = parseInt($(this).val());
-      console.log('license_mobile_main: '+val);
-      
       Table._license_mobile = val;
-      Table.license_mobile_visible.val(Table._license_mobile);
-
       Table.calc_license();
     });
 
