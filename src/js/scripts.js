@@ -371,13 +371,18 @@ var Table = {
 
   //variables
   _rent_user:10, //количество пользователей по умолчанию 5
-  _rent_p_user:10, //аренда профи
-  _license_user:10, 
   _rent_mobile:10,
+
+  _rent_p_user:10, //аренда профи
   _rent_p_mobile:10,
+  _rent_p_portal:10,
+
+  _license_user:10, 
+  _license_portal:10, 
   _license_mobile:10,
-  _rent_period:1, //период по умолчанию 3 месяца
-  _rent_p_period:1, //период по умолчанию 3 месяца
+  
+  _rent_period:0, //период по умолчанию 3 месяца
+  _rent_p_period:0, //период по умолчанию 3 месяца
   _rent_total:0,
   _rent_p_total:0,
   _license_total:0,
@@ -405,7 +410,7 @@ var Table = {
     [450,450,420,390,350,0]
   ],  
  
-  sale: [0,5,7.5,10], //sales
+  sales: [0,5,7.5,10], //sales
 
   //counters_1: {5:30600,10:61200,20:117500,30:178700,50:281000,100:540000,150:775000,200:1033200,250:1291500,300:1549800},
   //counters_2: {0:0,5:4110,10:7880,20:14860,30:22740,50:33660,100:68570,150:104230,200:139000,250:173750,300:208500},
@@ -433,14 +438,13 @@ var Table = {
     Table.license_mobile = $('#license_mobile');
     Table.license_mobile_visible = $('#license_mobile_visible');
     
+    Table.license_portal = $('#license_portal');
     Table.rent_period = $('#rent_period');
     Table.rent_period_visible = $('#rent_period_visible');
     
-
     Table.rent_p_portal = $('#rent_p_portal');
-    
-    Table.rent_p_period = $('#rent_period');
-    Table.rent_p_period_visible = $('#rent_period_visible');
+    Table.rent_p_period = $('#rent_p_period');
+    Table.rent_p_period_visible = $('#rent_p_period_visible');
     Table.rent_total = $('#rent_total');
     Table.rent_p_total = $('#rent_p_total');
     Table.license_total = $('#license_total');
@@ -592,16 +596,6 @@ var Table = {
       Table._license_user = val;
       Table.license_user_visible.val(val);
 
-      console.log("license_mobile: "+Table._license_mobile);
-      
-      /*
-      if (Table._license_user<Table._license_mobile) {
-        Table._license_mobile = Table._license_user;
-        Table.license_mobile.val(Table._license_user);
-        Table.license_mobile_visible.val(Table._license_mobile);
-      }
-      */
-
       Table.calc_license();
     }); 
 
@@ -610,30 +604,36 @@ var Table = {
       console.log('license_mobile_main: '+val);
       
       Table._license_mobile = val;
-      
-      if (Table._license_mobile>Table._license_user) {
-        Table._license_mobile = Table._license_user;
-        $(this).val(Table._license_user);
-      }
-
       Table.license_mobile_visible.val(Table._license_mobile);
-
-      console.log("license_user: "+Table._license_user);
-      console.log("license_mobile: "+Table._license_mobile);
 
       Table.calc_license();
     });
 
-    Table.calc_license();
+
+    Table.license_portal.change(function(e){
+      var val = parseInt($(this).val());
+
+      console.log('license_portal changed: '+ val);
+
+      Table._license_portal = val;
+      Table.calc_license();
+    });
+
+    
     Table.calc_rent();
+    Table.calc_rent_p();
+    Table.calc_license();
   },
+
+
   
   /*
   t_rent:[
     [1400, 1400, 1200, 1000,   0, 0],
     [700,   700,  650,  600, 500, 0],
-  ],
+    ],
   */
+
   calc_rent: function() {
     var rent_index = Table.get_index(Table._rent_user), 
         rent_mobile_index = Table.get_index(Table._rent_mobile);
@@ -641,10 +641,12 @@ var Table = {
         console.log(rent_mobile_index);
     Table._rent_total = Table.t_rent[0][rent_index]*Table._rent_user + Table.t_rent[1][rent_mobile_index]*Table._rent_mobile;
 
-
-    if (Table._rent_total>0)
+    var sale = Table.sales[Table._rent_period];
+    
+    if (Table._rent_total>0) {
+      Table._rent_total = Table._rent_total - Table._rent_total*sale/100;
       Table._rent_per_user = (Table._rent_total/(Table._rent_user+Table._rent_mobile)).toFixed();
-    else 
+    } else 
       Table._rent_per_user = 0;
 
     Table.rent_per_user.html(Table._rent_per_user+' '+Table.ruble+'/'+Table.month);
@@ -660,9 +662,11 @@ var Table = {
                           Table.t_rent_p[1][rent_p_mobile_index]*Table._rent_p_mobile +
                           Table.t_rent_p[2][rent_p_portal_index]*Table._rent_p_portal;
     
-    if (Table._rent_p_total>0)
+    var sale = Table.sales[Table._rent_p_period];
+    if (Table._rent_p_total>0) {
+      Table._rent_p_total = Table._rent_p_total - Table._rent_p_total*sale/100;
       Table._rent_p_per_user = (Table._rent_p_total/(Table._rent_p_user+Table._rent_p_mobile)).toFixed();
-    else 
+    } else 
       Table._rent_p_per_user = 0;
     
     Table.rent_p_per_user.html(Table._rent_p_per_user+' '+Table.ruble+'/'+Table.month);
@@ -675,13 +679,23 @@ var Table = {
   calc_license:function(){
     console.log('calc_license');
     Table._license_total = Table.base;
-                           //Table.counters_1[Table._license_user]+
-                           //Table.counters_2[Table._license_mobile];
     
     if (Table._its) {
       Table._license_total += 45000;
     } 
 
+    var license_index = Table.get_index(Table._license_user),
+        license_mobile_index = Table.get_index(Table._license_mobile),
+        license_portal_index = Table.get_index(Table._license_portal);
+
+    Table._license_total += Table.t_license[0][license_index]*Table._license_user + 
+                            Table.t_license[1][license_mobile_index]*Table._license_mobile +
+                            Table.t_license[2][license_portal_index]*Table._license_portal;
+    
+    console.log(license_index); 
+    console.log(license_mobile_index); 
+    console.log(license_portal_index); 
+    console.log(Table._license_total); 
 
     Table._license_per_user = (Table._license_total / Table._license_user).toFixed();
      
