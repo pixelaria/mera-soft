@@ -679,7 +679,7 @@ var Table = {
 
 
   calc_license:function(){
-    console.log('calc_license');
+    
     Table._license_total = Table.base;
     
     if (Table._its) {
@@ -700,7 +700,7 @@ var Table = {
       
       console.log(license_index); 
       console.log(license_mobile_index); 
-      console.log(license_portal_index); f
+      console.log(license_portal_index); 
       console.log(Table._license_total); 
 
       Table._license_per_user = (Table._license_total /(Table._license_user+Table._license_mobile+Table._license_portal)).toFixed();
