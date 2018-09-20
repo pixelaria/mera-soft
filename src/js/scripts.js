@@ -389,7 +389,7 @@ var Table = {
   _rent_per_user:0,
   _license_per_user:0,
 
-  periods:['1', '3', '12'],
+  periods:['1', '3', '6', '12'],
   types:['Аренда', 'Проф.', 'Лицензия'],
   
   //rent
@@ -567,6 +567,16 @@ var Table = {
       Table._rent_period = val;
       Table.rent_period_visible.val(Table.periods[val]+' '+Table.month);
       Table.calc_rent();
+
+      var info = $(this).siblings('.spinner__info');
+      
+      if (val) {
+        info.html('скидка '+Table.sales[val]+'%');
+        info.show();
+      } else {
+        info.hide();
+      }
+      
     });
 
     Table.rent_p_period.change(function(e){
