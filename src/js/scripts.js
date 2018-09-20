@@ -488,7 +488,7 @@ var Table = {
     $('.spinner__button').click(function(e){
       console.log('spinner button click');
       var target = $(this).siblings('.spinner__input--main');
-      var change = 1,min = 0,max=200;
+      var change = 1,min = 0,max=9999;
 
       if (target.data('change') != undefined) change = parseInt(target.data('change'));
       if (target.data('min') != undefined) min = parseInt(target.data('min'));
@@ -627,20 +627,26 @@ var Table = {
   calc_rent: function() {
     var rent_index = Table.get_index(Table._rent_user), 
         rent_mobile_index = Table.get_index(Table._rent_mobile);
-        console.log(rent_index);
-        console.log(rent_mobile_index);
-    Table._rent_total = Table.t_rent[0][rent_index]*Table._rent_user + Table.t_rent[1][rent_mobile_index]*Table._rent_mobile;
 
-    var sale = Table.sales[Table._rent_period];
+    if (rent_index>3 || rent_mobile_index>4) {
+      Table.rent_per_user.html('Договорная');
+      Table.rent_total.html('Договорная');
+    } else {
+      Table._rent_total = Table.t_rent[0][rent_index]*Table._rent_user + 
+                        Table.t_rent[1][rent_mobile_index]*Table._rent_mobile;
+
+      var sale = Table.sales[Table._rent_period];
+      
+      if (Table._rent_total>0) {
+        Table._rent_total = Table._rent_total - Table._rent_total*sale/100;
+        Table._rent_per_user = (Table._rent_total/(Table._rent_user+Table._rent_mobile)).toFixed();
+      } else 
+        Table._rent_per_user = 0;
+
+      Table.rent_per_user.html(Table._rent_per_user+' '+Table.ruble+'/'+Table.month);
+      Table.rent_total.html((Table._rent_total)+' '+Table.ruble+'/'+Table.month);  
+    }
     
-    if (Table._rent_total>0) {
-      Table._rent_total = Table._rent_total - Table._rent_total*sale/100;
-      Table._rent_per_user = (Table._rent_total/(Table._rent_user+Table._rent_mobile)).toFixed();
-    } else 
-      Table._rent_per_user = 0;
-
-    Table.rent_per_user.html(Table._rent_per_user+' '+Table.ruble+'/'+Table.month);
-    Table.rent_total.html((Table._rent_total)+' '+Table.ruble+'/'+Table.month);
   },
   
   calc_rent_p: function() {
@@ -648,19 +654,25 @@ var Table = {
         rent_p_mobile_index = Table.get_index(Table._rent_p_mobile),
         rent_p_portal_index = Table.get_index(Table._rent_p_portal);
 
-    Table._rent_p_total = Table.t_rent_p[0][rent_p_index]*Table._rent_p_user + 
-                          Table.t_rent_p[1][rent_p_mobile_index]*Table._rent_p_mobile +
-                          Table.t_rent_p[2][rent_p_portal_index]*Table._rent_p_portal;
-    
-    var sale = Table.sales[Table._rent_p_period];
-    if (Table._rent_p_total>0) {
-      Table._rent_p_total = Table._rent_p_total - Table._rent_p_total*sale/100;
-      Table._rent_p_per_user = (Table._rent_p_total/(Table._rent_p_user+Table._rent_p_mobile)).toFixed();
-    } else 
-      Table._rent_p_per_user = 0;
-    
-    Table.rent_p_per_user.html(Table._rent_p_per_user+' '+Table.ruble+'/'+Table.month);
-    Table.rent_p_total.html((Table._rent_p_total)+' '+Table.ruble+'/'+Table.month);
+    if (rent_p_index>3 || rent_p_mobile_index>4 || rent_p_portal_index>4) {
+      Table.rent_p_per_user.html('Договорная');
+      Table.rent_p_total.html('Договорная');
+    } else {
+      Table._rent_p_total = Table.t_rent_p[0][rent_p_index]*Table._rent_p_user + 
+                            Table.t_rent_p[1][rent_p_mobile_index]*Table._rent_p_mobile +
+                            Table.t_rent_p[2][rent_p_portal_index]*Table._rent_p_portal;
+      
+
+      var sale = Table.sales[Table._rent_p_period];
+      if (Table._rent_p_total>0) {
+        Table._rent_p_total = Table._rent_p_total - Table._rent_p_total*sale/100;
+        Table._rent_p_per_user = (Table._rent_p_total/(Table._rent_p_user+Table._rent_p_mobile+Table._rent_p_portal)).toFixed();
+      } else 
+        Table._rent_p_per_user = 0;
+      
+      Table.rent_p_per_user.html(Table._rent_p_per_user+' '+Table.ruble+'/'+Table.month);
+      Table.rent_p_total.html((Table._rent_p_total)+' '+Table.ruble+'/'+Table.month);
+    }
     
   },
 
@@ -678,19 +690,24 @@ var Table = {
         license_mobile_index = Table.get_index(Table._license_mobile),
         license_portal_index = Table.get_index(Table._license_portal);
 
-    Table._license_total += Table.t_license[0][license_index]*Table._license_user + 
-                            Table.t_license[1][license_mobile_index]*Table._license_mobile +
-                            Table.t_license[2][license_portal_index]*Table._license_portal;
-    
-    console.log(license_index); 
-    console.log(license_mobile_index); 
-    console.log(license_portal_index); 
-    console.log(Table._license_total); 
+    if (license_index>4 || license_mobile_index>4 || license_portal_index>4) {
+      Table.license_total.html('Договорная');
+      Table.license_per_user.html('Договорная');
+    } else {
+      Table._license_total += Table.t_license[0][license_index]*Table._license_user + 
+                              Table.t_license[1][license_mobile_index]*Table._license_mobile +
+                              Table.t_license[2][license_portal_index]*Table._license_portal;
+      
+      console.log(license_index); 
+      console.log(license_mobile_index); 
+      console.log(license_portal_index); f
+      console.log(Table._license_total); 
 
-    Table._license_per_user = (Table._license_total / Table._license_user).toFixed();
-     
-    Table.license_total.html('от '+Table._license_total+' '+Table.ruble);
-    Table.license_per_user.html('от '+Table._license_per_user+' '+Table.ruble);
+      Table._license_per_user = (Table._license_total /(Table._license_user+Table._license_mobile+Table._license_portal)).toFixed();
+       
+      Table.license_total.html('от '+Table._license_total+' '+Table.ruble);
+      Table.license_per_user.html('от '+Table._license_per_user+' '+Table.ruble);
+    }
   },
 
   get_index:function(value){
@@ -703,9 +720,12 @@ var Table = {
       index=2;
     } else if (value < 101) {
       index=3;
-    } else {
+    } else if (value < 201){
       index=4;
+    } else {
+      index=5;
     }
+    console.log('index:'+index);
 
     return index;
   }
