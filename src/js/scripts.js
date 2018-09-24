@@ -378,7 +378,6 @@ var Table = {
   _rent_p_portal:10,
 
   _license_user:10, 
-  _license_portal:10, 
   _license_mobile:10,
   
   _rent_period:0, //период по умолчанию 3 месяца
@@ -435,7 +434,7 @@ var Table = {
     //license_mobile
     Table.license_mobile = $('#license_mobile');
     
-    Table.license_portal = $('#license_portal');
+    
     Table.rent_period = $('#rent_period');
     Table.rent_period_visible = $('#rent_period_visible');
     
@@ -585,6 +584,15 @@ var Table = {
       Table._rent_p_period = val;
       Table.rent_p_period_visible.val(Table.periods[val]+' '+Table.month);
       Table.calc_rent_p();
+
+      var info = $(this).siblings('.spinner__info');
+      
+      if (val) {
+        info.html('скидка '+Table.sales[val]+'%');
+        info.show();
+      } else {
+        info.hide();
+      }
     });
 
     Table.license_user.change(function(e){
@@ -600,16 +608,6 @@ var Table = {
     });
 
 
-    Table.license_portal.change(function(e){
-      var val = parseInt($(this).val());
-
-      console.log('license_portal changed: '+ val);
-
-      Table._license_portal = val;
-      Table.calc_license();
-    });
-
-    
     Table.calc_rent();
     Table.calc_rent_p();
     Table.calc_license();
@@ -687,23 +685,17 @@ var Table = {
     } 
 
     var license_index = Table.get_index(Table._license_user),
-        license_mobile_index = Table.get_index(Table._license_mobile),
-        license_portal_index = Table.get_index(Table._license_portal);
+        license_mobile_index = Table.get_index(Table._license_mobile);
 
-    if (license_index>4 || license_mobile_index>4 || license_portal_index>4) {
+    if (license_index>4 || license_mobile_index>4) {
       Table.license_total.html('Договорная');
       Table.license_per_user.html('Договорная');
     } else {
       Table._license_total += Table.t_license[0][license_index]*Table._license_user + 
-                              Table.t_license[1][license_mobile_index]*Table._license_mobile +
-                              Table.t_license[2][license_portal_index]*Table._license_portal;
+                              Table.t_license[1][license_mobile_index]*Table._license_mobile;                              
       
-      console.log(license_index); 
-      console.log(license_mobile_index); 
-      console.log(license_portal_index); 
-      console.log(Table._license_total); 
-
-      Table._license_per_user = (Table._license_total /(Table._license_user+Table._license_mobile+Table._license_portal)).toFixed();
+      
+      Table._license_per_user = (Table._license_total /(Table._license_user+Table._license_mobile)).toFixed();
        
       Table.license_total.html('от '+Table._license_total+' '+Table.ruble);
       Table.license_per_user.html('от '+Table._license_per_user+' '+Table.ruble);
