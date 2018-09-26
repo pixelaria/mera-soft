@@ -421,6 +421,9 @@ var Table = {
     console.log('table.init');
     Table = this; 
 
+    Table.base = parseInt($('#px_base').val());
+    Table.its = parseInt($('#px_its').val());
+
     Table.rent_user = $('#rent_user');
     Table.rent_p_user = $('#rent_p_user');
     Table.license_user = $('#license_user');
