@@ -361,9 +361,64 @@ Icosahedron.prototype = {
   }
 };
 
+
+        
+  var Tariffs = {
+    px_base: 28600,
+    px_its: 45000,
+
+    px_rent_base: [1400,
+                   1400,
+                   1200,
+                   1000,0,0],
+    
+    px_rent_mob: [700,
+                  700,
+                  650,
+                  600,
+                  500,0],
+
+    px_rent_p_base: [1000,
+                     1000,
+                     800,
+                     700,0,0],
+    
+    px_rent_p_mob: [700,
+                    700,
+                    650,
+                    600,
+                    500,0],
+    
+    px_rent_p_portal: [450,
+                       450,
+                       420,
+                       390,
+                       350,0],
+
+    px_license_base: [6500,
+                      6120,
+                      5875,
+                      5620,
+                      5400,0],
+
+    px_license_mob:  [7700,
+                      6120,
+                      5875,
+                      5620,
+                      5400],
+
+    
+    sales: [0,
+            5,
+            7.5,
+            10]
+  };
+      
+      
 var Table = {
-  its: 45000,
-  base: 28600,
+
+  its: Tariffs.px_its,
+  base: Tariffs.px_base,
   _its:0,
   language: 'ru',
   month: 'мес.',
@@ -393,31 +448,33 @@ var Table = {
   
   //rent
   t_rent:[
-    [1400, 1400, 1200, 1000,   0, 0],
-    [700,   700,  650,  600, 500, 0],
+    Tariffs.px_rent_base,
+    Tariffs.px_rent_mob
   ],
   //rent_p
 
   t_rent_p:[
-    [1000,1000,800,700,0,0],
-    [700,700,650,600,500,0],
-    [450,450,420,390,350,0]
+    Tariffs.px_rent_p_base,
+    Tariffs.px_rent_p_mob,
+    Tariffs.px_rent_p_portal
   ],
 
   t_license:[
+    Tariffs.px_license_base,
+    Tariffs.px_license_mob,
+    Tariffs.px_license_portal,
     [6500,6120,5875,5620,5400,0],
     [7700,6908,6618,6333,6086,0],
     [450,450,420,390,350,0]
   ],  
  
-  sales: [0,5,7.5,10], //sales
+  sales: Tariffs.sales, //[0,5,7.5,10], //sales
 
-  //counters_1: {5:30600,10:61200,20:117500,30:178700,50:281000,100:540000,150:775000,200:1033200,250:1291500,300:1549800},
-  //counters_2: {0:0,5:4110,10:7880,20:14860,30:22740,50:33660,100:68570,150:104230,200:139000,250:173750,300:208500},
-  
   result: 0,
 
   init: function() {
+
+    console.log(Table.its);
     console.log('table.init');
     Table = this; 
 
