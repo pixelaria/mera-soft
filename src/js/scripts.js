@@ -370,8 +370,8 @@ $(function (){
   if ($('.table').length) {   
     var Table = {
 
-      its: window.Tariffs.px_its,
-      base: window.Tariffs.px_base,
+      its: parseInt(window.Tariffs.px_its),
+      base: parseInt(window.Tariffs.px_base),
       _its:0,
       language: 'ru',
       month: 'мес.',
@@ -415,9 +415,6 @@ $(function (){
       t_license:[
         window.Tariffs.px_license_base,
         window.Tariffs.px_license_mob,
-        window.Tariffs.px_license_portal,
-        [6500,6120,5875,5620,5400,0],
-        [7700,6908,6618,6333,6086,0],
         [450,450,420,390,350,0]
       ],  
      
@@ -430,9 +427,6 @@ $(function (){
         console.log(Table.its);
         console.log('table.init');
         Table = this; 
-
-        Table.base = parseInt($('#px_base').val());
-        Table.its = parseInt($('#px_its').val());
 
         Table.rent_user = $('#rent_user');
         Table.rent_p_user = $('#rent_p_user');
@@ -704,9 +698,22 @@ $(function (){
           Table.license_total.html('Договорная');
           Table.license_per_user.html('Договорная');
         } else {
+
+          console.log(license_index);
+          console.log(license_mobile_index);
+          console.log('qweqweqwe');
+          console.log(Table.t_license[0]);
+          console.log(Table.t_license[1]);
+          console.log(Table.t_license[0][license_index]);
+          console.log(Table.t_license[1][license_mobile_index]);
+
+          console.log(Table._license_total);
+
           Table._license_total += Table.t_license[0][license_index]*Table._license_user + 
                                   Table.t_license[1][license_mobile_index]*Table._license_mobile;                              
-          
+        
+          console.log(Table._license_total);          
+          console.log('qweqweqwe');
           
           Table._license_per_user = (Table._license_total /(Table._license_user+Table._license_mobile)).toFixed();
            
