@@ -110,6 +110,8 @@ ul {
   
   transition: all 0.3s ease;
   color:#646464;
+  cursor: pointer;
+  
   &:hover {
     border-color:transparent;
   }
@@ -150,6 +152,12 @@ ul {
     color:#ffffff;
     font-size: 18px;
     font-weight: 400;
+  }
+
+  &--btn {
+    color:#ffffff;
+    font-size: 18px;
+    font-weight: 400; 
   }
 }
 .btn {
@@ -282,41 +290,36 @@ ul {
   &--apple {
     display: inline-block;
     position:relative;
-    padding-left: 38px;
-    &:before {
-      content: '';
-      left: 18px;
-      top: 0;
-      bottom: 0;
-      margin: auto;
-      width: 14px;
-      height: 16px;
-      position: absolute;
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-image: url('../img/icon-apple.png');  
-    }
+    width: 135px;
+    height: 40px;
+    padding: 0;
+    font-size: 0;
+    
+    margin-right: 30px;
+    
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../img/btn-appstore.png');  
+
+    
   }
 
   &--android {
     display: inline-block;
     position:relative;
-    padding-left: 38px;
-    &:before {
-      content: '';
-      left: 18px;
-      top: 0;
-      bottom: 0;
-      margin: auto;
-      width: 15px;
-      height: 15px;
-      position: absolute;
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-image: url('../img/icon-android.png');  
-    }
+    width: 118px;
+    height: 40px;
+    padding: 0;
+    font-size: 0;
+    
+    margin-right: 30px;
+    
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../img/btn-google-play.png');  
+    
   }
 }
 
@@ -1238,6 +1241,9 @@ ul {
   }
 
   &__desc {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     @media @mobiles {
       .btn {
         display: block;
@@ -5845,4 +5851,17 @@ canvas {
   background-position: center;
   background-repeat: no-repeat;
   background-image: url('../img/icon-logout.png');
+}
+
+.demo {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
+  &__btn {
+    margin-right: 0;
+  }
 }

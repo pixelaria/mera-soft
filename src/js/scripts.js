@@ -31,7 +31,8 @@ $.fn.jqmEx = function(){
     var _this = $(this);
     var name = _this.data('name');
     var lang = _this.data('language');
-
+    var title = _this.data('title');
+    
     if(name.length){
       var script = '/bitrix/components/pixelaria/form/ajax/form.php';
       if (lang && lang != 'ru')
@@ -58,19 +59,18 @@ $.fn.jqmEx = function(){
         if(_this.attr('disabled') != 'disabled'){
           $('body').find('.' + name + '_frame[data-trigger="' + encTriggerAttrs + '"]').remove();
           $('body').append('<div class="' + name + '_frame jqmWindow" data-trigger="' + encTriggerAttrs + '"></div>');
-          
           $('.' + name + '_frame[data-trigger="' + encTriggerAttrs + '"]').jqm({
             trigger: trigger, 
             onLoad: function(hash){
               onLoadjqm(hash);
+              if (title && name=='popup') 
+                $('.popup__title').html(title);
             }, 
             onHide: function(hash){
               onHide(hash);
             },
             ajax:script,
           });
-
-
         }
       }
     }
