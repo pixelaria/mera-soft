@@ -300,7 +300,8 @@ ul {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url('../img/btn-appstore.png');  
+    background-image: url('../img/btn-appstore.png');
+    background-color: transparent;
 
     
   }
@@ -319,6 +320,7 @@ ul {
     background-position: center;
     background-repeat: no-repeat;
     background-image: url('../img/btn-google-play.png');  
+    background-color: transparent;
     
   }
 }
@@ -1241,9 +1243,12 @@ ul {
   }
 
   &__desc {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    &--flex {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
     @media @mobiles {
       .btn {
         display: block;
