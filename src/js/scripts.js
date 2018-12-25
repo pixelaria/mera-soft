@@ -388,8 +388,8 @@ $(function (){
       _license_user:10, 
       _license_mobile:10,
       
-      _rent_period:0, //период по умолчанию 3 месяца
-      _rent_p_period:0, //период по умолчанию 3 месяца
+      _rent_period:1, //период по умолчанию 3 месяца
+      _rent_p_period:1, //период по умолчанию 3 месяца
       _rent_total:0,
       _rent_p_total:0,
       _license_total:0,
@@ -463,6 +463,7 @@ $(function (){
           Table.month = 'mon.';
           Table.ruble = 'rub.';
         }
+
         Table.rent_period_visible.val(Table.periods[1]+' '+Table.month);
 
         $('.spinner__input').on('keydown', function(e){
@@ -619,15 +620,6 @@ $(function (){
         Table.calc_rent_p();
         Table.calc_license();
       },
-
-
-      
-      /*
-      t_rent:[
-        [1400, 1400, 1200, 1000,   0, 0],
-        [700,   700,  650,  600, 500, 0],
-        ],
-      */
 
       calc_rent: function() {
         var rent_index = Table.get_index(Table._rent_user), 
