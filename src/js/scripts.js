@@ -360,11 +360,7 @@ Icosahedron.prototype = {
     requestAnimationFrame(i)
   }
 };
-
-
-        
-  
-      
+    
 $(function (){ 
 
   if ($('.table').length) {   
@@ -484,11 +480,9 @@ $(function (){
           console.log('table__switcher change');
           var val = parseInt($(this).val());
           $('#table__switcher_visible').val(Table.types[val]);
-
           $('.row__body .table__cell').removeClass('table__cell--active');
           $('.row__body .table__cell:nth-child('+(val+1)+')').addClass('table__cell--active');
           console.log(val);
-
         });
         
 
@@ -539,9 +533,7 @@ $(function (){
 
         Table.rent_mobile.change(function(e){
           var val = parseInt($(this).val());
-          
           Table._rent_mobile = val;
-          
           Table.calc_rent();
         });
 
@@ -561,9 +553,7 @@ $(function (){
 
         Table.rent_p_portal.change(function(e){
           var val = parseInt($(this).val());
-
           console.log('rent_p_portal changed: '+ val);
-
           Table._rent_p_portal = val;
           Table.calc_rent_p();
         });
@@ -624,33 +614,26 @@ $(function (){
       calc_rent: function() {
         var rent_index = Table.get_index(Table._rent_user), 
             rent_mobile_index = Table.get_index(Table._rent_mobile);
-
         if (rent_index>3 || rent_mobile_index>4) {
           Table.rent_per_user.html('Договорная');
           Table.rent_total.html('Договорная');
         } else {
           Table._rent_total = Table.t_rent[0][rent_index]*Table._rent_user + 
                             Table.t_rent[1][rent_mobile_index]*Table._rent_mobile;
-
           var sale = Table.sales[Table._rent_period];
-          
           if (Table._rent_total>0) {
             Table._rent_total = Table._rent_total - Table._rent_total*sale/100;
             Table._rent_per_user = (Table._rent_total/(Table._rent_user+Table._rent_mobile)).toFixed();
           } else 
             Table._rent_per_user = 0;
-
           Table.rent_per_user.html(Table._rent_per_user+' '+Table.ruble+'/'+Table.month);
           Table.rent_total.html((Table._rent_total)+' '+Table.ruble+'/'+Table.month);  
         }
-        
       },
-      
       calc_rent_p: function() {
         var rent_p_index = Table.get_index(Table._rent_p_user),
             rent_p_mobile_index = Table.get_index(Table._rent_p_mobile),
             rent_p_portal_index = Table.get_index(Table._rent_p_portal);
-
         if (rent_p_index>3 || rent_p_mobile_index>4 || rent_p_portal_index>4) {
           Table.rent_p_per_user.html('Договорная');
           Table.rent_p_total.html('Договорная');
@@ -658,39 +641,27 @@ $(function (){
           Table._rent_p_total = Table.t_rent_p[0][rent_p_index]*Table._rent_p_user + 
                                 Table.t_rent_p[1][rent_p_mobile_index]*Table._rent_p_mobile +
                                 Table.t_rent_p[2][rent_p_portal_index]*Table._rent_p_portal;
-          
-
           var sale = Table.sales[Table._rent_p_period];
           if (Table._rent_p_total>0) {
             Table._rent_p_total = Table._rent_p_total - Table._rent_p_total*sale/100;
             Table._rent_p_per_user = (Table._rent_p_total/(Table._rent_p_user+Table._rent_p_mobile+Table._rent_p_portal)).toFixed();
           } else 
             Table._rent_p_per_user = 0;
-          
           Table.rent_p_per_user.html(Table._rent_p_per_user+' '+Table.ruble+'/'+Table.month);
           Table.rent_p_total.html((Table._rent_p_total)+' '+Table.ruble+'/'+Table.month);
         }
-        
       },
-
-
-
       calc_license:function(){
-        
         Table._license_total = Table.base;
-        
         if (Table._its) {
           Table._license_total += 45000;
         } 
-
         var license_index = Table.get_index(Table._license_user),
             license_mobile_index = Table.get_index(Table._license_mobile);
-
         if (license_index>4 || license_mobile_index>4) {
           Table.license_total.html('Договорная');
           Table.license_per_user.html('Договорная');
         } else {
-
           console.log(license_index);
           console.log(license_mobile_index);
           console.log('qweqweqwe');
@@ -698,7 +669,6 @@ $(function (){
           console.log(Table.t_license[1]);
           console.log(Table.t_license[0][license_index]);
           console.log(Table.t_license[1][license_mobile_index]);
-
           console.log(Table._license_total);
 
           Table._license_total += Table.t_license[0][license_index]*Table._license_user + 
@@ -736,6 +706,42 @@ $(function (){
 
     };
   }
+
+  $('main').append('<div class="scroll-to-top"></div>');
+
+  $(window).scroll(function(){
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 300) {
+        $('.scroll-to-top').fadeIn();
+    } else {
+        $('.s').fadeOut();
+    }
+  });
+
+
+  $('.scroll-to-top').click(function () {
+      $('body,html').animate({
+          scrollTop: 0
+      }, 400);
+      return false;
+  });
+
+
+  var cookie_msg = document.cookie.match(new RegExp("(?:^|; )oamsk-cookie-active=([^;]*)"));
+    cookie_msg = cookie_msg ? decodeURIComponent(cookie_msg[1]) : undefined;
+
+  if(!cookie_msg) {
+    $('.cookie').addClass('cookie--active');
+   
+  }
+
+  $('.cookie__btn').click(function(e){
+    $('.cookie').removeClass('cookie--active');
+    document.cookie = "oamsk-cookie-active=1";
+  });
+
+  
 
   console.log('init');
   $('body').delegate('*[data-event="jqm"]','click', function(e){
@@ -956,13 +962,5 @@ $(function (){
   if ($('.table').length) {
     Table.init();
   }
-
-  //$('.sertificates__item').featherlight({type: 'image'});
-
   initMap();
-
-
-  var test = 0;
-  let test2 = 100;
-  
 });

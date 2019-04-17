@@ -5870,3 +5870,70 @@ canvas {
     margin-right: 0;
   }
 }
+
+
+.scroll-to-top {
+  display:none;
+  position: fixed;
+  
+  right: 50px;
+  bottom: 15%;
+  margin: auto;
+  width: 50px;
+  height: 60px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px 0 rgba(128, 128, 128, 0.3);
+
+  background-image: url('../img/scroll-to-top.png');
+  background-position: center;
+  background-repeat: no-repeat;
+
+
+  cursor: pointer;
+  z-index: 9999;
+
+  @media @mobiles {
+    right: 20px;
+    width: 40px;
+    height: 50px;
+    background-size: 50%;
+  }
+}
+
+.cookie {
+  position:fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  
+  padding: 16px 0;
+
+  z-index: 99;
+  background-color: #48cc74;
+  
+  transition: opacity 0.3s ease;
+
+  opacity: 0;
+  visibility: hidden;
+  
+  &--active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
+  }
+
+  &__text {
+    color:#ffffff;
+    font-size: 14px;
+  } 
+
+  &__btn {
+    width: 200px;
+  }
+}
