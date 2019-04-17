@@ -300,7 +300,7 @@ ul {
       font-size: 12px;
       width: 95px;
 
-      padding-left: 30px;
+      padding-left: 35px;
       z-index: 2;
     }
 
@@ -5187,10 +5187,14 @@ canvas {
 .popup {
   
   background-color: #ffffff;
-
+  position: relative;
+  
   &__header {
     padding: 15px 40px;
     background: linear-gradient(150deg,#4dcd5e 0,#2bc54b 100%);
+
+    display: flex;
+    align-items:center;
 
      @media @mobiles {
       padding: 15px;
@@ -5213,22 +5217,18 @@ canvas {
     padding-right: 15px;
     color:#ffffff;
   
-
+    &--sub {
+      font-size: 16px;
+      line-height: 28px;
+      font-weight: 500;
+      color:#ffffff; 
+    }
+    
     @media @mobiles {
-
       font-size: 18px;
       line-height: 28px;
     }
     
-  }
-
-  &__subtitle {
-    font-size: 16px;
-    line-height: 28px;
-    font-weight: 500;
-    margin-top: 5px;
-    margin-bottom:0;
-    color:#ffffff; 
   }
 
   &__body {

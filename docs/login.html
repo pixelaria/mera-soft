@@ -47,6 +47,26 @@
       </div>
     </div>
   </header>
+  <div class="jqmOverlay" style="height: 100%; width: 100%; position: fixed; left: 0px; top: 0px; z-index: 10000; opacity: 0.5;"></div>
+  <div class="jqmWindow jqm-init" style="display: block;">
+    <div class="popup">
+        <div class="popup__closer closer"><b></b><b></b><b></b><b></b></div>        
+          <div class="popup__header">
+              <p class="popup__title">Обратный звонок</p>
+              <p class="popup__title popup__title--sub"></p>
+          </div>
+          <div class="popup__body">
+            <input class="form__input form__input--hidden-tablet " placeholder="Имя" name="NAME" id="NAME" value="" type="text" style="margin-right:4%">
+            <input class="form__input form__input--required  im--phone" name="PHONE" id="PHONE" placeholder="Телефон" type="text" value="" maxlength="18">
+          <div class="popup__buttons">
+            <button type="submit" class="btn btn--red popup__btn">Отправить</button>
+            <input type="hidden" name="form_submit" value="Отправить">
+            <input type="hidden" name="email77" style="display: none;" value="">
+          </div>
+          <p class="form__text form__text--small">Отправляя данную форму, Вы соглашаетесь с политикой конфиденциальности, размещенной на сайте компании.</p>
+        </div>
+    </div>
+  </div>
   <main class="main">
     <section class="section section--login">
       <div class="container">
