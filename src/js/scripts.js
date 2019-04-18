@@ -963,4 +963,10 @@ $(function (){
     Table.init();
   }
   initMap();
+
+
+  $('.popup__btn').click(function(e){
+    $overlay = $('.popup__overlay');
+    $overlay.toggleClass('popup__overlay--active');
+  });
 });

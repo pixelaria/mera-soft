@@ -163,7 +163,7 @@ ul {
 .btn {
   display: inline-block;
 
-  height: 40px;
+  height: 50px;
   padding: 13px 18px;
   
 
@@ -2557,8 +2557,14 @@ ul {
     line-height: 36px;
     &--small {
       font-size: 14px;
-      line-height: 16px;
+      line-height: 22px;
       margin-top: 15px;
+      text-align: center;
+
+      a {
+        text-decoration: underline;
+        color: #646464;    
+      }
     }
   }
 
@@ -2567,7 +2573,7 @@ ul {
     vertical-align: top;
     margin-bottom: 10px;
     width: 175px;
-    height: 40px;
+    height: 50px;
     box-shadow: inset 0 1px 10px rgba(188, 188, 188, 0.3);
     border-radius: 4px 0 4px 4px;
     border: 1px solid #d8d8d8;
@@ -2576,8 +2582,8 @@ ul {
 
     margin-right: 10px;
     padding:0 15px;
+    font-size: 16px;
 
-    
     @media @not-desktop {
       margin-bottom: 15px;
       width: 49%;
@@ -2589,7 +2595,7 @@ ul {
       height: 90px;
       border-radius: 4px;
       padding: 10px 15px;
-
+      
       @media @not-desktop {
         width: 100%;
       }
@@ -5185,16 +5191,15 @@ canvas {
 }
 
 .popup {
-  
   background-color: #ffffff;
   position: relative;
   
   &__header {
-    padding: 15px 40px;
+    padding: 17px 40px;
     background: linear-gradient(150deg,#4dcd5e 0,#2bc54b 100%);
 
     display: flex;
-    align-items:center;
+    align-items: center;
 
      @media @mobiles {
       padding: 15px;
@@ -5210,9 +5215,13 @@ canvas {
   }
 
   &__title {
-    font-size: 20px;
-    line-height: 25px;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+
+    display: flex;
+    align-items: center;
+
     margin:0;
     padding-right: 15px;
     color:#ffffff;
@@ -5232,7 +5241,8 @@ canvas {
   }
 
   &__body {
-    padding: 15px 40px;
+    padding: 40px 40px 26px 40px;
+    
     @media @mobiles {
       padding: 15px;
     }
@@ -5241,8 +5251,9 @@ canvas {
   &__closer {
     position: absolute;
     right: 40px;
-    top: 25px;
+    top: 22px;
     display: none;
+    float: none;
   }
 
   &__error {
@@ -5293,17 +5304,37 @@ canvas {
       width: 90%;
       margin-bottom: 30px;
     }
+  }
 
+  &__inner {
+    z-index: 1;
+  }
+  
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 0px;
+
+    background-color: #38c852;
+
+    z-index: 2;
+    transition: all 0.3s ease-in-out;
+
+    &--active {
+      height: 100%;
+    }
   }
 }
 
 
 .closer {
-  width:15px;
-  height:15px;
+  width:16px;
+  height:16px;
   display:block;
   float:right;
-  position:relative;
   margin:0;
   padding:0;
   overflow:hidden;
