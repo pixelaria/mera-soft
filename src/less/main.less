@@ -3195,6 +3195,15 @@ ul {
     flex-direction: column-reverse;
   }
 
+  &--part {
+    .big-review__company {
+      justify-content: center;
+    }
+    .big-review__logo {
+      margin-bottom: 0;
+    }
+  }
+
   &__company, &__content {
     display: flex;
     flex-direction: column;
@@ -3285,10 +3294,17 @@ ul {
     
   &__link {
     color: #23c345;
-    font-weight: bold;
+    font-weight: normal;
     text-decoration: none;
+    border-bottom: 1px solid #23c345;
     min-width: 100%;
     width: 100%;
+    transition: border-color 0.3s ease;
+    &:hover {
+      text-decoration: none;
+      border-color:transparent;
+
+    }
     @media @mobiles {
       text-align: right;
     }
