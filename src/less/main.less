@@ -493,7 +493,7 @@ ul {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     align-content: center;
     height: 45px;
     
@@ -564,7 +564,7 @@ ul {
 }
 
 .nav {
-  
+
   @media @not-xl {
     &--top {
       position: absolute;
@@ -678,6 +678,45 @@ ul {
   }
 }
 
+.subnav {
+
+  margin-top: 25px;
+  background-color: rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+
+  .container {
+    padding: 13px 0;
+    overflow: hidden;
+    @media @mobiles {
+      padding: 13px 15px;
+    }
+  }
+
+  &__list {
+    @media @mobiles {
+      overflow-x: scroll;
+      white-space: nowrap;
+    }
+  }
+
+  &__item {
+    display: inline-block;
+    margin-right: 25px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  &__link {
+    display: inline-block;
+    color:#ffffff;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    text-decoration: none;
+  }
+}
 .navbar-toggler {
   border: none;
   width: 40px;
@@ -1059,7 +1098,7 @@ ul {
 
 .page {
   width: 640px;
-  padding-top: 170px;
+  padding-top: 195px;
   padding-bottom: 150px;
 
   &--rack {
@@ -1101,7 +1140,7 @@ ul {
   @media @mobiles {
     width: auto;
     padding-bottom: 100px;
-    padding-top: 100px;
+    padding-top: 165px;
   }
 
   &--account {
@@ -6005,14 +6044,30 @@ canvas {
     flex-direction: row;
     justify-content: space-between;
     align-items:center;
+
+    @media @mobiles {
+
+    }
   }
 
   &__text {
     color:#ffffff;
     font-size: 14px;
+
+    @media @mobiles {
+      font-size: 10px;
+      margin-right: 10px;
+    }
   } 
 
   &__btn {
     width: 200px;
+
+    @media @mobiles {
+      font-size: 10px;
+      width: auto;
+      height: 30px;
+      padding: 5px 15px;
+    }
   }
 }
