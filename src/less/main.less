@@ -4871,12 +4871,44 @@ canvas {
 }
 
 
+.try {
+  
+  @media @not-mobiles {
+    width: ~'calc(25% - 20px)';
+    display: flex;
+    align-items: center;
+  }
+  
+  &__title {
+    position: relative;
+    color: #23c345;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 36px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
 
+    text-align: center;
+
+    @media @desktop {
+      text-align: left;
+    }
+  }
+}
 
 .products {
   display: flex;
   justify-content: space-between;
   
+  &--try {
+    @media @not-desktop {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+    }
+  }
+
   @media @mobiles {
     display: block;
   }
@@ -4884,6 +4916,7 @@ canvas {
   @media @tablet {
     flex-wrap: wrap;
   }
+
   &__item {
     display: block;
     width: ~'calc(25% - 20px)';
@@ -4903,7 +4936,7 @@ canvas {
         color: #23c345;
       }
     }
-
+    
     &:nth-child(1):hover {
       transform: scale(1.05) rotateZ(1deg);
     }
@@ -4917,6 +4950,10 @@ canvas {
       transform: scale(1.05) rotateZ(-1deg);
     }
     
+    &--try:hover {
+        transform: scale(1.05) !important;
+    }
+
     @media @mobiles {
       margin-bottom: 30px;
 
