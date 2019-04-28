@@ -813,7 +813,7 @@ $(function (){
     speed:600,
     controls:true,
     pager:false,
-    adaptiveHeight:false
+    adaptiveHeight:true
   });  
 
   $('.slider--big .slider__arrow--prev').on('click', function(e) {

@@ -661,6 +661,14 @@ ul {
   }
   &--footer {
     position: relative;
+    
+    @media @not-mobiles {
+      display: flex; 
+      flex-direction: column;
+      flex-wrap: wrap;
+      max-height: 90px;
+    }
+
     @media @not-desktop {
       display: block;
       min-width: 280px;
@@ -669,7 +677,7 @@ ul {
       color: #ffffff !important;
       font-size: 16px;
       font-weight: 400;
-      line-height: 21px;
+      line-height: 26px;
     }
 
     @media @mobiles {
@@ -679,6 +687,10 @@ ul {
         margin-bottom: 15px;
       }
     }
+
+    
+      
+    
   }
 }
 
@@ -2822,6 +2834,7 @@ ul {
       text-align: center;
       margin-bottom: 30px;
     }
+
     .list__item {
       position: relative;
       display: inline-block;
