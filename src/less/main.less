@@ -4635,16 +4635,29 @@ canvas {
   }
 }
 
-
+.half {
+  
+  display: flex;
+  
+  &__part {
+    width: 50%;
+    min-width: 50%;
+  }
+}
 .news {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   margin-bottom: 30px;
 
+  &--small {  
+    padding: 30px;
+  }
+
   @media @mobiles {
     display: block;
   }
+  
   &__item {
     position: relative;
     border-radius: 8px;
@@ -4654,6 +4667,10 @@ canvas {
     width: ~'calc(50% - 15px)';
     
     box-shadow: 0 10px 16px rgba(227,231,235,.5),0 0 4px rgba(0,0,0,.1);
+
+    &--small {
+      width: 100%;
+    }
     @media @mobiles {
       width: 100%;
       padding: 30px;
