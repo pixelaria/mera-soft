@@ -963,4 +963,14 @@ $(function (){
     Table.init();
   }
   initMap();
+
+  if ($('.baron').length) {
+    baron({
+        root: '.baron',
+        scroller: '.baron__scroller',
+        bar: '.baron__bar',
+        scrollingCls: '_scrolling',
+        draggingCls: '_dragging'
+    });
+  }
 });
