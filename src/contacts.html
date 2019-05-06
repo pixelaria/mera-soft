@@ -1,0 +1,74 @@
+@@include('_html/_head.html')
+@@include('_html/_header.html')
+<main class="main">
+    <section class="section section--single">
+        <div class="container">
+            <div class="page page--center">
+                <h1 class="page__title page__title--center">Контакты</h1>
+            </div>
+            <div class="contacts-page">
+                <div class="contacts-page__part contacts-page__part--data">
+                    <ul class="contacts-page__list contacts-page-list">
+                        <li class="contacts-page-list__item contacts-page-list__item--map">Москва, ул. Орджоникидзе, д. 11</li>
+                        <li class="contacts-page-list__item contacts-page-list__item--phone">+7 (495) 268-07-49</li>
+                        <li class="contacts-page-list__item contacts-page-list__item--email">checklist@mera-soft.ru</li>
+                        <li class="contacts-page-list__item contacts-page-list__item--clock">пн.–пт. с 9:00 до 19:00, сб. - вс. выходные</li>
+                    </ul>
+                    <div class="contacts-page__params params">
+                        <div class="params__item param">
+                            <div class="param__title">Название:</div>
+                            <div сlass="param_value">ООО «Оптимальные алгоритмы»</div>
+                        </div>
+                        <div class="params__item param">
+                            <div class="param__title">ОГРН:</div>
+                            <div сlass="param_value">5107746041300</div>
+                        </div>
+                        <div class="params__item param">
+                            <div class="param__title">ИНН/КПП:</div>
+                            <div сlass="param_value">7728758949/772501001</div>
+                        </div>
+                        <div class="params__item param">
+                            <div class="param__title">Юр. адрес:</div>
+                            <div сlass="param_value">115419, Москва, Орджоникидзе ул, д. 11,
+                                строение 1А, эт. 4, пом. V, комн. 7, 7Б, 7В
+                            </div>
+                        </div>
+                        <div class="params__item param">
+                            <div class="param__title">Р/С:</div>
+                            <div сlass="param_value">№42102810802520000831
+                                в АО «Альфа-банк», БИК 044525593
+                            </div>
+                        </div>
+                        <div class="params__item param">
+                            <div class="param__title">Кор/c:</div>
+                            <div сlass="param_value">30101810200000000593</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contacts-page__part contacts-page__part--map">
+                    <div id="map" class="map map--contacts"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section section--form">
+        <div class="container">
+            <div class="form form--faq">
+                <div class="form__info">
+                    <p class="form__title">Не нашли нужный ответ?</p>
+                    <p class="form__text">Задайте свой вопрос, мы будем рады ответить на него</p>
+                </div>
+                <div class="form__fields">
+                    <div class="form__textarea">
+                        <textarea name="question" class="form__input form__input--text" placeholder="Текст вопроса"></textarea>
+                    </div>
+                    <div class="form__buttons">
+                        <input type="text" class="form__input form__input--fw" name="name" placeholder="Имя">
+                        <a href="#" class="btn btn--brown form__btn">Отправить</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+@@include('_html/_footer.html')
