@@ -4848,25 +4848,47 @@ canvas {
 }
 
 .half {
-
   display: flex;
+
+  @media @mobiles {
+    display: block;
+  }
 
   &__part {
     position: relative;
     width: 50%;
     min-width: 50%;
 
-    overflow: hidden;
+    @media @mobiles {
+      width: 100%;
+    }
   }
 
   &__scroll {
-    overflow-y: scroll;
-    height: 100%;
+    .baron {
+      height: 580px;
 
-    position: absolute;
+      @media @mobiles {
+        height: 300px;
+      }
 
-    padding-bottom: 25px;
+      @media @tablet {
+        height: 600px;
+      }
+    }
+  }
+}
 
+.baron._simple .baron__bar {
+  background-color: #23c345;
+}
+.baron {
+  &__scroller {
+    padding-right: 50px;
+    margin-right: -25px;
+  }
+  &__track {
+    background-color: darken(#f2f5f8, 10%);
   }
 }
 
@@ -4917,18 +4939,15 @@ canvas {
     }
 
     cursor: pointer;
-
   }
 
   &__img {
     width: 20%;
     min-width: 20%;
 
-
     display: flex;
     align-items: center;
     justify-content: center;
-
 
     background-size: cover;
     background-position: center;
@@ -4939,6 +4958,7 @@ canvas {
 
   &__desc {
     padding-right: 5px;
+    color: #646464;
   }
 
 }

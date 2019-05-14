@@ -962,6 +962,7 @@ $(function (){
   if ($('.table').length) {
     Table.init();
   }
+
   initMap();
 
   if ($('.baron').length) {
@@ -971,6 +972,13 @@ $(function (){
         bar: '.baron__bar',
         scrollingCls: '_scrolling',
         draggingCls: '_dragging'
+    }).controls({
+      // Element to be used as interactive track. Note: it could be different from 'track' param of baron.
+      track: '.baron__track',
+      forward: '.baron__down',
+      backward: '.baron__up'
     });
+
+
   }
 });
