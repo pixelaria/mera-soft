@@ -58,6 +58,28 @@ gulp.task('libs', function() {
       .pipe(gulp.dest('./docs/js/')); // Выгружаем в папку docs/css
 });
 
+
+
+// Сборка и минификация собственного JS для продакшена
+gulp.task('libs-css', function () {
+  return gulp.src('src/libs/css/*.css') // Берем less только с первого уровня
+      .pipe(concat('libs.min.css')) // Собираем их в кучу в новом файле libs.min.css
+      .pipe(cssnano()) // Сжимаем
+      .pipe(gulp.dest('./docs/css')); // Выгружаем в папку docs/css
+});
+
+
+// Сборка и минификация собственного JS для продакшена
+gulp.task('libs-js', function () {
+  return gulp.src('src/libs/js/*.js') // Берем less только с первого уровня
+      .pipe(concat('libs.min.js')) // Собираем их в кучу в новом файле libs.min.css
+      .pipe(jsmin()) // Сжимаем
+      .pipe(gulp.dest('./docs/js/')); // Выгружаем в папку docs/css
+});
+
+
+
+
 // Сборка и минификация собственного JS для продакшена
 gulp.task('js', function () {
   return gulp.src('./src/js//*.js') //собираем все js файлы
