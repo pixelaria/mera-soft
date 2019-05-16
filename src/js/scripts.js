@@ -65,8 +65,10 @@ $.fn.jqmEx = function(){
               onLoadjqm(hash);
               if (title && name=='popup') 
                 $('.popup__title').html(title);
+              $('.'+name + '_frame.jqmWindow').addClass('jqmWindow--active');
             }, 
             onHide: function(hash){
+              $('.'+name + '_frame.jqmWindow').removeClass('jqmWindow--active');
               onHide(hash);
             },
             ajax:script,

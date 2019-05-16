@@ -5889,6 +5889,14 @@ canvas {
 
   width: 380px;
 
+  opacity: 0;
+
+  transition: opacity 0.3s ease-in-out;
+
+  &--active {
+    opacity: 1;
+  }
+  
   @media @mobiles {
     width: 90% !important;
     top: 1% !important;
