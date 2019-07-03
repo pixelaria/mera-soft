@@ -1561,6 +1561,14 @@ ul {
 
 .section {
   position: relative;
+  
+  &__tip {
+    color: #959595;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    margin-bottom: 16px;
+  }
 
   &__desc {
     border-bottom: 1px solid #dbdde5;
@@ -1580,7 +1588,11 @@ ul {
     margin-left: auto;
     margin-right: auto;
   }
+  
+  h3 {
 
+  }
+  
   &__title {
     position: relative;
     color: #23c345;
@@ -2149,6 +2161,10 @@ ul {
   &--gray {
     box-shadow: inset 0 0 20px rgba(180, 180, 180, 0.1);
     background-color: #fcfcfd;
+  }
+
+  &--text {
+    padding: 90px 0;
   }
 
   &--main {
@@ -3716,7 +3732,7 @@ ul {
 
   &__item {
     width: 33%;
-    max-width: 270px;
+    max-width: 290px;
     position: relative;
     color: #ffffff;
     font-size: 18px;
@@ -3906,6 +3922,16 @@ ul {
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 15px;
+    }
+  }
+
+  &--mb {
+    .facts__item {
+      margin-bottom: 32px;
+
+      @media @mobiles {
+        margin-bottom: 16px;
+      }
     }
   }
 }
@@ -6636,9 +6662,11 @@ canvas {
     }
   }
 
+
   &__btn {
     width: 200px;
-
+    height: 35px;
+    padding: 0;
     @media @mobiles {
       font-size: 10px;
       width: auto;
