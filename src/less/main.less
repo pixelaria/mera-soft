@@ -177,7 +177,7 @@ ul {
   display: inline-block;
 
   height: 50px;
-  padding: 13px 18px;
+  padding: 16px 18px;
 
 
   margin-right: 10px;
@@ -1158,6 +1158,14 @@ ul {
   width: 640px;
   padding-top: 195px;
   padding-bottom: 150px;
+
+  &--checklist {
+    padding-top: 175px;
+  }
+  
+  &--pole {
+    width:560px;
+  }
 
   &--rack {
     padding-bottom: 0;
@@ -3777,6 +3785,20 @@ ul {
       background-image: url('../img/icon-star.png');
     }
 
+    &--pole-1:before {
+      background-image: url('../img/icon-tip-pole-1.png');
+      border-radius:0;
+    }
+    &--pole-2:before {
+      background-image: url('../img/icon-tip-pole-2.png');
+      border-radius:0;
+    }
+    
+    &--pole-3:before {
+      background-image: url('../img/icon-tip-pole-3.png');
+      border-radius:0;
+    }
+
     @media @mobiles {
       width: 80%;
       left: 0;
@@ -3811,6 +3833,14 @@ ul {
 
     padding-left: 75px;
 
+    &--nomb {
+      @media @mobiles {
+        display:none;
+      }
+      @media @tablet {
+        display:none;
+      }
+    }
     &:before {
       content: '';
       position: absolute;
