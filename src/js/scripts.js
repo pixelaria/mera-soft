@@ -654,9 +654,7 @@ $(function (){
       },
       calc_license:function(){
         Table._license_total = Table.base;
-        if (Table._its) {
-          Table._license_total += 45000;
-        } 
+       
         var license_index = Table.get_index(Table._license_user),
             license_mobile_index = Table.get_index(Table._license_mobile);
         if (license_index>4 || license_mobile_index>4) {
@@ -674,11 +672,15 @@ $(function (){
 
           Table._license_total += Table.t_license[0][license_index]*Table._license_user + 
                                   Table.t_license[1][license_mobile_index]*Table._license_mobile;                              
-        
+          
+          if (Table._its) {
+            Table._license_total = Table._license_total * 1.25;
+          } 
+
           console.log(Table._license_total);          
           console.log('qweqweqwe');
           
-          Table._license_per_user = (Table._license_total /(Table._license_user+Table._license_mobile)).toFixed();
+          Table._license_per_user = (Table._license_total / (Table._license_user+Table._license_mobile)).toFixed();
            
           Table.license_total.html('от '+Table._license_total+' '+Table.ruble);
           Table.license_per_user.html('от '+Table._license_per_user+' '+Table.ruble);
