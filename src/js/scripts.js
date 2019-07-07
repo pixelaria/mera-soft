@@ -452,6 +452,7 @@ $(function (){
         Table.rent_p_per_user = $('#rent_p_per_user');
         Table.license_per_user = $('#license_per_user');
         Table.license_its = $('#license_its');
+        Table.license_its_text = $('#its_text');
 
         var current_language = document.cookie.match(new RegExp("(?:^|; )current_language=([^;]*)"));
         Table.language = current_language ? decodeURIComponent(current_language[1]) : 'ru';
@@ -673,9 +674,11 @@ $(function (){
           Table._license_total += Table.t_license[0][license_index]*Table._license_user + 
                                   Table.t_license[1][license_mobile_index]*Table._license_mobile;                              
           
+          Table.license_its_text.html(Table._license_total * 0.25);
           if (Table._its) {
             Table._license_total = Table._license_total * 1.25;
           } 
+          
 
           console.log(Table._license_total);          
           console.log('qweqweqwe');
