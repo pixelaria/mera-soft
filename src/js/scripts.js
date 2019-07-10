@@ -451,8 +451,6 @@ $(function (){
         Table.rent_per_user = $('#rent_per_user');
         Table.rent_p_per_user = $('#rent_p_per_user');
         Table.license_per_user = $('#license_per_user');
-        Table.license_its = $('#license_its');
-        Table.license_its_text = $('#its_text');
 
         var current_language = document.cookie.match(new RegExp("(?:^|; )current_language=([^;]*)"));
         Table.language = current_language ? decodeURIComponent(current_language[1]) : 'ru';
@@ -519,12 +517,6 @@ $(function (){
 
         $('.spinner__input').change(function(e){
           console.log('spinner input changed');
-        });
-
-        Table.license_its.on('change', function (e) {
-          console.log('its changed');
-          Table._its = $(this).prop("checked");
-          Table.calc_license();
         });
 
         Table.rent_user.change(function(e){
@@ -674,13 +666,9 @@ $(function (){
           Table._license_total += Table.t_license[0][license_index]*Table._license_user + 
                                   Table.t_license[1][license_mobile_index]*Table._license_mobile;                              
           
-          Table.license_its_text.html(Table._license_total * 0.25);
-          if (Table._its) {
-            Table._license_total = Table._license_total * 1.25;
-          } 
-          
+          Table._license_total = Math.ceil(Table._license_total * 1.25);
 
-          console.log(Table._license_total);          
+          console.log(Table._license_total);
           console.log('qweqweqwe');
           
           Table._license_per_user = (Table._license_total / (Table._license_user+Table._license_mobile)).toFixed();
