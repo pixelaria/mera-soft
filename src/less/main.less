@@ -5884,6 +5884,7 @@ canvas {
 
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 
     @media @mobiles {
       padding: 15px;
@@ -5911,18 +5912,38 @@ canvas {
     padding-right: 15px;
     color: #ffffff;
 
-    &--sub {
-      font-size: 16px;
-      line-height: 28px;
-      font-weight: 500;
-      color: #ffffff;
-    }
-
     @media @mobiles {
       font-size: 18px;
       line-height: 28px;
     }
 
+    &--sub {
+      font-size: 16px;
+      line-height: 28px;
+      font-weight: 500;
+      color: #ffffff;
+
+      @media @mobiles {
+        font-size: 14px;
+        line-height: 16px;
+      }
+    }
+  }
+
+
+  &__subtitle {
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 500;
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+
+    @media @mobiles {
+      font-size: 14px;
+      line-height: 16px;
+    }
   }
 
   &__body {
