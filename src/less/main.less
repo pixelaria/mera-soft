@@ -2867,6 +2867,11 @@ ul {
     &--error {
       border: 1px solid #ff3a4f;
     }
+
+    &--table {
+      display: block;
+      width: 100%;
+    }
   }
 
   &__btn {
@@ -4472,7 +4477,16 @@ canvas {
   background-color: #ffffff;
   overflow: hidden;
 
-  border-top: 1px solid #e6e6e6;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+
+  &__inner {
+    display: none;
+
+    &--active {
+      display: block;
+    }
+  }
   @media @mobiles {
     width: auto;
     margin-left: -20px;
@@ -4491,24 +4505,37 @@ canvas {
 
   &__body {
     position: relative;
+
+    &--big {
+      .table__cell:first-child {
+        width: 75%;
+        min-width: 75%;
+      }
+    }
+    &--parts {
+      @media @not-mobiles {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+  }
+
+  &__body-part {
+    @media @not-mobiles {
+      width: 50%;
+      min-width: 50%;
+    }
+  }
+
+  &__form {
+    padding: 15px;
   }
 
   &__footer {
+    background-color: lighten(#44cb58, 5%);
+
     .table__cell {
       color: #ffffff;
-    }
-
-    .row__title .table__cell {
-      background-color: #3dbd50;
-    }
-
-    .row__body .table__cell {
-      background-color: #44cb58;
-      transition: background-color 0.3s ease;
-
-      &:hover {
-        background-color: lighten(#44cb58, 5%);
-      }
     }
   }
 
@@ -4520,7 +4547,7 @@ canvas {
 
     width: 100%;
     height: 100%;
-    min-height: 51px;
+    min-height: 90px;
     padding: 25px;
     vertical-align: middle;
 
@@ -4529,6 +4556,15 @@ canvas {
     font-weight: 400;
     line-height: 28px;
 
+    border-right: 1px solid #e6e6e6;
+
+    &:first-child {
+      text-align: left;
+      justify-content: flex-start;
+    }
+    &:last-child {
+      border-right: none;
+    }
 
     &--bold {
       font-weight: 600;
@@ -4544,6 +4580,13 @@ canvas {
 
     }
 
+    &--footer {
+      width: auto;
+      padding: 15px;
+      border: none;
+      height: auto;
+    }
+
     @media @tablet {
       padding: 25px 15px;
     }
@@ -4555,13 +4598,14 @@ canvas {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
-    align-items: stretch;
+    align-items: center;
     align-content: stretch;
 
-    font-size: 0;
-
+    //font-size: 0;
+    border-bottom: 1px solid #e6e6e6;
     &--red {
       background-color: #ffe9e4 !important;
+
 
     }
 
@@ -4700,20 +4744,28 @@ canvas {
 }
 
 .table-switcher {
-  display: none;
-
-  @media @mobiles {
-    display: flex;
-  }
+  display: flex;
 
   &__cell {
     width: 50%;
     text-align: center;
     border-right: 1px solid #e6e6e6;
     margin-bottom: 0;
-    padding: 15px 15px 10px 15px;
+    padding: 35px 15px;
     border-bottom: 1px solid #e6e6e6;
-    border-top: 1px solid #e6e6e6;
+    text-transform: uppercase;
+    font-size: 18px;
+    cursor: pointer;
+
+    transition: all 0.3s ease-in-out;
+
+    &:hover, &--active {
+      color: #ffffff;
+      background-color: #4c4c4c;
+    }
+    &:last-child {
+      border-right: none;
+    }
   }
 }
 

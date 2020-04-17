@@ -362,108 +362,47 @@ Icosahedron.prototype = {
   }
 };
     
-$(function (){ 
+$(function (){
 
   if ($('.table').length) {   
     var Table = {
-
-      its: parseInt(window.Tariffs.px_its),
       base: parseInt(window.Tariffs.px_base),
-      _its:0,
+
       language: 'ru',
-      month: 'мес.',
       ruble: 'руб.',
 
       //variables
-      _rent_user:10, //количество пользователей по умолчанию 5
-      _rent_mobile:10,
+      _license_user:5,
+      _license_mobile:5,
+      _license_portal:5,
 
-      _rent_p_user:10, //аренда профи
-      _rent_p_mobile:10,
-      _rent_p_portal:10,
-
-      _license_user:10, 
-      _license_mobile:10,
-      
-      _rent_period:1, //период по умолчанию 3 месяца
-      _rent_p_period:1, //период по умолчанию 3 месяца
-      _rent_total:0,
-      _rent_p_total:0,
       _license_total:0,
-      _rent_per_user:0,
-      _license_per_user:0,
-
-      periods:['1', '3', '6', '12'],
-      types:['Аренда', 'Проф.', 'Лицензия'],
-      
-      //rent
-      t_rent:[
-        window.Tariffs.px_rent_base,
-        window.Tariffs.px_rent_mob
-      ],
-      //rent_p
-
-      t_rent_p:[
-        window.Tariffs.px_rent_p_base,
-        window.Tariffs.px_rent_p_mob,
-        window.Tariffs.px_rent_p_portal
-      ],
 
       t_license:[
-        window.Tariffs.px_license_base,
-        window.Tariffs.px_license_mob,
-        [450,450,420,390,350,0]
+        window.Tariffs.px_license_user,
+        window.Tariffs.px_license_mobile,
+        window.Tariffs.px_license_portal
       ],  
      
-      sales: window.Tariffs.sales, //[0,5,7.5,10], //sales
-
       result: 0,
 
       init: function() {
-
-        console.log(Table.its);
         console.log('table.init');
         Table = this; 
 
-        Table.rent_user = $('#rent_user');
-        Table.rent_p_user = $('#rent_p_user');
         Table.license_user = $('#license_user');
-        
-        //rent_mobile
-        Table.rent_mobile = $('#rent_mobile');
-        
-        //rent_p_mobile
-        Table.rent_p_mobile = $('#rent_p_mobile');
-        
-        //license_mobile
         Table.license_mobile = $('#license_mobile');
-        
-        
-        Table.rent_period = $('#rent_period');
-        Table.rent_period_visible = $('#rent_period_visible');
-        
-        Table.rent_p_portal = $('#rent_p_portal');
-        Table.rent_p_period = $('#rent_p_period');
-        Table.rent_p_period_visible = $('#rent_p_period_visible');
-        Table.rent_total = $('#rent_total');
-        Table.rent_p_total = $('#rent_p_total');
+        Table.license_portal = $('#license_portal');
         Table.license_total = $('#license_total');
-        Table.rent_per_user = $('#rent_per_user');
-        Table.rent_p_per_user = $('#rent_p_per_user');
-        Table.license_per_user = $('#license_per_user');
 
         var current_language = document.cookie.match(new RegExp("(?:^|; )current_language=([^;]*)"));
         Table.language = current_language ? decodeURIComponent(current_language[1]) : 'ru';
 
         if (Table.language!='ru') {
-          Table.month = 'mon.';
           Table.ruble = 'rub.';
         }
 
-        Table.rent_period_visible.val(Table.periods[1]+' '+Table.month);
-
         $('.spinner__input').on('keydown', function(e){
-          console.log('spinner input keydown');
           var val;
           if (e.which == 38) {
             val=parseInt($(this).val()) + 1;
@@ -476,18 +415,12 @@ $(function (){
           return false;
         });
 
-        $('#table__switcher').change(function(e){
-          console.log('table__switcher change');
-          var val = parseInt($(this).val());
-          $('#table__switcher_visible').val(Table.types[val]);
-          $('.row__body .table__cell').removeClass('table__cell--active');
-          $('.row__body .table__cell:nth-child('+(val+1)+')').addClass('table__cell--active');
-          console.log(val);
+        $('.table-switcher__cell').click(function(e){
+          $('.table-switcher__cell').toggleClass('table-switcher__cell--active');
+          $('.table__inner').toggleClass('table__inner--active');
         });
-        
 
         $('.spinner__button').click(function(e){
-          console.log('spinner button click');
           var target = $(this).siblings('.spinner__input--main');
           var change = 1,min = 0,max=9999;
 
@@ -514,80 +447,10 @@ $(function (){
         });
 
 
-
         $('.spinner__input').change(function(e){
-          console.log('spinner input changed');
         });
 
-        Table.rent_user.change(function(e){
-          var val = parseInt($(this).val());
-          Table._rent_user = val;
-          Table.calc_rent();
-        });
-
-        Table.rent_mobile.change(function(e){
-          var val = parseInt($(this).val());
-          Table._rent_mobile = val;
-          Table.calc_rent();
-        });
-
-        
-        Table.rent_p_user.change(function(e){
-          console.log('rent_p_user changed');
-          var val = parseInt($(this).val());
-          Table._rent_p_user = val;
-          Table.calc_rent_p();
-        });
-
-        Table.rent_p_mobile.change(function(e){
-          var val = parseInt($(this).val());
-          Table._rent_p_mobile = val;
-          Table.calc_rent_p();
-        });
-
-        Table.rent_p_portal.change(function(e){
-          var val = parseInt($(this).val());
-          console.log('rent_p_portal changed: '+ val);
-          Table._rent_p_portal = val;
-          Table.calc_rent_p();
-        });
-
-        Table.rent_period.change(function(e){
-          console.log('rent_period');
-          var val = parseInt($(this).val());
-          Table._rent_period = val;
-          Table.rent_period_visible.val(Table.periods[val]+' '+Table.month);
-          Table.calc_rent();
-
-          var info = $(this).siblings('.spinner__info');
-          
-          if (val) {
-            info.html('скидка '+Table.sales[val]+'%');
-            info.show();
-          } else {
-            info.hide();
-          }
-          
-        });
-
-        Table.rent_p_period.change(function(e){
-          console.log('rent_p_period');
-          var val = parseInt($(this).val());
-          Table._rent_p_period = val;
-          Table.rent_p_period_visible.val(Table.periods[val]+' '+Table.month);
-          Table.calc_rent_p();
-
-          var info = $(this).siblings('.spinner__info');
-          
-          if (val) {
-            info.html('скидка '+Table.sales[val]+'%');
-            info.show();
-          } else {
-            info.hide();
-          }
-        });
-
-        Table.license_user.change(function(e){
+       Table.license_user.change(function(e){
           var val = parseInt($(this).val());
           Table._license_user = val;
           Table.calc_license();
@@ -599,82 +462,39 @@ $(function (){
           Table.calc_license();
         });
 
+        Table.license_portal.change(function(e){
+          var val = parseInt($(this).val());
+          Table._license_portal = val;
+          Table.calc_license();
+        });
 
-        Table.calc_rent();
-        Table.calc_rent_p();
         Table.calc_license();
       },
 
-      calc_rent: function() {
-        var rent_index = Table.get_index(Table._rent_user), 
-            rent_mobile_index = Table.get_index(Table._rent_mobile);
-        if (rent_index>3 || rent_mobile_index>4) {
-          Table.rent_per_user.html('Договорная');
-          Table.rent_total.html('Договорная');
-        } else {
-          Table._rent_total = Table.t_rent[0][rent_index]*Table._rent_user + 
-                            Table.t_rent[1][rent_mobile_index]*Table._rent_mobile;
-          var sale = Table.sales[Table._rent_period];
-          if (Table._rent_total>0) {
-            Table._rent_total = Table._rent_total - Table._rent_total*sale/100;
-            Table._rent_per_user = (Table._rent_total/(Table._rent_user+Table._rent_mobile)).toFixed();
-          } else 
-            Table._rent_per_user = 0;
-          Table.rent_per_user.html(Table._rent_per_user+' '+Table.ruble+'/'+Table.month);
-          Table.rent_total.html((Table._rent_total)+' '+Table.ruble+'/'+Table.month);  
-        }
-      },
-      calc_rent_p: function() {
-        var rent_p_index = Table.get_index(Table._rent_p_user),
-            rent_p_mobile_index = Table.get_index(Table._rent_p_mobile),
-            rent_p_portal_index = Table.get_index(Table._rent_p_portal);
-        if (rent_p_index>3 || rent_p_mobile_index>4 || rent_p_portal_index>4) {
-          Table.rent_p_per_user.html('Договорная');
-          Table.rent_p_total.html('Договорная');
-        } else {
-          Table._rent_p_total = Table.t_rent_p[0][rent_p_index]*Table._rent_p_user + 
-                                Table.t_rent_p[1][rent_p_mobile_index]*Table._rent_p_mobile +
-                                Table.t_rent_p[2][rent_p_portal_index]*Table._rent_p_portal;
-          var sale = Table.sales[Table._rent_p_period];
-          if (Table._rent_p_total>0) {
-            Table._rent_p_total = Table._rent_p_total - Table._rent_p_total*sale/100;
-            Table._rent_p_per_user = (Table._rent_p_total/(Table._rent_p_user+Table._rent_p_mobile+Table._rent_p_portal)).toFixed();
-          } else 
-            Table._rent_p_per_user = 0;
-          Table.rent_p_per_user.html(Table._rent_p_per_user+' '+Table.ruble+'/'+Table.month);
-          Table.rent_p_total.html((Table._rent_p_total)+' '+Table.ruble+'/'+Table.month);
-        }
-      },
       calc_license:function(){
+        console.log('calc_license');
         Table._license_total = Table.base;
-       
+
+        console.log('Table._license_user',Table._license_user);
+        console.log('Table._license_mobile',Table._license_mobile);
+        console.log('Table._license_portal',Table._license_portal);
+
         var license_index = Table.get_index(Table._license_user),
-            license_mobile_index = Table.get_index(Table._license_mobile);
+            license_mobile_index = Table.get_index(Table._license_mobile),
+            license_portal_index = Table.get_index(Table._license_portal);
+
         if (license_index>4 || license_mobile_index>4) {
           Table.license_total.html('Договорная');
-          Table.license_per_user.html('Договорная');
         } else {
-          console.log(license_index);
-          console.log(license_mobile_index);
-          console.log('qweqweqwe');
-          console.log(Table.t_license[0]);
-          console.log(Table.t_license[1]);
-          console.log(Table.t_license[0][license_index]);
-          console.log(Table.t_license[1][license_mobile_index]);
-          console.log(Table._license_total);
+          Table._license_total += Table.t_license[0][license_index]*Table._license_user +
+              Table.t_license[1][license_mobile_index]*Table._license_user +
+              Table.t_license[2][license_portal_index]*Table._license_portal;
 
-          Table._license_total += Table.t_license[0][license_index]*Table._license_user + 
-                                  Table.t_license[1][license_mobile_index]*Table._license_mobile;                              
-          
           Table._license_total = Math.ceil(Table._license_total * 1.25);
 
           console.log(Table._license_total);
-          console.log('qweqweqwe');
-          
-          Table._license_per_user = (Table._license_total / (Table._license_user+Table._license_mobile)).toFixed();
-           
+
           Table.license_total.html('от '+Table._license_total+' '+Table.ruble);
-          Table.license_per_user.html('от '+Table._license_per_user+' '+Table.ruble);
         }
       },
 
@@ -697,7 +517,6 @@ $(function (){
 
         return index;
       }
-
     };
   }
 
@@ -718,7 +537,7 @@ $(function (){
       $('body,html').animate({
           scrollTop: 0
       }, 400);
-      return false;
+      return false
   });
 
 

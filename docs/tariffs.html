@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Мера - софт</title>
+  <link rel="stylesheet" href="./css/libs.min.css">
+  <link rel="stylesheet" href="./css/jquery.parallax.css">
+  <link rel="stylesheet" href="./css/bundle.css">
+</head>
+<body>
+
+
+  <header class="header">
+    <div class="container header__container">
+      <a class="header__item header__item--logo" title="Мера - Софт" href="/"></a>
+      <nav class="header__item header__item--nav nav nav--top" id="nav">
+        <div class="nav__list">
+          <li class="nav__item"><a href="#app" class="link nav__link scroll-to-target">Возможности</a></li>  
+          <li class="nav__item"><a href="#tariffs" class="link nav__link scroll-to-target">Тарифы</a></li>  
+          <li class="nav__item"><a href="#about" class="link nav__link scroll-to-target">О разработчике</a></li>  
+          <li class="nav__item"><a href="#contacts" class="link nav__link scroll-to-target">Контакты</a></li>  
+        </div>
+      </nav>
+      <div class="header__item header__item--callback">
+        <a href="tel:88123376820" class="link link--phone">+7 (499) 268-07-94</a>
+        <div class="header-buttons">
+          <a href="#" class="btn header-buttons__item header-buttons__item--callback" title="Заказать звонок">Заказать звонок</a>
+          <a href="#" class="btn header-buttons__item header-buttons__item--login" title="Личный кабинет">Личный кабинет</a>  
+        </div>
+      </div>
+      <div class="language">
+        <div class="language__placeholder">Ru</div>
+        <div class="language__dropdown">
+          <a href="" class="language__item">En</a>
+          <a href="" class="language__item">De</a>
+        </div>
+      </div>
+      <div class="nav__toggler navbar-toggler" data-target="nav">
+        <span class="navbar-toggler__bar"></span>
+        <span class="navbar-toggler__bar"></span>
+        <span class="navbar-toggler__bar"></span>
+      </div>
+    </div>
+      <nav class="subnav">
+          <div class="container">
+              <div class="subnav__list">
+                  <li class="subnav__item"><a href="#app" class="link subnav__link scroll-to-target">Заказать демо-версию</a></li>
+                  <li class="subnav__item"><a href="#tariffs" class="link subnav__link scroll-to-target">Возможности</a></li>
+                  <li class="subnav__item"><a href="#about" class="link subnav__link scroll-to-target">Как работает</a></li>
+                  <li class="subnav__item"><a href="#contacts" class="link subnav__link scroll-to-target">Стоимость</a></li>
+                  <li class="subnav__item"><a href="#contacts" class="link subnav__link scroll-to-target">О разработчике</a></li
+              </div>
+          </div>
+      </nav>
+
+
+
+  </header>
+  <div class="jqmOverlay"></div>
+  <div class="jqmWindow jqm-init">
+    <div class="popup">
+      <div class="popup__header">
+          <p class="popup__title">Обратный звонок</p>
+          <p class="popup__title popup__title--sub"></p>
+          <div class="popup__closer closer"></div>        
+      </div>
+      <div class="popup__body">
+        <div class="popup__overlay">
+          <p></p>
+        </div>
+        <div class="popup__inner">
+          <input class="form__input form__input--hidden-tablet " placeholder="Имя" name="NAME" id="NAME" value="" type="text" style="margin-right:4%">
+          <input class="form__input form__input--required  im--phone" name="PHONE" id="PHONE" placeholder="Телефон" type="text" value="" maxlength="18">
+          <div class="popup__buttons">
+            <button type="submit" class="btn btn--red popup__btn">Отправить</button>
+            <input type="hidden" name="form_submit" value="Отправить">
+            <input type="hidden" name="email77" style="display: none;" value="">
+          </div>
+          <p class="form__text form__text--small">Отправляя данную форму, Вы соглашаетесь с <a href="#">политикой конфиденциальности</a></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+<main class="main">
+    <script>
+
+        var Tariffs = {
+            px_base: 56250,
+
+            //new
+            px_license_user: [
+                9400,
+                8800,
+                8750,
+                8450,
+                0,
+                0
+            ],
+            px_license_mobile: [
+                9400,
+                8800,
+                8750,
+                8450,
+                8100,
+                7750
+            ],
+            px_license_portal: [
+                1200,
+                820,
+                790,
+                740,
+                710,
+                690
+            ],
+        };
+    </script>
+
+    <section class="section section--price" id="tariffs">
+        <div class="container container--tb-fw">
+            <h2 class="section__title section__title--center">Тарифные планы</h2>
+            <p class="section__subtitle">Без лимитов! Количество чек-листов не ограничено. Количество объектов не ограничено. Чтобы сбросить значения, нажмите F5.</p>
+            <div class="table">
+                <div class="table__head">
+                    <div class="table-switcher">
+                        <div class="table-switcher__cell table-switcher__cell--active">Разовая оплата</div>
+                        <div class="table-switcher__cell">Аренда</div>
+                    </div>
+
+                </div>
+                <div class="table__inner table__inner--active">
+                    <div class="table__body table__body--big">
+                        <div class="table__row">
+                            <div class="table__cell">Лицензии на рабочие места</div>
+                            <div class="table__cell">Пользователи</div>
+                        </div>
+                        <div class="table__row">
+                            <div class="table__cell">Мерасофт Чек-лист: клиентская лицензия на 1 рабочее место. Электронная поставка.</div>
+                            <div class="table__cell">
+                                <div class="spinner">
+                                    <input id="license_user" class="spinner__input spinner__input--main" value="5" data-min="1" data-change="5" type="text" disabled>
+                                    <span class="spinner__button spinner__button--down">-</span>
+                                    <span class="spinner__button spinner__button--up">+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table__row">
+                            <div class="table__cell">МЕРАСОФТ Чек-лист: клиентская лицензия на 1 мобильное рабочее место. Электронная поставка.</div>
+                            <div class="table__cell">
+                                <div class="spinner">
+                                    <input id="license_mobile" class="spinner__input spinner__input--main" value="5" data-min="1" data-change="5" type="text" disabled>
+                                    <span class="spinner__button spinner__button--down">-</span>
+                                    <span class="spinner__button spinner__button--up">+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table__row">
+                            <div class="table__cell">1С:Предприятие 8. Клиентская лицензия на 1 мобильное рабоче место. Электронная поставка.</div>
+                            <div class="table__cell table__cell--gray">
+                                <div class="spinner">
+                                    <input id="license_portal" class="spinner__input spinner__input--main" value="5" data-min="1" data-change="5" type="text" disabled>
+                                    <span class="spinner__button spinner__button--down">-</span>
+                                    <span class="spinner__button spinner__button--up">+</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table__footer table-footer">
+                        <div class="table__row">
+                            <div class="table__cell table__cell--footer">Стоимость: <span id="license_total">105 000</span></div>
+                            <div class="table__cell table__cell--footer"><a href="#" class="table__cell table__cell--link">Выбрать</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table__inner">
+                    <div class="table__body table__body--parts">
+                        <div class="table__body-part">
+                            <div class="table__row">
+                                <div class="table__cell">
+                                    Количество пользователей
+                                </div>
+                                <div class="table__cell table__cell--gray">
+                                    <div class="spinner">
+                                        <input id="rent_user" class="spinner__input spinner__input--main" value="5" data-min="1" data-change="1" type="text">
+                                        <span class="spinner__button spinner__button--down">-</span>
+                                        <span class="spinner__button spinner__button--up">+</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table__row">
+                                <div class="table__cell">
+                                    Количество объектов
+                                </div>
+                                <div class="table__cell table__cell--gray">
+                                    <div class="spinner">
+                                        <input id="rent_object" class="spinner__input spinner__input--main" value="5" data-min="1" data-change="1" type="text">
+                                        <span class="spinner__button spinner__button--down">-</span>
+                                        <span class="spinner__button spinner__button--up">+</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table__row">
+                                <div class="table__cell">
+                                    Количество чек-листов
+                                </div>
+                                <div class="table__cell table__cell--gray">
+                                    <div class="spinner">
+                                        <input id="rent_check" class="spinner__input spinner__input--main" value="5" data-min="1" data-change="1" type="text">
+                                        <span class="spinner__button spinner__button--down">-</span>
+                                        <span class="spinner__button spinner__button--up">+</span>
+                                    </div>
+                                </div>
+                            </div>
+                       </div>
+                        <div class="table__body-part">
+                            <div class="table__form">
+                                <input class="form__input  form__input--table" placeholder="Название вашей компании">
+                                <input class="form__input  form__input--table" placeholder="Ваше имя">
+                                <input class="form__input  form__input--table" placeholder="Ваш телефон">
+                                <input class="form__input  form__input--table" placeholder="Ваш E-mail">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table__footer">
+                        <div class="table__row">
+                            <div class="table-cell"></div>
+                            <div class="table-cell"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="table__text">Цены, указанные на сайте, не являются публичной офертой и носят справочный характер. Стоимость внедрения решений и индивидуальных доработок определяется отдельно.</p>
+        </div>
+    </section>
+</main>
+
+
+  <section class="cookie">
+    <div class="container cookie__container">
+      <p class="cookie__text">
+        Этот сайт использует куки-файлы и другие технологии, чтобы помочь вам в навигации, а также предоставить лучший пользовательский опыт, анализировать использование наших продуктов и услуг, повысить качество рекламных и маркетинговых активностей. 
+      </p>
+      <button class="btn btn--tr cookie__btn">Принять</button>  
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__links">
+        <ul class="nav nav--footer">
+          <li class="nav__item"><a href="#" class="nav__link link">Чек-лист</a></li>
+          <li class="nav__item"><a href="#" class="nav__link link">Полка</a></li>
+          <li class="nav__item"><a href="#" class="nav__link link">Портал</a></li>
+          <li class="nav__item"><a href="#" class="nav__link link">Проверки надзорных органов</a></li>
+          <li class="nav__item"><a href="#" class="nav__link link">FAQ</a></li>
+          <li class="nav__item"><a href="#" class="nav__link link">Отзывы</a></li>
+          <li class="nav__item"><a href="#" class="nav__link link">Новости</a></li>
+          <li class="nav__item"><a href="#" class="nav__link link">Личный кабинет</a></li>
+        </ul>
+        <ul class="list list--footer">
+          <li class="list__item">
+            <a href="tel:+74952680749" class="link link--footer">+7 (495) 268 07 49</a>
+          </li>
+          <li class="list__item">
+            <a href="mailto:checklist@mera-soft.ru" class="link link--footer">checklist@mera-soft.ru</a>
+          </li>
+          <li class="list__item">115419, Москва, ул. Орджоникидзе, д. 11, стр. 1А</li>
+          <li class="list__item">пн-пт. 9:00-19:00</li>
+      </div>
+      <div class="footer__copyright">
+        <ul class="list list--footer list--dark">
+          <li class="list__item">(С) 2011-2018 Оптимальные алгоритмы</li>
+          <li class="list__item"><a href="#" class="link link--footer">Политика конфиденциальности </a>
+          <li class="list__item">Копирование материалов сайта с разрешения владельца</li>  
+        </ul>
+        
+        <div class="develop"><span>Разработано в </span><a href="http://pixelaria.ru" targer="_blank" class="link link--green">Pixelaria</a></div>
+      </div>
+    </div>
+  </footer>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUlags8KVbNQxTok7RlaJNVUDtuJ0lRxU&callback=initMap">
+  </script>
+  <script type="text/javascript" src="./js/libs.min.js"></script>
+  <script type="text/javascript" src="./js/bodymovin.min.js"></script>
+  <script type="text/javascript" src="./js/three.min.js"></script>
+  <script type="text/javascript" src="./js/objloader.js"></script>
+  <script type="text/javascript" src="./js/jquery.parallax.js"></script>
+  <script type="text/javascript" src="./js/bundle.js"></script>
+</body>
+</html>

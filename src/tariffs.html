@@ -1,0 +1,157 @@
+@@include('_html/_head.html')
+@@include('_html/_header.html')
+
+<main class="main">
+    <script>
+
+        var Tariffs = {
+            px_base: 56250,
+
+            //new
+            px_license_user: [
+                9400,
+                8800,
+                8750,
+                8450,
+                0,
+                0
+            ],
+            px_license_mobile: [
+                9400,
+                8800,
+                8750,
+                8450,
+                8100,
+                7750
+            ],
+            px_license_portal: [
+                1200,
+                820,
+                790,
+                740,
+                710,
+                690
+            ],
+        };
+    </script>
+
+    <section class="section section--price" id="tariffs">
+        <div class="container container--tb-fw">
+            <h2 class="section__title section__title--center">Тарифные планы</h2>
+            <p class="section__subtitle">Без лимитов! Количество чек-листов не ограничено. Количество объектов не ограничено. Чтобы сбросить значения, нажмите F5.</p>
+            <div class="table">
+                <div class="table__head">
+                    <div class="table-switcher">
+                        <div class="table-switcher__cell table-switcher__cell--active">Разовая оплата</div>
+                        <div class="table-switcher__cell">Аренда</div>
+                    </div>
+
+                </div>
+                <div class="table__inner table__inner--active">
+                    <div class="table__body table__body--big">
+                        <div class="table__row">
+                            <div class="table__cell">Лицензии на рабочие места</div>
+                            <div class="table__cell">Пользователи</div>
+                        </div>
+                        <div class="table__row">
+                            <div class="table__cell">Мерасофт Чек-лист: клиентская лицензия на 1 рабочее место. Электронная поставка.</div>
+                            <div class="table__cell">
+                                <div class="spinner">
+                                    <input id="license_user" class="spinner__input spinner__input--main" value="5" data-min="1" data-change="5" type="text" disabled>
+                                    <span class="spinner__button spinner__button--down">-</span>
+                                    <span class="spinner__button spinner__button--up">+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table__row">
+                            <div class="table__cell">МЕРАСОФТ Чек-лист: клиентская лицензия на 1 мобильное рабочее место. Электронная поставка.</div>
+                            <div class="table__cell">
+                                <div class="spinner">
+                                    <input id="license_mobile" class="spinner__input spinner__input--main" value="5" data-min="1" data-change="5" type="text" disabled>
+                                    <span class="spinner__button spinner__button--down">-</span>
+                                    <span class="spinner__button spinner__button--up">+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table__row">
+                            <div class="table__cell">1С:Предприятие 8. Клиентская лицензия на 1 мобильное рабоче место. Электронная поставка.</div>
+                            <div class="table__cell table__cell--gray">
+                                <div class="spinner">
+                                    <input id="license_portal" class="spinner__input spinner__input--main" value="5" data-min="1" data-change="5" type="text" disabled>
+                                    <span class="spinner__button spinner__button--down">-</span>
+                                    <span class="spinner__button spinner__button--up">+</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table__footer table-footer">
+                        <div class="table__row">
+                            <div class="table__cell table__cell--footer">Стоимость: <span id="license_total">105 000</span></div>
+                            <div class="table__cell table__cell--footer"><a href="#" class="table__cell table__cell--link">Выбрать</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table__inner">
+                    <div class="table__body table__body--parts">
+                        <div class="table__body-part">
+                            <div class="table__row">
+                                <div class="table__cell">
+                                    Количество пользователей
+                                </div>
+                                <div class="table__cell table__cell--gray">
+                                    <div class="spinner">
+                                        <input id="rent_user" class="spinner__input spinner__input--main" value="5" data-min="1" data-change="1" type="text">
+                                        <span class="spinner__button spinner__button--down">-</span>
+                                        <span class="spinner__button spinner__button--up">+</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table__row">
+                                <div class="table__cell">
+                                    Количество объектов
+                                </div>
+                                <div class="table__cell table__cell--gray">
+                                    <div class="spinner">
+                                        <input id="rent_object" class="spinner__input spinner__input--main" value="5" data-min="1" data-change="1" type="text">
+                                        <span class="spinner__button spinner__button--down">-</span>
+                                        <span class="spinner__button spinner__button--up">+</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table__row">
+                                <div class="table__cell">
+                                    Количество чек-листов
+                                </div>
+                                <div class="table__cell table__cell--gray">
+                                    <div class="spinner">
+                                        <input id="rent_check" class="spinner__input spinner__input--main" value="5" data-min="1" data-change="1" type="text">
+                                        <span class="spinner__button spinner__button--down">-</span>
+                                        <span class="spinner__button spinner__button--up">+</span>
+                                    </div>
+                                </div>
+                            </div>
+                       </div>
+                        <div class="table__body-part">
+                            <div class="table__form">
+                                <input class="form__input  form__input--table" placeholder="Название вашей компании">
+                                <input class="form__input  form__input--table" placeholder="Ваше имя">
+                                <input class="form__input  form__input--table" placeholder="Ваш телефон">
+                                <input class="form__input  form__input--table" placeholder="Ваш E-mail">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table__footer">
+                        <div class="table__row">
+                            <div class="table-cell"></div>
+                            <div class="table-cell"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="table__text">Цены, указанные на сайте, не являются публичной офертой и носят справочный характер. Стоимость внедрения решений и индивидуальных доработок определяется отдельно.</p>
+        </div>
+    </section>
+</main>
+
+
+@@include('_html/_footer.html')
