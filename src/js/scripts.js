@@ -487,7 +487,7 @@ $(function (){
           Table.license_total.html('Договорная');
         } else {
           Table._license_total += Table.t_license[0][license_index]*Table._license_user +
-              Table.t_license[1][license_mobile_index]*Table._license_user +
+              Table.t_license[1][license_mobile_index]*Table._license_mobile +
               Table.t_license[2][license_portal_index]*Table._license_portal;
 
           Table._license_total = Math.ceil(Table._license_total * 1.25);
