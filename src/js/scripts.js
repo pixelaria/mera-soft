@@ -483,11 +483,13 @@ $(function (){
             license_mobile_index = Table.get_index(Table._license_mobile),
             license_portal_index = Table.get_index(Table._license_portal);
 
-        if (license_index>4 || license_mobile_index>4) {
+        if (license_index > 2 ||
+            license_mobile_index > 5 ||
+            license_portal_index > 5) {
           Table.license_total.html('Договорная');
         } else {
           Table._license_total += Table.t_license[0][license_index]*Table._license_user +
-              Table.t_license[1][license_mobile_index]*Table._license_mobile +
+                Table.t_license[1][license_mobile_index]*Table._license_mobile +
               Table.t_license[2][license_portal_index]*Table._license_portal;
 
           Table._license_total = Math.ceil(Table._license_total * 1.25);
@@ -504,14 +506,16 @@ $(function (){
           index=0;
         } else if (value < 11) {
           index=1;
-        } else if (value < 51) {
+        } else if (value < 21) {
           index=2;
-        } else if (value < 101) {
+        } else if (value < 51) {
           index=3;
-        } else if (value < 201){
+        } else if (value < 101) {
           index=4;
-        } else {
+        } else if (value < 201){
           index=5;
+        } else {
+          index=6;
         }
         console.log('index:'+index);
 
