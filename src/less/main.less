@@ -4641,9 +4641,14 @@ canvas {
     }
 
     &--active-btn {
-      width: 25%;
+      width: 45%;
       background-color: lighten(#58d16a, 5%);
       transition: background-color 0.3s ease-in-out;
+      white-space: nowrap;
+
+      @media @not-mobiles {
+        width: 25%;
+      }
 
       &:hover {
         background-color: darken(#58d16a,5%);
