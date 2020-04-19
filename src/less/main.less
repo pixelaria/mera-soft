@@ -4517,8 +4517,12 @@ canvas {
 
     &--big {
       .table__cell:first-child {
-        width: 75%;
-        min-width: 75%;
+        width: 55%;
+        min-width: 55%;
+        @media @not-mobiles {
+          width: 75%;
+          min-width: 75%;
+        }
       }
     }
     &--parts {
@@ -4636,6 +4640,15 @@ canvas {
       padding: 25px 15px;
     }
 
+    &--active-btn {
+      width: 25%;
+      background-color: lighten(#58d16a, 5%);
+      transition: background-color 0.3s ease-in-out;
+
+      &:hover {
+        background-color: darken(#58d16a,5%);
+      }
+    }
   }
 
   &__row {
