@@ -392,7 +392,6 @@ $(function (){
 
         Table.license_user = $('#license_user');
         Table.license_mobile = $('#license_mobile');
-        Table.license_portal = $('#license_portal');
         Table.license_total = $('#license_total');
 
         var current_language = document.cookie.match(new RegExp("(?:^|; )current_language=([^;]*)"));
@@ -459,11 +458,6 @@ $(function (){
         Table.license_mobile.change(function(e){
           var val = parseInt($(this).val());
           Table._license_mobile = val;
-          Table.calc_license();
-        });
-
-        Table.license_portal.change(function(e){
-          var val = parseInt($(this).val());
           Table._license_portal = val;
           Table.calc_license();
         });
@@ -474,10 +468,6 @@ $(function (){
       calc_license:function(){
         console.log('calc_license');
         Table._license_total = Table.base;
-
-        console.log('Table._license_user',Table._license_user);
-        console.log('Table._license_mobile',Table._license_mobile);
-        console.log('Table._license_portal',Table._license_portal);
 
         var license_index = Table.get_index(Table._license_user),
             license_mobile_index = Table.get_index(Table._license_mobile),
@@ -493,8 +483,6 @@ $(function (){
               Table.t_license[2][license_portal_index]*Table._license_portal;
 
           Table._license_total = Math.ceil(Table._license_total * 1.25);
-
-          console.log(Table._license_total);
 
           Table.license_total.html('от '+Table._license_total+' '+Table.ruble);
         }
